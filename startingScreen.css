@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'VCRDOSDMONO';
+    src: url(Fonts/VCR_OSD_MONO_1.001.ttf);
+}
 body {
     background-color: black;
     margin: 0;
@@ -19,6 +23,7 @@ body {
 }
 .commandPromptLeft p {
     padding-left: 1vw;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .commandPromptRight {
     display: flex;
@@ -40,10 +45,6 @@ body {
     justify-content: center;
     padding-top: 15vh;
 }
-.title h1 {
-    color: #00ff06;
-    font-size: 40px;
-}
 .buttons {
     display: flex;
     flex-direction: column;
@@ -55,6 +56,7 @@ body {
     border: none;
     color: #00ff06;
     background-color: transparent;
-    font-size: 30px;
+    font-size: 35px;
+    font-family: 'VCRDOSDMONO';
     padding-top: 5vh;
 }
