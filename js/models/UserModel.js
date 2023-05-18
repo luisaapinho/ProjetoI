@@ -2,7 +2,7 @@ class User {
     username = "";
     email = "";
     password = "";
-    time=3600
+    time=0
     inventory=[]
   
     constructor(username,email,password) {
