@@ -32,7 +32,7 @@
   }
 
   /* Adjust the "Don't have an account yet" to the inputs */
-
+  #doRegister,
   #doRegister a{
     font-size: 0.9rem;
     color: #00ff06;
@@ -40,6 +40,7 @@
     text-align: center;
     margin-top: 1em;
   }
+  
   /*change color when hovering*/
   #doRegister a:hover{
     font-size: 0.9rem;
