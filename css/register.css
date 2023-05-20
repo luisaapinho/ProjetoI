@@ -13,7 +13,7 @@
   #titleRegister {
     font-family: 'VCRDOSDMONO';
     color: #00ff06;
-    height: 20vh;
+    height: 30vh;
   }
 
   /* Change the font and color */
@@ -27,7 +27,7 @@
   input[type="password"],
   input[type="email"] {
     background-color: black;
-    color: #00ff06;
+    color: white;
     border: 3.5px solid #00ff06;
     border-radius: 0;
   }
