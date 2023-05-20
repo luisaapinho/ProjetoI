@@ -33,14 +33,7 @@
   }
 
    /*Position the Already have an account button to the middle of the inputs*/
-  #doLogin {
-    font-size: 0.9rem;
-    color: #00ff06;
-    text-decoration: none;
-    text-align: center;
-    margin-top: 1em;
-  }
-  /*Customize the Already have an account button*/
+  #doLogin,
   #doLogin a{
     font-size: 0.9rem;
     color: #00ff06;
@@ -48,6 +41,7 @@
     text-align: center;
     margin-top: 1em;
   }
+  
   /*change color when hovering*/
   #doLogin a:hover{
     font-size: 0.9rem;
@@ -70,9 +64,11 @@
     justify-content: center;
     margin-top: 1.3em;
   }
-  /*put the form closer to the title Register*/
+  /*put the form closer to the title */
  form{
     position: relative;
     margin-top:-15vh;
     
  }
+
+ 
