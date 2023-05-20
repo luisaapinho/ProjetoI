@@ -9,46 +9,59 @@ body {
     margin: 0;
 }
 
-/* Height of the navbar */
-.navbar {
-    height: 5vh;
-}
+.pauseTitle{
+    font-family: 'VCRDOSDMONO';
+    text-align: center;
+    margin-top: 25vh;
+    font-size: 60px;
+    color: #00ff06;
+    margin-bottom: 5vh;
 
-/* Add some padding, font family and font size to "Command Prompt" */
-a.navbar-brand{
-    padding-left: 1vw;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-}
-
-/* Add some spacing on 3 images on the right of the navbar */
-.navbar-nav .nav-item {
-    padding-right: 2vw;
-}
-
-/* Remove space on the right on the 3rd image (close) */
-#close.nav-item {
-    padding-right: 0px;
-}
-
-/* Add some space to the Logo */
-.container img {
-    margin-bottom: 10vh;
-    padding-top: 8vh; 
 }
 
 /* Personalized buttons */
-.btn {
+.btn1 {
     border: none;
-    color: #00ff06;
+    color: white;
     background-color: transparent;
-    font-size: 35px;
+    font-size: 40px;
     font-family: 'VCRDOSDMONO';
-    padding-top: 5vh;
+    padding-top: 2vh;
     cursor: pointer;
+
+}
+.btn2 {
+    border: none;
+    color: white;
+    background-color: transparent;
+    font-size: 40px;
+    font-family: 'VCRDOSDMONO';
+    padding-top: 2vh;
+    cursor: pointer;
+
+}
+#arrow1{
+    display: none;
+}
+#arrow2{
+    display: none;
 }
 
-/* Hover animation on the buttons */
-.btn:hover {
-    color: white;
+.button-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.button-container img {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left:-60px;
+    
+    
+}
+
+.button-container:hover img {
+    display: block;
 }
