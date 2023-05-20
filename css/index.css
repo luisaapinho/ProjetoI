@@ -11,7 +11,7 @@ body {
 
 /* Height of the navbar */
 .navbar {
-    height: 5vh;
+    height: 4vh;
 }
 
 /* Add some padding, font family and font size to "Command Prompt" */
@@ -52,3 +52,138 @@ a.navbar-brand{
 .btn:hover {
     color: white;
 }
+.btn a {
+    border: none;
+    color: #00ff06;
+    background-color: transparent;
+    font-size: 35px;
+    font-family: 'VCRDOSDMONO';
+    padding-top: 5vh;
+    cursor: pointer;
+}
+
+/* Hover animation on the buttons */
+.btn a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+/* CSS for the Credits Page */
+
+/* Container for the credits */
+.container-credits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Styling for the main heading */
+.container-credits h1 {
+    color: white;
+    text-align: center;
+    font-size: 55px;
+    font-family: 'VCRDOSDMONO';
+    padding-bottom: 8vh;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-20px); /* Move up by 20px */     
+    animation: enter 1s ease forwards; /* Animation to make it appear */
+}
+
+/* Styling for the additional paragraph */
+.container-credits p {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-20px); /* Move up by 20px */   
+    animation: enter 1s ease forwards; /* Animation to make it appear */
+    animation-delay: 1s; /* Delay the animation by 1s */
+}
+
+/* Styling for the credits section */
+.credits {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'VCRDOSDMONO';
+}
+
+/* Styling for the unordered list */
+.credits ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Styling for each list item */
+.credits li {
+    margin: 5px;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid #00ff06; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Space between the letters */
+    animation-duration: 2s; /* Duration of the typing animation */
+    animation-fill-mode: forwards;
+    opacity: 0; /* Initially hidden */
+}
+
+/* Animation for the first list item (Luisa Pinho) */ 
+.credits li:nth-child(1) {
+    animation-name: typing-1, blink-caret;
+    animation-delay: 2s; /* Delay the animation by 2s */
+}
+
+/* Animation for the second list item (Nelson Gomes) */
+.credits li:nth-child(2) {
+    animation-name: typing-2, blink-caret;
+    animation-delay: 3.5s; /* Delay the animation by 3.5s */
+}
+
+/* Animation for the third list item (Simao Freitas) */
+.credits li:nth-child(3) {
+    animation-name: typing-3, blink-caret;
+    animation-delay: 5s; /* Delay the animation by 5s */
+}
+
+/* Typing animation for the first list item (Luisa Pinho) */
+@keyframes typing-1 {
+    from { width: 0; opacity: 1; }
+    to { width: 100%; opacity: 1; }
+}
+
+/* Typing animation for the second list item (Nelson Gomes) */
+@keyframes typing-2 {
+    from { width: 0; opacity: 0; }
+    to { width: 100%; opacity: 1; }
+}
+
+/* Typing animation for the third list item (Simao Freitas) */
+@keyframes typing-3 {
+    from { width: 0; opacity: 0; }
+    to { width: 100%; opacity: 1; }
+}
+
+/* Typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #00ff06; }
+}
+
+/* Entrance animation */
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
