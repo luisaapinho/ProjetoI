@@ -13,7 +13,7 @@
   #titleRegister {
     font-family: 'VCRDOSDMONO';
     color: #00ff06;
-    height: 40vh;
+    height: 20vh;
   }
 
   /* Change the font and color */
@@ -31,6 +31,14 @@
     border: 3.5px solid #00ff06;
     border-radius: 0;
   }
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="email"]:focus {
+  background-color: black;
+  color: white; /* Change the color to white */
+  border: 3.5px solid #00ff06;
+  border-radius: 0;
+}
 
    /*Position the Already have an account button to the middle of the inputs*/
   #doLogin,
@@ -63,12 +71,12 @@
     display: flex;
     justify-content: center;
     margin-top: 1.3em;
+  
   }
-  /*put the form closer to the title */
- form{
-    position: relative;
-    margin-top:-15vh;
-    
- }
+  .form-group{
+    margin-bottom: 0rem;
+  }
 
- 
+  .container{
+    align-items: center;
+  }
