@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'VCRDOSDMONO';
+    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+}
+
+ /* Change background color to black, and remove margin */
+ body {
+    background-color: black;
+    margin: 0;
+  }
+/* change font and color, and put in the mid of the screen */
+  #titleLogin {
+    font-family: 'VCRDOSDMONO';
+    color: #00ff06;
+    height: 50vh;
+   
+  }
+/* change the font and color*/
+  #loginForm {
+    font-family: 'VCRDOSDMONO';
+    color: white;
+    font-size: 20px;
+   
+  }
+/*put the form closer to the title Login*/
+ form{
+    position: relative;
+    margin-top:-15vh;
+    
+ }
+
+/*change the color and the shape of the inputs*/
+ input[type="text"],
+ input[type="password"] {
+   background-color: black;
+   color: #00ff06;
+   border: 3.5px solid #00ff06;
+   border-radius: 0;
+ }
+
+ /*adjust the don't have an account yet to the inputs*/
+ #doRegister{
+    font-size: 15px;
+    color: #00ff06;
+    text-align: center;
+    margin-top: 10px;
+ }
+
+ /*adjust the buttons to the configurations of the rest of the elements*/
+ #loginBtn{
+    background-color: black;
+   color: white;
+   border: 3.5px solid #00ff06;
+   border-radius: 0;
+   font-size: 25px;
+ }
+
+ #buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
