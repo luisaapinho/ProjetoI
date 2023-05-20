@@ -32,12 +32,21 @@
   }
 
   /* Adjust the "Don't have an account yet" to the inputs */
-  #doRegister {
+
+  #doRegister a{
     font-size: 0.9rem;
     color: #00ff06;
+    text-decoration: none;
     text-align: center;
     margin-top: 1em;
   }
+  /*change color when hovering*/
+  #doRegister a:hover{
+    font-size: 0.9rem;
+    color: white;
+    text-decoration: none;
+  }
+
 
   /* Adjust the buttons to the configurations of the rest of the elements */
   #loginBtn {
@@ -47,7 +56,7 @@
     border-radius: 0;
     font-size: 1.7rem;
   }
-
+/*Put button centered with the inputs*/
   #buttonContainer {
     display: flex;
     justify-content: center;
