@@ -66,6 +66,13 @@
   /*put the form closer to the title Login*/
  form{
     position: relative;
-    margin-top:-15vh;
+   
     
  }
+ .form-group{
+  margin-bottom: 0rem;
+}
+
+.container{
+  align-items: center;
+}
