@@ -26,11 +26,19 @@
   input[type="text"],
   input[type="password"] {
     background-color: black;
-    color: #00ff06;
+    color: white;
     border: 3.5px solid #00ff06;
     border-radius: 0;
   }
-
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="email"]:focus {
+    background-color: black;
+    color: white; /* Change the color to white */
+    border: 3.5px solid #00ff06;
+    border-radius: 0;
+  }
+  
   /* Adjust the "Don't have an account yet" to the inputs */
   #doRegister,
   #doRegister a{
@@ -66,7 +74,7 @@
   /*put the form closer to the title Login*/
  form{
     position: relative;
-   
+    margin-top:-15vh;
     
  }
  .form-group{
