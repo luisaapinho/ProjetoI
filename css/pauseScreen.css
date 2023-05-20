@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'VCRDOSDMONO';
+    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+}
+
+/* Change background color to black, and remove margin */
+body {
+    background-color: black;
+    margin: 0;
+}
+
+.pauseTitle{
+    font-family: 'VCRDOSDMONO';
+    text-align: center;
+    margin-top: 25vh;
+    font-size: 60px;
+    color: #00ff06;
+    margin-bottom: 5vh;
+
+}
+
+/* Personalized buttons */
+.btn1 {
+    border: none;
+    color: white;
+    background-color: transparent;
+    font-size: 40px;
+    font-family: 'VCRDOSDMONO';
+    padding-top: 2vh;
+    cursor: pointer;
+
+}
+.btn2 {
+    border: none;
+    color: white;
+    background-color: transparent;
+    font-size: 40px;
+    font-family: 'VCRDOSDMONO';
+    padding-top: 2vh;
+    cursor: pointer;
+
+}
+#arrow1{
+    display: none;
+}
+#arrow2{
+    display: none;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.button-container img {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left:-60px;
+    
+    
+}
+
+.button-container:hover img {
+    display: block;
+}
