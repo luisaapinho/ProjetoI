@@ -1,7 +1,5 @@
-
 // Imports the add function from userModule.js
 import { add } from "../js/userModule.js";
-
 
 // Adds an event listener to the register button that calls the add function when clicked
 document.getElementById("registerBtn").addEventListener("click", function(event) {
@@ -15,7 +13,7 @@ document.getElementById("registerBtn").addEventListener("click", function(event)
     add(username, email, password);
     showMessage("success", "Registration successful!");
     // Redirects to the login page
-    window.location.href = "../html/login.html";
+    window.location.href = "ProjetoI/html/login.html";
   } catch (error) {
     showMessage("error", error.message);
   }
