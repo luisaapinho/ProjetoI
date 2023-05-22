@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'VCRDOSDMONO';
+    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+  }
+
+  /* Change background color to black, and remove margin */
+  body {
+    background-color: black;
+    margin: 0;
+  }
+  .taskbar-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.taskbar img {
+    width: 100%; 
+    display: block; 
+    margin: 0 auto; 
+}
+.custom-image {
+    width: 75%; 
+    height: auto; 
+  }
+  
+.corner-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    font-size: 12px;}
