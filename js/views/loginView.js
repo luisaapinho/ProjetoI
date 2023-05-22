@@ -1,7 +1,8 @@
 import * as User from "../models/UserModel.js";
-
+//Calls the function init that checks the array Users
 User.init();
 
+// Adds an event listener to the register button that calls the add function when clicked
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelector("#loginBtn").addEventListener("click", function(event) {
     event.preventDefault();
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (User.login(username, password)) {
         showMessage("success", "Login successful!");
         console.log("oi");
+         // Redirects to the workspace starting the game and the timer
         window.location.href = "../html/workspace.html";
       } else {
         showMessage("error", "Invalid username or password!");
@@ -22,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
       showMessage("error", error.message);
     }
   });
-
+// Displays a message of the given type (e.g. success or error) with the given text
   function showMessage(type, message) {
     const messageContainer = document.getElementById("messageContainer");
     messageContainer.innerHTML = `<div class="alert alert-${type}" role="alert">${message}</div>`;
