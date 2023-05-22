@@ -26,10 +26,13 @@ export function login(username, password) {
   if (user) {
     localStorage.setItem("loggedUser", JSON.stringify(user));
     return true;
+  } else if (users.some((user) => user.username === username)) {
+    throw Error("Invalid password!");
   } else {
-    throw Error("Invalid login!");
+    throw Error("Invalid username or password!");
   }
 }
+
 
 // Removes the logged-in user from local storage
 export function logout() {
