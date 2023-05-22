@@ -4,8 +4,9 @@ let users = [];
 // Initializes the users array with data from local storage if it exists
 export function init() {
   console.log("oi");
-  users = localStorage.users ? JSON.parse(localStorage.users) : [];
+  users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [];
 }
+
 
 // Adds a new user to the users array and updates local storage
 export function add(username, email, password) {

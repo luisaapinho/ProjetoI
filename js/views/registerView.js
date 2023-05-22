@@ -1,5 +1,8 @@
-// Imports the add function from userModule.js
-import { add } from '../js/models/UserModel.js';
+// Imports all the function from userModule.js
+import * as User  from "../models/UserModel.js";
+
+//Calls the function init that checks the array Users
+User.init();
 
 // Adds an event listener to the register button that calls the add function when clicked
 document.getElementById("registerBtn").addEventListener("click", function(event) {
@@ -10,7 +13,7 @@ document.getElementById("registerBtn").addEventListener("click", function(event)
   const password = document.getElementById("password").value;
 
   try {
-    add(username, email, password);
+    User.add(username, email, password);
     showMessage("success", "Registration successful!");
     // Redirects to the login page
     window.location.href = "../html/login.html";
