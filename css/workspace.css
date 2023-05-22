@@ -8,21 +8,26 @@
     background-color: black;
     margin: 0;
   }
+  /*Put the taskbar to the bottom of the screen*/
   .taskbar-container {
     position: fixed;
     bottom: 0;
     width: 100%;
 }
+/*Adjust the img*/
 .taskbar img {
     width: 100%; 
     display: block; 
     margin: 0 auto; 
 }
+/*Adjust the icons escale (inventory, trashcan)*/
 .custom-image {
     width: 75%; 
     height: auto; 
   }
-  
+
+
+/*Style the text and position to be at the top right of the screen*/
 .corner-text {
     position: absolute;
     top: 0;
