@@ -3,6 +3,7 @@ let users = [];
 
 // Initializes the users array with data from local storage if it exists
 export function init() {
+  console.log("oi");
   users = localStorage.users ? JSON.parse(localStorage.users) : [];
 }
 
