@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'VCRDOSDMONO';
+    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+  }
+
+  /* Change background color to black, and remove margin */
+  body {
+    background-color: black;
+    margin: 0;
+  }
+
+  /* Change font and color, and put in the middle of the screen */
+  #titleLogin {
+    font-family: 'VCRDOSDMONO';
+    color: #00ff06;
+    height: 50vh;
+  }
+
+  /* Change the font and color */
+  #loginForm {
+    font-family: 'VCRDOSDMONO';
+    color: white;
+  }
+
+  /* Change the color and shape of the inputs */
+  input[type="text"],
+  input[type="password"] {
+    background-color: black;
+    color: white;
+    border: 3.5px solid #00ff06;
+    border-radius: 0;
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="email"]:focus {
+    background-color: black;
+    color: white; /* Change the color to white */
+    border: 3.5px solid #00ff06;
+    border-radius: 0;
+  }
+  
+  /* Adjust the "Don't have an account yet" to the inputs */
+  #doRegister,
+  #doRegister a{
+    font-size: 0.9rem;
+    color: #00ff06;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 1em;
+  }
+  
+  /*change color when hovering*/
+  #doRegister a:hover{
+    font-size: 0.9rem;
+    color: white;
+    text-decoration: none;
+  }
+
+
+  /* Adjust the buttons to the configurations of the rest of the elements */
+  #loginBtn {
+    background-color: black;
+    color: white;
+    border: 3.5px solid #00ff06;
+    border-radius: 0;
+    font-size: 1.7rem;
+  }
+/*Put button centered with the inputs*/
+  #buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.3em;
+  }
+  /*put the form closer to the title Login*/
+ form{
+    position: relative;
+    margin-top:-15vh;
+    
+ }
+ .form-group{
+  margin-bottom: 0rem;
+}
+
+.container{
+  align-items: center;
+}
