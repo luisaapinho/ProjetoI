@@ -16,6 +16,14 @@
     height: 25vh;
   }
 
+  /* Home Image */
+  #registerHome {
+    padding-top: 1em;
+    padding-left: 1em;
+    height: 3em;
+    width: 4em;
+  }
+
   /* Change the font and color */
   #registerForm {
     font-family: 'VCRDOSDMONO';
@@ -79,4 +87,20 @@
 
   .container{
     align-items: center;
+  }
+
+  #messageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 1.2rem;
+  }
+  
+  .alert-success {
+      color: #ffffff;
+      background-color: transparent;
+      border: none;
+      font-size: 1.2rem;
+  
   }

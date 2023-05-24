@@ -72,12 +72,19 @@ a.navbar-brand{
 
 /* CSS for the Credits Page */
 
+#creditsHome {
+    padding-top: 1em;
+    padding-left: 1em;
+    height: 3em;
+    width: 4em;
+}
+
 /* Container for the credits */
 .container-credits {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
     flex-direction: column;
 }
 
