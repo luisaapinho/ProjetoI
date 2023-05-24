@@ -11,14 +11,23 @@ document.getElementById("registerBtn").addEventListener("click", function(event)
   const username = document.getElementById("username").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
 
-  try {
-    User.add(username, email, password);
-    showMessage("success", "Registration successful!");
-    // Redirects to the login page
-    window.location.href = "../html/login.html";
-  } catch (error) {
-    showMessage("error", error.message);
+  // Check if the password and confirm password match
+  if (password !== confirmPassword) {
+    showMessage("error", "The passwords do not match");
+  } else {
+    try {
+      User.add(username, email, password);
+      showMessage("success", "Registration successful!");
+      // Waits 1 second and redirects to the login page
+      setTimeout(() => {
+        location.href = "../html/login.html";
+      }, 1000);
+      
+    } catch (error) {
+      showMessage("error", error.message);
+    }
   }
 });
 

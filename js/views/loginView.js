@@ -13,9 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
       if (User.login(username, password)) {
         showMessage("success", "Login successful!");
-        console.log("oi");
          // Redirects to the workspace starting the game and the timer
-        window.location.href = "../html/workspace.html";
+         setTimeout(() => {
+          location.href = "../html/workspace.html";
+        }, 1000);
       } else {
         showMessage("error", "Invalid username or password!");
       }
