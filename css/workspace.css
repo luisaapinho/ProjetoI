@@ -24,6 +24,7 @@
 .custom-image {
     width: 75%; 
     height: auto; 
+    cursor: pointer;
   }
 
 
@@ -35,7 +36,18 @@
     color: white;
     font-size: 12px;}
 
+/*Align the image to the full size of the screen*/
 #divTaskBar{
   padding: 0;
 }
-  
+
+#imgTrashOpen{
+  z-index: 1;
+    
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); /* Ajuste o valor da porcentagem conforme necessário */
+  display: none;
+}
+
