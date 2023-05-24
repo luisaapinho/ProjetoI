@@ -19,3 +19,7 @@ btnQuit.addEventListener('mouseover', function() {
 btnQuit.addEventListener('mouseout', function() {
     arrow2.style.display = 'none';
 });
+
+btnResume.addEventListener('click', function() {
+    window.location.href = "../html/workspace.html";
+});

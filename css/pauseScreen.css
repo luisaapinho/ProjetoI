@@ -28,7 +28,12 @@ body {
     font-family: 'VCRDOSDMONO';
     padding-top: 2vh;
     cursor: pointer;
+  
+    
 
+}
+.btn1, .btn2, .btn1:focus, .btn1:active,.btn2:focus, .btn2:active{
+    outline: none;
 }
 .btn2 {
     border: none;
@@ -38,6 +43,8 @@ body {
     font-family: 'VCRDOSDMONO';
     padding-top: 2vh;
     cursor: pointer;
+ 
+   
 
 }
 #arrow1{

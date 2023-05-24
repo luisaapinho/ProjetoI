@@ -22,8 +22,13 @@
       <div class="corner-text">1131</div>
       
     <div class="container-fluid taskbar-container d-flex justify-content-center align-items-end"id='divTaskBar'>
-        <img src="..\assets\images\taskBar.png" alt="taskBar" class="img-fluid taskbar-img" id="taskbarImage">
+        <img src="..\assets\images\taskBar.png" alt="taskBar" class="img-fluid taskbar-img" id="taskbarImage" usemap="#image-map">
+        <map name="image-map">
+        <area target="" alt="" title="" href="" coords="59,-1,1,52" shape="rect" id="pause">
     </div>
-</body>
+    <div id="trashOpen">
+      <div id='imageTrash'></div>
+    </div>
+    <script type="module" src="..\js\views\workspaceView.js"></script>
 </body>
 </html>
