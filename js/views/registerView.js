@@ -12,9 +12,13 @@ document.getElementById("registerBtn").addEventListener("click", function(event)
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const confirmPassword = document.getElementById("confirmPassword").value;
-
+  
+  // Check if any of the input fields is empty
+  if (username == "" || email == "" || password == "" || confirmPassword == "") {
+    showMessage("error", "Please fill all the fields");
+  }
   // Check if the password and confirm password match
-  if (password !== confirmPassword) {
+  else if (password !== confirmPassword) {
     showMessage("error", "The passwords do not match");
   } else {
     try {
