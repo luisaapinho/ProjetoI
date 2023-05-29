@@ -43,7 +43,8 @@
 
 #imgTrashOpen{
   z-index: 1;
-    
+  width: 65%; 
+  height: auto; 
     position: fixed;
     left: 50%;
     top: 50%;
