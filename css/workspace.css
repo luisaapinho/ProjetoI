@@ -63,3 +63,19 @@
     display: none;
 }
 
+/*Transition to the opacity */
+#imgTrashOpen, #imgCodeForms {
+  transition: opacity 0.2s;
+}
+
+/* Mantain the image fixed when doing the animation */
+#imgTrashOpen.animated-close, #imgCodeForms.animated-close {
+  opacity: 0;
+}
+
+/*Make the images be centered */
+#imgTrashOpen, #imgCodeForms {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
+}

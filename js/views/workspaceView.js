@@ -16,17 +16,25 @@ trashCan.addEventListener("click", function() {
 });
 
 closeBtn.addEventListener("click", function() {
-  trashOpen.style.display = 'none'; // Close the imgTrashOpen
-});
-
+    trashOpen.classList.add("animated-close"); // Adds to the class to animate
+    setTimeout(function() {
+      trashOpen.style.display = 'none'; // Remove the element after the animation
+      trashOpen.classList.remove("animated-close"); // Remove the class to animate
+    }, 200); // Time of the animation in ms
+  });
 fileImage.addEventListener("click", function() {
   trashOpen.style.display = 'none'; //Close the imgTrashOpen
   imgForm.style.display = 'flex';   //Opens the image where are the forms needed to the code of one game
 });
 
 closeBtnForms.addEventListener("click", function() {
-    imgForm.style.display = 'none';//Closes the image of the forms
-    trashOpen.style.display = 'flex'; //Opens where the file was, the imgTrashOpen
+  imgForm.classList.add("animated-close"); // Adds to the class to animate
+  setTimeout(function() {
+    imgForm.style.display = 'none';// Remove the element after the animation
+     
+    imgForm.classList.remove("animated-close"); // Remove the class to animate
+  }, 150);// Time of the animation in ms
+  trashOpen.style.display = 'flex';//Opens the trashOpen where the file was opened
 });
 
 // Inicializa o plugin "Responsive Image Maps"
