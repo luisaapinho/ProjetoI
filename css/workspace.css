@@ -48,7 +48,18 @@
     position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -60%); /* Ajuste o valor da porcentagem conforme necessário */
+    transform: translate(-50%, -60%);
   display: none;
+}
+
+#imgCodeForms{
+  z-index: 1;
+  width: 50%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
 }
 
