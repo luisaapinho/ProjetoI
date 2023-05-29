@@ -80,3 +80,19 @@ body {
 .button-container:hover img {
     display: block;
 }
+
+/* Fade In Animation */
+
+.fade-in {
+    opacity: 0;
+    animation: fade-in-animation 6s ease-in-out forwards;
+  }
+  
+  @keyframes fade-in-animation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
