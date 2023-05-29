@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaderboard</title>
+  <link rel="icon" type="image/x-icon" href="../assets\images\favicon-32x32.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/leaderboard.css"> <!-- Caminho para o arquivo CSS -->
+
+</head>
+<body>
+    <div class="container-fluid">
+      <a href="../index.html"><img id="loginHome" src="../assets/images/arrowMenu.png" alt=""></a>
+        <div class="container d-flex justify-content-center align-items-center" id="titleLeaderboard">
+          <h1>LEADERBOARD</h1>
+        </div>
+        <div class="container d-flex justify-content-center align-items-center">
+            
+                
+                <table id="tableLeaderboard">
+                    <tr>
+                        <th>Rank</th>
+                        <th>User</th>
+                        <th>Time</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Nelson Pro Gamer</td>
+                        <td>8:44</td>
+                    </tr>
+                </table>
+            
+            
+        </div>
+        
+    </div>
+      <script type="module" src="..\js\views\leaderboardView.js"></script>
+      <script type="module" src="..\js\models\UserModel.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
