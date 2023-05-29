@@ -12,9 +12,19 @@ const imgForm = document.querySelector("#imgCodeForms");
 const closeBtnForms = document.querySelector("#closeBtnForms");
 
 trashCan.addEventListener("click", function() {
-  trashOpen.style.display = 'flex'; // makes the image imgTrashOpen appears
-});
-
+    trashOpen.style.opacity = 0; // Define a opacidade inicial como 0
+    trashOpen.style.transform = "scale(0.2)"; // Define a escala inicial como 0.2
+    
+    trashOpen.style.display = 'flex'; // Exibe o imgTrashOpen
+  
+    // Aguarda um pequeno intervalo para garantir que a transição tenha efeito
+    setTimeout(function() {
+      trashOpen.style.opacity = 1; // Aumenta a opacidade gradualmente
+      trashOpen.style.transform = "scale(1)"; // Aumenta a escala gradualmente
+      trashOpen.style.transition = "opacity 0.2s, transform 0.2s"; // Adiciona a transição suave
+    }, 10);
+  });
+  
 closeBtn.addEventListener("click", function() {
     trashOpen.classList.add("animated-close"); // Adds to the class to animate
     setTimeout(function() {
@@ -34,7 +44,7 @@ closeBtnForms.addEventListener("click", function() {
      
     imgForm.classList.remove("animated-close"); // Remove the class to animate
   }, 150);// Time of the animation in ms
-  trashOpen.style.display = 'flex';//Opens the trashOpen where the file was opened
+  trashOpen.style.display = 'flex';//Opens the trashOpen where the file we were
 });
 
 // Inicializa o plugin "Responsive Image Maps"

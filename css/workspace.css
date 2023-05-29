@@ -41,16 +41,23 @@
   padding: 0;
 }
 /*Makes the imgTrashOpen be in the center of the screen and be hidden until someone clicks the button to open it*/
-#imgTrashOpen{
+#imgTrashOpen {
   z-index: 1;
-  width: 65%; 
-  height: auto; 
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -60%);
+  width: 65%;
+  height: auto;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
   display: none;
 }
+
+#imgTrashOpen.animated-open {
+  opacity: 1;
+  transition: opacity 0.2s;
+  transform: translate(-50%, -60%);
+}
+
 /*Makes the imgCodeForms be in the center of the screen and be hidden until someone clicks the button to open it*/
 #imgCodeForms{
   z-index: 1;
@@ -79,3 +86,4 @@
   top: 50%;
   transform: translate(-50%, -60%);
 }
+
