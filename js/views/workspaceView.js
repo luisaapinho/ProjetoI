@@ -3,7 +3,6 @@ pause.addEventListener("click", function(event) {
   event.preventDefault(); // takes to the pauseScreen when clicked the windows button
   window.location.href = "../html/pauseScreen.html";
 });
-
 const trashCan = document.querySelector("#trashCan");
 const trashOpen = document.querySelector("#imgTrashOpen");
 const closeBtn = document.querySelector("#closeBtn");
@@ -12,29 +11,42 @@ const imgForm = document.querySelector("#imgCodeForms");
 const closeBtnForms = document.querySelector("#closeBtnForms");
 
 trashCan.addEventListener("click", function() {
-  trashOpen.style.display = 'flex'; // makes the image imgTrashOpen appears
+  trashOpen.style.display = 'flex'; // Exibe o elemento
+  trashOpen.classList.add("slideIn"); // Adiciona a classe para a animação de abertura
+  setTimeout(function() {
+    trashOpen.classList.remove("slideIn"); // Remove a classe da animação após a conclusão
+  }, 200); // Duração da animação em ms
+});
+closeBtn.addEventListener("click", function() {
+  trashOpen.classList.add("animated-close"); // Adiciona a classe para a animação de fechamento
+  setTimeout(function() {
+    trashOpen.style.display = 'none'; // Remove o elemento após a animação
+    trashOpen.classList.remove("animated-close"); // Remove a classe para a animação de fechamento
+  }, 200); // Tempo da animação em ms
 });
 
-closeBtn.addEventListener("click", function() {
-    trashOpen.classList.add("animated-close"); // Adds to the class to animate
-    setTimeout(function() {
-      trashOpen.style.display = 'none'; // Remove the element after the animation
-      trashOpen.classList.remove("animated-close"); // Remove the class to animate
-    }, 200); // Time of the animation in ms
-  });
 fileImage.addEventListener("click", function() {
-  trashOpen.style.display = 'none'; //Close the imgTrashOpen
-  imgForm.style.display = 'flex';   //Opens the image where are the forms needed to the code of one game
+  trashOpen.classList.add("animated-close"); // Adiciona a classe para a animação de fechamento
+  setTimeout(function() {
+    trashOpen.style.display = 'none'; // Remove o elemento após a animação
+    trashOpen.classList.remove("animated-close"); // Remove a classe para a animação de fechamento
+    
+    imgForm.style.display = 'flex';   // Abre a imagem onde estão os formulários necessários para o código de um jogo
+    
+    trashOpen.classList.add("slideIn"); // Adiciona a classe para a animação de abertura
+    setTimeout(function() {
+      trashOpen.classList.remove("slideIn"); // Remove a classe da animação após a conclusão
+    }, 1000); // Duração da animação em ms
+  }, 200); // Tempo da animação de fechamento em ms
 });
 
 closeBtnForms.addEventListener("click", function() {
-  imgForm.classList.add("animated-close"); // Adds to the class to animate
+  imgForm.classList.add("animated-close"); // Adiciona a classe para a animação de fechamento
   setTimeout(function() {
-    imgForm.style.display = 'none';// Remove the element after the animation
-     
-    imgForm.classList.remove("animated-close"); // Remove the class to animate
-  }, 150);// Time of the animation in ms
-  trashOpen.style.display = 'flex';//Opens the trashOpen where the file we were
+    imgForm.style.display = 'none'; // Remove o elemento após a animação
+    imgForm.classList.remove("animated-close"); // Remove a classe para a animação de fechamento
+  }, 150); // Tempo da animação em ms
+  trashOpen.style.display = 'flex'; // Abre o trashOpen onde o arquivo estava
 });
 
 // Inicializa o plugin "Responsive Image Maps"

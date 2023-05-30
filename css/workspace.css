@@ -63,19 +63,45 @@
     display: none;
 }
 
-/*Transition to the opacity */
-#imgTrashOpen, #imgCodeForms {
-  transition: opacity 0.2s;
-}
-
-/* Mantain the image fixed when doing the animation */
-#imgTrashOpen.animated-close, #imgCodeForms.animated-close {
-  opacity: 0;
-}
-
 /*Make the image centered */
 #imgTrashOpen, #imgCodeForms {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
+.slideIn {
+  opacity: 0; /* Set initial opacity to 0 */
+  animation:fadeInAnimation 1s linear forwards; /* Add the 'forwards' property to keep the final animation state */
+  animation-delay: 0.1s; /* Add a delay of 0.5 seconds before the animation starts */
+}
+
+/* Transição de opacidade */
+#imgTrashOpen, #imgCodeForms {
+  transition: opacity 0.2s;
+}
+
+/* Mantém a imagem fixa durante a animação */
+#imgTrashOpen.animated-close, #imgCodeForms.animated-close {
+  opacity: 0;
+}
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+
+
