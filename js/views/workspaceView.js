@@ -17,11 +17,16 @@ function updateTimer() {
   const now = new Date();
   const remainingTime = Math.floor((endTime - now) / 1000); // Remaining time in seconds
 
+  if(remainingTime<=10)
+  {
+    const audio = document.getElementById("timeTicking");
+    audio.play();
+  }
   if (remainingTime <= 0) {
     // Timer has reached zero
     clearInterval(timerInterval);
     document.getElementById('timer').textContent = '00:00';
-    alert("Acabou o tempo!Perdeu!")
+    window.location.href = "../html/gameOver.html";
   } else {
     // Format the remaining time as mm:ss
     const minutes = Math.floor(remainingTime / 60);
