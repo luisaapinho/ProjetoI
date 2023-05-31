@@ -97,3 +97,7 @@
   #lupa:hover{
     content: url("../assets/images/lupa.png");
   }
+
+  .medal{
+    width: 1.5vw;
+  }
