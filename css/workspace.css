@@ -73,8 +73,30 @@
 #divFiles{
   height: 30vh;
 }
-#pause,#closeBtn,#fileImage,#closeBtnForms{
+#pause,#closeBtn,#fileImage,#closeBtnForms,#closeBtnFileA,#fileA{
   cursor: pointer;
+}
+
+#imgFileA {
+  z-index: 1;
+  width: 70%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+}
+
+#imgFileB{
+  z-index: 1;
+  width: 70%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
 }
 /*animations*/
 .slideIn {
@@ -83,13 +105,14 @@
   animation-delay: 0.1s; /* Add a delay of 0.5 seconds before the animation starts */
 }
 
+
 /* Transição de opacidade */
-#imgTrashOpen, #imgCodeForms {
+#imgTrashOpen, #imgCodeForms, #imgFileA , #imgFileB{
   transition: opacity 0.2s;
 }
 
 /* Mantém a imagem fixa durante a animação */
-#imgTrashOpen.animated-close, #imgCodeForms.animated-close {
+#imgTrashOpen.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close {
   opacity: 0;
 }
 @keyframes fadeInAnimation {
@@ -101,14 +124,7 @@
   }
 }
 
-@keyframes fadeOutAnimation {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
+
 
 
 
