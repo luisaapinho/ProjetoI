@@ -13,7 +13,22 @@
   #titleLogin {
     font-family: 'VCRDOSDMONO';
     color: #00ff06;
-    height: 50vh;
+    height: 45vh;
+  }
+
+  /* Home Image */
+  #loginHome {
+    padding-top: 1em;
+    padding-left: 1em;
+    height: 3em;
+    width: 4em;
+    transition: transform 0.3s ease;  /* Animates the transform property over 0.3 seconds with an easing effect */
+
+  }
+
+  /* Apply hover effect to the button */
+  #loginHome:hover {
+    transform: scale(1.1,1.1);  /* Enlarge the button by 10% when hovered */
   }
 
   /* Change the font and color */
@@ -65,11 +80,19 @@
     border-radius: 0;
     font-size: 1.7rem;
   }
-/*Put button centered with the inputs*/
+  /*Put button centered with the inputs*/
   #buttonContainer {
     display: flex;
     justify-content: center;
     margin-top: 1.3em;
+  }
+  /* Set transition property for smooth animation */
+  #buttonContainer button {
+    transition: transform 0.3s ease;  /* Animates the transform property over 0.3 seconds with an easing effect */
+  }
+  /* Apply hover effect to the button */
+  #buttonContainer button:hover {
+    transform: scale(1.1, 1.1); /* Enlarge the button by 10% when hovered */
   }
   /*put the form closer to the title Login*/
  form{
@@ -83,4 +106,22 @@
 
 .container{
   align-items: center;
+}
+
+/* Center the error message */
+#messageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-size: 1.2rem;
+}
+
+/* Change the size and the color of the sucess message */
+.alert-success {
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+
 }

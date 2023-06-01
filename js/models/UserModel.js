@@ -3,7 +3,6 @@ let users = [];
 
 // Initializes the users array with data from local storage if it exists
 export function init() {
-  console.log("oi");
   users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [];
 }
 
@@ -16,6 +15,12 @@ export function add(username, email, password) {
     users.push(new User(username, email, password));
     localStorage.setItem("users", JSON.stringify(users));
   }
+}
+
+// Saves new user password in the local storage
+export function changePassword(user,password) {
+  user.password = password
+  localStorage.setItem("loggedUser", JSON.stringify(user));
 }
 
 // Checks if a user with the given username and password exists in the users array and, if so, stores the user in local storage
@@ -49,6 +54,23 @@ export function getUserLogged() {
   return JSON.parse(localStorage.getItem("loggedUser"));
 }
 
+export function updateUserTime(username, time) {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  const userIndex = users.findIndex((user) => user.username === username);
+  if (userIndex !== -1) {
+    users[userIndex].time = time;
+    localStorage.setItem("users", JSON.stringify(users));
+
+    // Check if the logged-in user matches the updated user
+    const loggedUser = getUserLogged();
+    if (loggedUser && loggedUser.username === username) {
+      loggedUser.time = time;
+      localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+    }
+  }
+}
+
+
 // User class definition
 class User {
   username = "";
@@ -58,10 +80,11 @@ class User {
   inventory = [];
 
   // Constructor for creating a new User object
-  constructor(username, email, password) {
+  constructor(username, email, password,time=3600) {
     this.username = username;
     this.email = email;
     this.password = password;
+    this.time=time;
   }
 }
 
