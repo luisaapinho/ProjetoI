@@ -28,7 +28,7 @@ btnYes.addEventListener('click', function() {
     // Check if there is a logged-in user
     if (loggedUser) {
         // Set the default time value in the userClass
-        loggedUser.time = 60; // Set the default time (60 seconds)
+        loggedUser.time = 3600; // Set the default time (60 seconds)
 
         // Update the time value in the userModule.js module
         updateUserTime(loggedUser.username, loggedUser.time);
@@ -44,7 +44,7 @@ btnNo.addEventListener('click', function() {
     // Check if there is a logged-in user
     if (loggedUser) {
         // Set the default time value in the userClass
-        loggedUser.time = 60; // Set the default time (60 seconds)
+        loggedUser.time = 3600; // Set the default time (60 seconds)
 
         // Update the time value in the userModule.js module
         updateUserTime(loggedUser.username, loggedUser.time);

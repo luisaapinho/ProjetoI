@@ -24,8 +24,9 @@ function updateTimer() {
   const now = new Date();
   const remainingTime = Math.floor((endTime - now) / 1000); // Remaining time in seconds
 
-  if(remainingTime<=10)
+  if(remainingTime<=300)
   {
+    document.getElementById('timer').style.color="red"
     const audio = document.getElementById("timeTicking");
     audio.play();
   }

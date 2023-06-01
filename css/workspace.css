@@ -49,5 +49,15 @@
   right: 4vw;
   z-index: 1;
   color:white;
+
 }
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+  #timer{
+    
+    bottom: -3.5vh;
+   
+  
+  }
+}
+
   

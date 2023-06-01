@@ -75,7 +75,7 @@ class User {
   inventory = [];
 
   // Constructor for creating a new User object
-  constructor(username, email, password,time=60) {
+  constructor(username, email, password,time=3600) {
     this.username = username;
     this.email = email;
     this.password = password;
