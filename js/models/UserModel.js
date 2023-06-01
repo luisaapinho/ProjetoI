@@ -17,6 +17,12 @@ export function add(username, email, password) {
   }
 }
 
+// Saves new user password in the local storage
+export function changePassword(user,password) {
+  user.password = password
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
 // Checks if a user with the given username and password exists in the users array and, if so, stores the user in local storage
 export function login(username, password) {
   const user = users.find(
