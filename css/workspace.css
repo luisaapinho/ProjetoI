@@ -22,7 +22,7 @@
 }
 /*Adjust the icons escale (inventory, trashcan)*/
 .custom-image {
-    width: 75%; 
+    width: 5vw; 
     height: auto; 
     cursor: pointer;
   }
@@ -73,10 +73,11 @@
 #divFiles{
   height: 30vh;
 }
-#pause,#closeBtn,#fileImage,#closeBtnForms,#closeBtnFileA,#fileA{
+
+#pause,#closeBtn,#fileImage,#closeBtnForms,#closeBtnFileA,#fileA,#fileC,#closeBtnFileC,#CorrectFileC, #Try1,#Try2,#Try3,#Try4{
   cursor: pointer;
 }
-
+/*Adjust the fileA image to be centered*/
 #imgFileA {
   z-index: 1;
   width: 70%; 
@@ -87,7 +88,7 @@
     transform: translate(-50%, -60%); 
     display: none;
 }
-
+/*Adjust the fileB image to be centered*/
 #imgFileB{
   z-index: 1;
   width: 70%; 
@@ -98,6 +99,32 @@
     transform: translate(-50%, -60%); 
     display: none;
 }
+/*Adjust the fileC image to be centered*/
+#imgFileC{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+}
+/*Adjust the fileCEx image to be centered*/
+#imgFileCEx{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+}
+/*only temporary this is the 3trd game it needs to show after the first one is completed*/
+#fileC{
+  display: none;
+}
 /*animations*/
 .slideIn {
   opacity: 0; /* Set initial opacity to 0 */
@@ -107,14 +134,16 @@
 
 
 /* Transição de opacidade */
-#imgTrashOpen, #imgCodeForms, #imgFileA , #imgFileB{
+#imgTrashOpen, #imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx{
   transition: opacity 0.2s;
 }
 
 /* Mantém a imagem fixa durante a animação */
-#imgTrashOpen.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close {
+#imgTrashOpen.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close{
   opacity: 0;
 }
+
+
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
