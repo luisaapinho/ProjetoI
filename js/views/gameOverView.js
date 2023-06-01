@@ -1,4 +1,4 @@
-import { getUserLogged, updateUserTime } from "../models/UserModel.js";
+import * as User from "../models/UserModel.js";
 const btnYes = document.getElementById('btnYes');
 const arrow1 = document.getElementById('arrow1');
 
@@ -23,7 +23,7 @@ btnNo.addEventListener('mouseout', function() {
 
 btnYes.addEventListener('click', function() {
     // Retrieve the logged-in user
-    const loggedUser = getUserLogged();
+    const loggedUser = User.getUserLogged();
 
     // Check if there is a logged-in user
     if (loggedUser) {
@@ -31,7 +31,7 @@ btnYes.addEventListener('click', function() {
         loggedUser.time = 3600; // Set the default time (60 seconds)
 
         // Update the time value in the userModule.js module
-        updateUserTime(loggedUser.username, loggedUser.time);
+        User.updateUserTime(loggedUser.username, loggedUser.time);
     }
 
     // Redirect to the workspace.html
@@ -39,7 +39,7 @@ btnYes.addEventListener('click', function() {
 });
 btnNo.addEventListener('click', function() {
     // Retrieve the logged-in user
-    const loggedUser = getUserLogged();
+    const loggedUser = User.getUserLogged();
 
     // Check if there is a logged-in user
     if (loggedUser) {
@@ -47,7 +47,8 @@ btnNo.addEventListener('click', function() {
         loggedUser.time = 3600; // Set the default time (60 seconds)
 
         // Update the time value in the userModule.js module
-        updateUserTime(loggedUser.username, loggedUser.time);
+        User.updateUserTime(loggedUser.username, loggedUser.time);
     }
+    User.logout()
     window.location.href = "../index.html";
 });

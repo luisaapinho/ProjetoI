@@ -1,3 +1,4 @@
+import * as User from "../models/UserModel.js";
 const btnResume = document.getElementById('btnResume');
 const arrow1 = document.getElementById('arrow1');
 
@@ -21,6 +22,10 @@ btnQuit.addEventListener('mouseover', function() {
 
 btnQuit.addEventListener('mouseout', function() {
     arrow2.style.display = 'none';
+});
+btnQuit.addEventListener('click', function() {
+    window.location.href = "../index.html";
+    User.logout()
 });
 
 btnResume.addEventListener('click', function() {
