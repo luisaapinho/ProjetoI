@@ -20,11 +20,11 @@ document.getElementById("changePasswordBtn").addEventListener("click", function(
     showMessage("error", "The passwords do not match");
   } else {
     try {
-      User.changePassword(User.getUserLogged(), password);
+      User.changePassword(User.getUserLogged(), newPassword);
       showMessage("success", "Password changed sucessfully");
       // Waits 1 second and redirects to the login page
       setTimeout(() => {
-        location.href = "../html/login.html";
+        location.href = "../html/pauseScreen.html";
       }, 1000);
       
     } catch (error) {
