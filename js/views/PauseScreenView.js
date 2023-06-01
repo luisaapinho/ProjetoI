@@ -33,6 +33,6 @@ btnOptions.addEventListener('mouseover', function() {
 btnOptions.addEventListener('mouseout', function() {
     arrow3.style.display = 'none';
 });
-btnResume.addEventListener('click', function() {
+btnOptions.addEventListener('click', function() {
     window.location.href = "../html/changePassword.html";
 });
