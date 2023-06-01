@@ -22,7 +22,7 @@
 }
 /*Adjust the icons escale (inventory, trashcan)*/
 .custom-image {
-    width: 5vw; 
+    width: 6vw; 
     height: auto; 
     cursor: pointer;
   }
