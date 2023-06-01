@@ -48,6 +48,23 @@ export function getUserLogged() {
   return JSON.parse(localStorage.getItem("loggedUser"));
 }
 
+export function updateUserTime(username, time) {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  const userIndex = users.findIndex((user) => user.username === username);
+  if (userIndex !== -1) {
+    users[userIndex].time = time;
+    localStorage.setItem("users", JSON.stringify(users));
+
+    // Check if the logged-in user matches the updated user
+    const loggedUser = getUserLogged();
+    if (loggedUser && loggedUser.username === username) {
+      loggedUser.time = time;
+      localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+    }
+  }
+}
+
+
 // User class definition
 class User {
   username = "";
@@ -57,10 +74,11 @@ class User {
   inventory = [];
 
   // Constructor for creating a new User object
-  constructor(username, email, password) {
+  constructor(username, email, password,time=3600) {
     this.username = username;
     this.email = email;
     this.password = password;
+    this.time=time;
   }
 }
 

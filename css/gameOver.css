@@ -9,16 +9,24 @@ body {
     margin: 0;
 }
 
-.pauseTitle{
+.gameOver{
     font-family: 'VCRDOSDMONO';
     text-align: center;
-    margin-top: 25vh;
-    font-size: 60px;
-    color: #00ff06;
+    margin-top: 30vh;
+    font-size: 5vw;
+    color: #ff0000;
     margin-bottom: 5vh;
 
 }
+.tryAgain{
+    font-family: 'VCRDOSDMONO';
+    text-align: center;
+    margin-top: 1vh;
+    font-size: 2.5vw;
+    color: white;
+    margin-bottom: 5vh;
 
+}
 /* Personalized buttons */
 .btn1 {
     border: none;
@@ -32,10 +40,10 @@ body {
     
 
 }
-.btn1, .btn2, .btn1:focus, .btn1:active,.btn2:focus, .btn2:active,.btn3:focus, .btn3:active,.btn3{
+.btn1, .btn2, .btn1:focus, .btn1:active,.btn2:focus, .btn2:active{
     outline: none;
 }
-.btn2 ,.btn3{
+.btn2 {
     border: none;
     color: white;
     background-color: transparent;
@@ -51,9 +59,6 @@ body {
     display: none;
 }
 #arrow2{
-    display: none;
-}
-#arrow3{
     display: none;
 }
 
@@ -75,3 +80,19 @@ body {
 .button-container:hover img {
     display: block;
 }
+
+/* Fade In Animation */
+
+.fade-in {
+    opacity: 0;
+    animation: fade-in-animation 6s ease-in-out forwards;
+  }
+  
+  @keyframes fade-in-animation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
