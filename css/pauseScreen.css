@@ -32,10 +32,10 @@ body {
     
 
 }
-.btn1, .btn2, .btn1:focus, .btn1:active,.btn2:focus, .btn2:active{
+.btn1, .btn2, .btn1:focus, .btn1:active,.btn2:focus, .btn2:active,.btn3:focus, .btn3:active,.btn3{
     outline: none;
 }
-.btn2 {
+.btn2 ,.btn3{
     border: none;
     color: white;
     background-color: transparent;
@@ -51,6 +51,9 @@ body {
     display: none;
 }
 #arrow2{
+    display: none;
+}
+#arrow3{
     display: none;
 }
 

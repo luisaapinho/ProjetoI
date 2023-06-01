@@ -71,13 +71,26 @@ a.navbar-brand{
 
 
 /* CSS for the Credits Page */
+#creditsHome {
+    padding-top: 1em;
+    padding-left: 1em;
+    height: 2em;
+    width: 3em;
+    padding-left: 3vw;
+    transition: transform 0.3s ease;  /* Animates the transform property over 0.3 seconds with an easing effect */
+}
+
+/* Apply hover effect to the button */
+#creditsHome:hover {
+    transform: scale(1.1,1.1);  /* Enlarge the button by 10% when hovered */
+  }
 
 /* Container for the credits */
 .container-credits {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
     flex-direction: column;
 }
 

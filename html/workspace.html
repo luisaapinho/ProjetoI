@@ -18,15 +18,19 @@
         <div id="inventory">
             <img src="..\assets\images\inventory.png" alt="inventory" class="img-fluid custom-image">
         </div>
+
     </div>
       <!--Código para jogo 6-->
-    <div class="corner-text">1131</div>
+  <div class="corner-text">1131</div>
       <!--Taskbar onde tem o pause e o timer-->
-    <div class="container-fluid taskbar-container d-flex justify-content-center align-items-end" id='divTaskBar'>
-        <img src="..\assets\images\taskBar.png" alt="taskBar" class="img-fluid taskbar-img" id="taskbarImage" usemap="#image-pauseMap">
-        <map name="image-pauseMap">
-            <area  coords="59,-1,1,52" shape="rect" id="pause">
-        </map>
+     
+    <div class="container-fluid taskbar-container d-flex justify-content-center align-items-end"id='divTaskBar'>
+        <img src="..\assets\images\taskBar.png" alt="taskBar" class="img-fluid taskbar-img" id="taskbarImage" usemap="#image-map">
+        <map name="image-map">
+        <area target="" alt="" title="" href="" coords="59,-1,1,52" shape="rect" id="pause">
+        <p id="timer" class="align-items-end">00:00</p>
+        <audio id="timeTicking" src="../assets/audios/timeTicking.mp3" loop></audio>
+
     </div>
       <!--Lixeira aberta-->
     <div class="container d-flex justify-content-center align-items-center" id="trashOpen">
@@ -100,6 +104,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js" integrity="sha512-eZB7hQa0bRlrKMQ2njpP0d/Klu6o30Gsr8e5FUCjUT3fSlnVkm/1J14n58BuwgaMuObrGb7SvUfQuF8qFsPU4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="module" src="../js/views/workspaceView.js"></script>
-    
+   
 </body>
 </html>

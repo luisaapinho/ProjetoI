@@ -40,6 +40,7 @@
 #divTaskBar{
   padding: 0;
 }
+
 /*Makes the imgTrashOpen be in the center of the screen and be hidden until someone clicks the button to open it*/
 #imgTrashOpen{
   z-index: 1;
@@ -154,7 +155,26 @@
 }
 
 
+#timer{
+  display: block;
+  font-family: 'VCRDOSDMONO';
+  src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+  font-size: 1.5vw;
+  position: fixed;
+  bottom: -1.2vh;
+  right: 4vw;
+  z-index: 1;
+  color:white;
 
+}
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+  #timer{
+    
+    bottom: -3.5vh;
+   
+  
+  }
+}
 
-
+  
 
