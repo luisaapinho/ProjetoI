@@ -12,22 +12,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     try {
       if (User.login(username, password)) {
-        showMessage("success", "Login successful!");
-         // Redirects to the workspace starting the game and the timer
-         setTimeout(() => {
-          location.href = "../html/workspace.html";
-        }, 1000);
+        if (username === "admin1" && password === "admin1") {
+          showMessage("success", "Login as admin successful!");
+          // Redirect to a different page for admin
+          setTimeout(() => {
+            location.href = "../html/admin.html";
+          }, 1000);
+        } else {
+          showMessage("success", "Login successful!");
+          // Redirects to the workspace starting the game and the timer
+          setTimeout(() => {
+            location.href = "../html/workspace.html";
+          }, 1000);
+        }
       } else {
         showMessage("error", "Invalid username or password!");
       }
     } catch (error) {
-      console.log("deu erro");
       showMessage("error", error.message);
     }
-  });
+    
 // Displays a message of the given type (e.g. success or error) with the given text
   function showMessage(type, message) {
     const messageContainer = document.getElementById("messageContainer");
     messageContainer.innerHTML = `<div class="alert alert-${type}" role="alert">${message}</div>`;
   }
-});
+})});
