@@ -5,6 +5,10 @@ let users = [];
 export function init() {
   users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [];
 }
+export function getUsers(){
+  users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [];
+  return users
+}
 
 
 // Adds a new user to the users array and updates local storage
@@ -16,7 +20,7 @@ export function add(username, email, password) {
     localStorage.setItem("users", JSON.stringify(users));
   }
 }
-
+ 
 // Saves new user password in the local storage
 export function changePassword(user,password) {
   // Update the password of the logged-in user
@@ -58,6 +62,7 @@ export function login(username, password) {
 export function logout() {
   localStorage.removeItem("loggedUser");
 }
+
 
 // Returns true if a user is logged in (i.e. if there is a logged-in user in local storage), false otherwise
 export function isLogged() {

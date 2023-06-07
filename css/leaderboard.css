@@ -1,0 +1,103 @@
+@font-face {
+    font-family: 'VCRDOSDMONO';
+    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+  }
+
+  /* Change background color to black, and remove margin */
+  body {
+    background-color: black;
+    margin: 0;
+  }
+
+  /* Change font and color, and put in the middle of the screen */
+  #titleLeaderboard {
+    font-family: 'VCRDOSDMONO';
+    color: #00ff06;
+    height: 10vh;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+    
+  }
+  h1{
+    font-size: 3vw;
+  }
+
+  /* Home Image */
+  #loginHome {
+    padding-top: 1em;
+    padding-left: 1em;
+    height: 3em;
+    width: 4em;
+    transition: transform 0.3s ease;  /* Animates the transform property over 0.3 seconds with an easing effect */
+
+  }
+
+  /* Apply hover effect to the button */
+  #loginHome:hover {
+    transform: scale(1.1,1.1);  /* Enlarge the button by 10% when hovered */
+  }
+  /* Form Leaderboard */
+
+  #formLeaderboard{
+    position: relative;
+  }
+
+
+  /* Input Leaderboard */
+
+
+
+  #inputForm{
+    font-family: 'VCRDOSDMONO';
+    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+    color:white;
+    background-color:black;
+    border: 0.2vw solid #00ff06;
+    margin-bottom: 3vh;
+    width: 25vw;
+    font-size: 1.5vw;
+  }
+
+
+
+  /* Table Leaderboard */
+  #tableLeaderboard{
+    width: 25vw;
+  }
+  #tableLeaderboard , td{
+    font-family: 'VCRDOSDMONO';
+    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+    font-size: 1.5vw;
+    padding: 1vh;
+    border: 0.2vw solid #00ff06;
+    color: white;
+    text-align: center;
+
+    
+  }
+  th{
+    font-weight: normal;
+    padding: 0.5vw;
+    text-align: center;
+    border: 0.2vw solid #00ff06;
+    color: white;
+  }
+  *:focus {
+    outline: none;
+}
+
+  #lupa{
+    cursor: pointer;
+    position: absolute;
+    right: 0.5vw;
+    top: 0.3vw;
+    width: 2vw;
+    z-index: 1;
+  }
+  #lupa:hover{
+    content: url("../assets/images/lupa.png");
+  }
+
+  .medal{
+    width: 1.5vw;
+  }
