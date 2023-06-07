@@ -7,7 +7,7 @@ function initdata() {
             username: "luisa",
             email: "luisa@gmail.com",
             password: "luisa123",
-            time: 2800,
+            time: 3010,
             hasFinished:true,
 
           },
@@ -45,6 +45,27 @@ function initdata() {
             password: "teste123",
             time: 1910,
             hasFinished:false,
+          },
+          {
+            username: "mei4657",
+            email: "mei@gmail.com",
+            password: "mei123",
+            time: 1610,
+            hasFinished:true,
+          },
+          {
+            username: "steca",
+            email: "steca@gmail.com",
+            password: "steca123",
+            time: 1320,
+            hasFinished:true,
+          },
+          {
+            username: "demonkiller",
+            email: "demon@gmail.com",
+            password: "demon123",
+            time: 1020,
+            hasFinished:true,
           },
         ];
         console.log("inject");

@@ -5,6 +5,10 @@ let users = [];
 export function init() {
   users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [];
 }
+export function getUsers(){
+  users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [];
+  return users
+}
 
 
 // Adds a new user to the users array and updates local storage
@@ -13,6 +17,27 @@ export function add(username, email, password) {
     throw Error(`User with username "${username}" already exists!`);
   } else {
     users.push(new User(username, email, password));
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+}
+
+// Saves new user password in the local storage
+export function changePassword(user,password) {
+  // Update the password of the logged-in user
+  user.password = password
+  localStorage.setItem("loggedUser", JSON.stringify(user));
+
+  // Retrieve the users array from local storage
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  // Find the index of the user with the same username as the logged-in user
+  const userIndex = users.findIndex((u) => u.username === user.username);
+
+  // If the user is found in the users array
+  if (userIndex !== -1) {
+    // Update the password of the user in the users array
+    users[userIndex].password = password;
+    // Update the users array in local storage
     localStorage.setItem("users", JSON.stringify(users));
   }
 }
@@ -38,6 +63,7 @@ export function logout() {
   localStorage.removeItem("loggedUser");
 }
 
+
 // Returns true if a user is logged in (i.e. if there is a logged-in user in local storage), false otherwise
 export function isLogged() {
   return localStorage.getItem("loggedUser") ? true : false;
@@ -48,6 +74,23 @@ export function getUserLogged() {
   return JSON.parse(localStorage.getItem("loggedUser"));
 }
 
+export function updateUserTime(username, time) {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  const userIndex = users.findIndex((user) => user.username === username);
+  if (userIndex !== -1) {
+    users[userIndex].time = time;
+    localStorage.setItem("users", JSON.stringify(users));
+
+    // Check if the logged-in user matches the updated user
+    const loggedUser = getUserLogged();
+    if (loggedUser && loggedUser.username === username) {
+      loggedUser.time = time;
+      localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+    }
+  }
+}
+
+
 // User class definition
 class User {
   username = "";
@@ -55,12 +98,15 @@ class User {
   password = "";
   time = 0;
   inventory = [];
+  hasFinished=false;
 
   // Constructor for creating a new User object
-  constructor(username, email, password) {
+  constructor(username, email, password,time=3600,hasFinished=false) {
     this.username = username;
     this.email = email;
     this.password = password;
+    this.time=time;
+    this.hasFinished=hasFinished;
   }
 }
 
