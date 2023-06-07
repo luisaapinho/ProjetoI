@@ -64,6 +64,9 @@ pause.addEventListener("click", function(event) {
   event.preventDefault(); // takes to the pauseScreen when clicked the windows button
   window.location.href = "../html/pauseScreen.html";
 });
+
+//ICONS THAT DONT ARE GAMES
+
 //Trash bin icon
 const trashCan = document.querySelector("#trashCan");
 //Image of the trash open 
@@ -76,18 +79,28 @@ const fileImage = document.querySelector("#fileImageTrash");
 const imgForm = document.querySelector("#imgCodeForms");
 //The button to close the image where there are the geometric forms
 const closeBtnForms = document.querySelector("#closeBtnForms");
+
+//GAME 1/2
+
 //The icon of the file A, one option for the first game
 const fileA=document.querySelector("#fileA");
 //Image that shows when u click the file that takes u to the expositive part and the exercise part
 const imgFileA=document.querySelector("#imgFileA");
 //Close button of the image above
 const closeBtnFileA=document.querySelector("#closeBtnFileA");
+//The expositive part of the game 4
+const expositiveFileA=document.querySelector("#expositiveFileA");
 //Icon of the file B other option of the game 1
 const fileB=document.querySelector("#fileB")
 //The image that shows up when u click the file that takes u to the expositive part and the exercise part
 const imgFileB=document.querySelector("#imgFileB");
 //Close button of the file above
 const closeBtnFileB=document.querySelector("#closeBtnFileB");
+//The expositive part of the game 1B
+const expositiveFileB=document.querySelector("#expositiveFileB");
+
+//GAME 3
+
 //Icon of the file C, that opens the third game
 const fileC=document.querySelector("#fileC");
 //The image that shows up when u click the file c, here it takes u to the challenge that u
@@ -108,6 +121,11 @@ const CorrectFileC=document.querySelector("#CorrectFileC");
 const imgFileCEx=document.querySelector("#imgFileCEx");
 //this is the close button to the imgFileCEX
 const closeBtnFileCEx=document.querySelector("#closeBtnFileCEx");
+//The expositive part of the game 3
+const expositiveFileC=document.querySelector("#expositiveFileC");
+
+//GAME 4
+
 //Icon of the file D, that opens the forth game
 const fileD=document.querySelector("#fileD");
 //Image where there is the dare that u need to go tru to get to the expositive/exercise part
@@ -116,6 +134,45 @@ const imgFileD=document.querySelector("#imgFileD");
 const closeBtnFileD=document.querySelector("#closeBtnFileD");
 //The dare that u need to make before entering the expositive/exercise part
 const challengeD=document.querySelector("#fileImgD");
+//the file where there are the expositive/exercise that opens after u completed the challengeD
+const imgFileDEx=document.querySelector("#imgFileDEx");
+//Close button of the file above
+const closeBtnFileDEx=document.querySelector("#closeBtnFileDEx");
+//The expositive part of the game 4
+const expositiveFileD=document.querySelector("#expositiveFileD");
+
+//GAME 5
+
+//Icon of the file E, which opens the fifth game
+const fileE=document.querySelector("#fileE");
+//The file that opens when u click the icon fileE
+const imgFileE=document.querySelector("#imgFileE");
+//Close button of the file above
+const closeBtnFileE=document.querySelector("#closeBtnFileE");
+//File where there is the key that u need to find to open the door to go to the expositive/exercise part
+const fileServerImg=document.querySelector("#fileServerImg");
+//File where there is the door that u need to key to open
+const challengeE=document.querySelector("#fileImgE");
+//The file where there are the expositive/exercise part after u completed the challengeE
+const imgFileEEx=document.querySelector("#imgFileEEx")
+//Close button to the file above
+const closeBtnFileEEx=document.querySelector("#closeBtnFileEEx");
+//The expositive part of the game 5
+const expositiveFileE=document.querySelector("#expositiveFileE");
+
+//GAME 6
+
+//Icon of the file F that opens the sixth game
+const fileF=document.querySelector("#fileF");
+//Image that opens when u click the file F
+const imgFileF=document.querySelector("#imgFileF");
+//Close button to the img above
+const closeBtnFileF=document.querySelector("#closeBtnFileF");
+//File that opens the challenge u need to do before it to go to the expositive/exercise part
+const challengeF=document.querySelector("fileImgE");
+const imgFileFEx=document.querySelector("imgFileFEx");
+
+ 
 
 
 
@@ -235,6 +292,22 @@ closeBtnFileD.addEventListener("click",function(){
  setTimeout(function() {
   imgFileD.style.display = 'none'; // Remove the element after the animation
    imgFileD.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+
+fileE.addEventListener("click", function(){
+  imgFileE.style.display = 'flex'; // Show the bin
+  imgFileE.classList.add("slideIn"); // Add the class to the opening animation
+  setTimeout(function() {
+    imgFileE.classList.remove("slideIn"); // Remove class after the animation
+  }, 200); // Duration of the animation in ms
+})
+
+closeBtnFileE.addEventListener("click",function(){
+  imgFileE.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileE.style.display = 'none'; // Remove the element after the animation
+   imgFileE.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
 // Inicializa o plugin "Responsive Image Maps"

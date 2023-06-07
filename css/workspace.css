@@ -135,9 +135,74 @@
     display: none;
   cursor:default;
 }
+/*Adjust the imgFileDEx to be centered*/
+#imgFileDEx{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+  cursor:default;
+}
+/*Adjust the imgFileE to be centered*/
+#imgFileE{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+  cursor:default;
+}
+/*Adjust the imgFileEEx to be centered*/
+#imgFileEEx{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+  cursor:default;
+}
+/*Adjust the imgFileF to be centered*/
+#imgFileF{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+  cursor:default;
+}
+/*Adjust the imgFileFEx to be centered*/
+#imgFileFEx{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+  cursor:default;
+}
 /*only temporary this is the 3trd game it needs to show after the first one is completed*/
 #fileC{
   display: none;
+}
+
+#fileE{
+  position: absolute;
+  top: 10vh;
 }
 /*animations*/
 .slideIn {
@@ -148,12 +213,12 @@
 
 
 /* Transição de opacidade */
-#imgTrashOpen, #imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD{
+#imgTrashOpen, #imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx{
   transition: opacity 0.2s;
 }
 
 /* Mantém a imagem fixa durante a animação */
-#imgTrashOpen.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close{
+#imgTrashOpen.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close{
   opacity: 0;
 }
 
