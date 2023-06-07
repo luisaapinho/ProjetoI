@@ -178,6 +178,21 @@ const closeBtnFileFEx=document.querySelector("#closeBtnFileFEx");
 const expositiveFileF=document.querySelector("#expositiveFileF");
 
 //GAME 7
+//Icon of the file g that opens the last game
+const fileG=document.querySelector("#fileG");
+//Image that opens when u click the fileG
+const imgFileG=document.querySelector("#imgFileG");
+//Close button to the file above
+const closeBtnFileG=document.querySelector("#closeBtnFileG");
+//File that opens the challenge that u need to do before the expositive/exercise part SIMAO É AQ QUE DEVE APARECER OS JOGOS
+const challengeG=document.querySelector("#fileImgG");
+//File where there are the expositive/exercise part of the game AQUI É ONDE DEVE SER GERADO O JOGO
+const imgFileGEx=document.querySelector("#fileImgGEx");
+//Close button to the file above
+const closeBtnFileGEx=document.querySelector("#closeBtnFileGEx");
+//Expositive part of the game 6
+const expositiveFileG=document.querySelector("#expositiveFileg");
+
 
 
 
@@ -331,5 +346,20 @@ closeBtnFileF.addEventListener("click",function(){
    imgFileF.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
+fileG.addEventListener("click", function(){
+  imgFileG.style.display = 'flex'; // Show the bin
+  imgFileG.classList.add("slideIn"); // Add the class to the opening animation
+  setTimeout(function() {
+    imgFileG.classList.remove("slideIn"); // Remove class after the animation
+  }, 200); // Duration of the animation in ms
+})
+closeBtnFileG.addEventListener("click",function(){
+  imgFileG.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileG.style.display = 'none'; // Remove the element after the animation
+   imgFileG.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+
 // Inicializa o plugin "Responsive Image Maps"
 $('img[usemap]').rwdImageMaps();
