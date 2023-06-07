@@ -75,9 +75,10 @@
   height: 30vh;
 }
 
-#pause,#closeBtn,#fileImage,#closeBtnForms,#closeBtnFileA,#fileA,#fileC,#closeBtnFileC,#CorrectFileC, #Try1,#Try2,#Try3,#Try4{
+#pause,#closeBtn,#fileImage,#closeBtnForms,#closeBtnFileA,#fileA,#fileC,#closeBtnFileC,#CorrectFileC, #Try1,#Try2,#Try3,#Try4,#closeBtnFileD{
   cursor: pointer;
 }
+
 /*Adjust the fileA image to be centered*/
 #imgFileA {
   z-index: 1;
@@ -122,6 +123,18 @@
     transform: translate(-50%, -60%); 
     display: none;
 }
+/*Adjust the imgFileD to be centered*/
+#imgFileD{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+  cursor:default;
+}
 /*only temporary this is the 3trd game it needs to show after the first one is completed*/
 #fileC{
   display: none;
@@ -135,12 +148,12 @@
 
 
 /* Transição de opacidade */
-#imgTrashOpen, #imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx{
+#imgTrashOpen, #imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD{
   transition: opacity 0.2s;
 }
 
 /* Mantém a imagem fixa durante a animação */
-#imgTrashOpen.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close{
+#imgTrashOpen.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close{
   opacity: 0;
 }
 
