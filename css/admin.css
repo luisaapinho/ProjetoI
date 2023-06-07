@@ -34,13 +34,12 @@ body {
 
 
 
-#formLeaderboard{
+#formAdmin{
     position: relative;
-  }
+}
 
 #inputForm{
     font-family: 'VCRDOSDMONO';
-    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
     color:white;
     background-color:black;
     border: 0.2vw solid #00ff06;
@@ -50,13 +49,12 @@ body {
 }
 
 
-#tableLeaderboard{
+#tableAdmin{
     width: 25vw;
 }
   
-#tableLeaderboard , td{
+#tableAdmin , td{
     font-family: 'VCRDOSDMONO';
-    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
     font-size: 1.5vw;
     padding: 1vh;
     border: 0.2vw solid #00ff06;
@@ -70,6 +68,15 @@ th{
     text-align: center;
     border: 0.2vw solid #00ff06;
     color: white;
+}
+
+button {
+    background-color: transparent;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.1,1.1);
 }
 
 *:focus {
@@ -89,22 +96,3 @@ th{
     content: url("../assets/images/lupa.png");
 }
 
-
-
-/* Center the error message */
-#messageContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: red;
-  font-size: 1.2rem;
-}
-
-/* Change the size and the color of the sucess message */
-.alert-success {
-    color: #ffffff;
-    background-color: transparent;
-    border: none;
-    font-size: 1.2rem;
-
-}
