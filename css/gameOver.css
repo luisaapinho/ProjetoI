@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'VCRDOSDMONO';
+    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+}
+
+/* Change background color to black, and remove margin */
+body {
+    background-color: black;
+    margin: 0;
+}
+
+.gameOver{
+    font-family: 'VCRDOSDMONO';
+    text-align: center;
+    margin-top: 30vh;
+    font-size: 5vw;
+    color: #ff0000;
+    margin-bottom: 5vh;
+
+}
+.tryAgain{
+    font-family: 'VCRDOSDMONO';
+    text-align: center;
+    margin-top: 1vh;
+    font-size: 2.5vw;
+    color: white;
+    margin-bottom: 5vh;
+
+}
+/* Personalized buttons */
+.btn1 {
+    border: none;
+    color: white;
+    background-color: transparent;
+    font-size: 40px;
+    font-family: 'VCRDOSDMONO';
+    padding-top: 2vh;
+    cursor: pointer;
+  
+    
+
+}
+.btn1, .btn2, .btn1:focus, .btn1:active,.btn2:focus, .btn2:active{
+    outline: none;
+}
+.btn2 {
+    border: none;
+    color: white;
+    background-color: transparent;
+    font-size: 40px;
+    font-family: 'VCRDOSDMONO';
+    padding-top: 2vh;
+    cursor: pointer;
+ 
+   
+
+}
+#arrow1{
+    display: none;
+}
+#arrow2{
+    display: none;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.button-container img {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left:-60px;
+    
+    
+}
+
+.button-container:hover img {
+    display: block;
+}
+
+/* Fade In Animation */
+
+.fade-in {
+    opacity: 0;
+    animation: fade-in-animation 6s ease-in-out forwards;
+  }
+  
+  @keyframes fade-in-animation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

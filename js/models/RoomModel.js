@@ -9,5 +9,6 @@ class Room {
       this.image = image;
       
       
+      
     }
   }

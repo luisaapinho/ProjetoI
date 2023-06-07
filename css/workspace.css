@@ -1,0 +1,180 @@
+@font-face {
+    font-family: 'VCRDOSDMONO';
+    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+  }
+
+  /* Change background color to black, and remove margin */
+  body {
+    background-color: black;
+    margin: 0;
+  }
+  /*Put the taskbar to the bottom of the screen*/
+  .taskbar-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+/*Adjust the img*/
+.taskbar img {
+    width: 100%; 
+    display: block; 
+    margin: 0 auto; 
+}
+/*Adjust the icons escale (inventory, trashcan)*/
+.custom-image {
+    width: 5vw; 
+    height: auto; 
+    cursor: pointer;
+  }
+
+
+/*Style the text and position to be at the top right of the screen+*/
+.corner-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    font-size: 12px;}
+
+/*Align the image to the full size of the screen*/
+#divTaskBar{
+  padding: 0;
+}
+
+/*Makes the imgTrashOpen be in the center of the screen and be hidden until someone clicks the button to open it*/
+#imgTrashOpen{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+  display: none;
+}
+/*Makes the imgCodeForms be in the center of the screen and be hidden until someone clicks the button to open it*/
+#imgCodeForms{
+  z-index: 1;
+  width: 50%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+}
+
+/*Make the image centered */
+#imgTrashOpen, #imgCodeForms {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+/*make the files not so centered*/
+#divFiles{
+  height: 30vh;
+}
+
+#pause,#closeBtn,#fileImage,#closeBtnForms,#closeBtnFileA,#fileA,#fileC,#closeBtnFileC,#CorrectFileC, #Try1,#Try2,#Try3,#Try4{
+  cursor: pointer;
+}
+/*Adjust the fileA image to be centered*/
+#imgFileA {
+  z-index: 1;
+  width: 70%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+}
+/*Adjust the fileB image to be centered*/
+#imgFileB{
+  z-index: 1;
+  width: 70%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+}
+/*Adjust the fileC image to be centered*/
+#imgFileC{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+}
+/*Adjust the fileCEx image to be centered*/
+#imgFileCEx{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+}
+/*only temporary this is the 3trd game it needs to show after the first one is completed*/
+#fileC{
+  display: none;
+}
+/*animations*/
+.slideIn {
+  opacity: 0; /* Set initial opacity to 0 */
+  animation:fadeInAnimation 1s linear forwards; /* Add the 'forwards' property to keep the final animation state */
+  animation-delay: 0.1s; /* Add a delay of 0.5 seconds before the animation starts */
+}
+
+
+/* Transição de opacidade */
+#imgTrashOpen, #imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx{
+  transition: opacity 0.2s;
+}
+
+/* Mantém a imagem fixa durante a animação */
+#imgTrashOpen.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close{
+  opacity: 0;
+}
+
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+#timer{
+  display: block;
+  font-family: 'VCRDOSDMONO';
+  src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+  font-size: 1.5vw;
+  position: fixed;
+  bottom: -1.2vh;
+  right: 4vw;
+  z-index: 1;
+  color:white;
+
+}
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+  #timer{
+    
+    bottom: -3.5vh;
+   
+  
+  }
+}
+
+  
+

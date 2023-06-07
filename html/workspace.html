@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/workspace.css">
+</head>
+<body>
+    <!--Icones da lixeira e do inventário-->
+    <div class="d-flex flex-column align-items-start">
+        <div id="trash" class="mb-3">
+            <img src="..\assets\images\trashCan.png" alt="Trash" class="img-fluid custom-image" id="trashCan">
+        </div>
+        <div id="inventory">
+            <img src="..\assets\images\inventory.png" alt="inventory" class="img-fluid custom-image">
+        </div>
+
+    </div>
+      <!--Código para jogo 6-->
+  <div class="corner-text">1131</div>
+      <!--Taskbar onde tem o pause e o timer-->
+     
+    <div class="container-fluid taskbar-container d-flex justify-content-center align-items-end"id='divTaskBar'>
+        <img src="..\assets\images\taskBar.png" alt="taskBar" class="img-fluid taskbar-img" id="taskbarImage" usemap="#image-map">
+        <map name="image-map">
+        <area target="" alt="" title="" href="" coords="59,-1,1,52" shape="rect" id="pause">
+        <p id="timer" class="align-items-end">00:00</p>
+        <audio id="timeTicking" src="../assets/audios/timeTicking.mp3" loop></audio>
+
+    </div>
+      <!--Lixeira aberta-->
+    <div class="container d-flex justify-content-center align-items-center" id="trashOpen">
+        <img src="..\assets\images\trashOpen.png" id="imgTrashOpen" usemap="#image-trashMap">
+        <map name="image-trashMap">
+            <area coords="1215,0,1262,37" shape="rect" id="closeBtn">
+            <area coords="54,182,192,342" shape="rect" id="fileImage">
+        </map>
+    </div>
+    <!--Foto das formas geométricas- Código para jogo 4-->
+    <div class="container d-flex justify-content-center align-items-center" id="fileImageOpen">
+        <img src="..\assets\images\trashForms.png" usemap="#image-FormMap"id='imgCodeForms'class="rwdimgmap">
+        <map name="image-FormMap">
+            <area  coords="1127,34,1087,10" shape="rect" id="closeBtnForms">
+        </map>
+    </div>
+    <!--Game 1 Folders-->
+    <div class="container d-flex justify-content-center align-items-center" id="divFiles">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="..\assets\images\room1A.png" id="fileA" class="img-fluid custom-image">
+            </div>
+            <div class="col-md-6">
+                <img src="..\assets\images\room1B.png" id="fileB" class="img-fluid custom-image">
+            </div>
+        </div>
+    </div>
+    <!--Jogo 1- Parte teórica e onde o exercício prático deve aparecer-->
+    <div class="container-fluid d-flex justify-content-center align-items-center" id="fileAOpen">
+        <img src="..\assets\images\fileAopen.png" usemap="#image-fileAMap" id="imgFileA" class="rwdimgmap img-fluid custom-image">
+        <map name="image-fileAMap">
+            <area coords="1472,0,1516,25" shape="rect" id="closeBtnFileA">
+            <area coords="186,237,332,408" shape="rect" id="expositiveFileA">
+        </map>
+    </div>
+    <!--Jogo 1- Parte teórica e onde o exercício prático deve aparecer-->
+    <div class="container-fluid d-flex justify-content-center align-items-center" id="fileBOpen">
+        <img src="..\assets\images\fileBopen.png" usemap="#image-fileBMap" id="imgFileB" class="rwdimgmap img-fluid custom-image">
+        <map name="image-fileBMap">
+            <area  coords="1461,-1,1516,25" shape="rect" id="closeBtnFileB">
+            <area  coords="177,233,359,411" shape="rect" id='expositiveFileB'>
+        </map>
+    </div>
+    <!--Jogo 3 Pasta-->
+    <div class="container d-flex justify-content-center align-items-center" id="divFileC">
+        <img src="..\assets\images\fileC.png" id="fileC" class="img-fluid custom-image" >
+    </div>
+    <!--Jogo 3- Desafio para entrar-->
+    <div class="container-fluid d-flex justify-content-center align-items-center" id="fileCOpen">
+        <img src="..\assets\images\fileCOpen.png" usemap="#image-fileCMap" id="imgFileC" class="rwdimgmap img-fluid custom-image">
+        
+        <map name="image-fileCMap">
+            <area coords="1516,29,1463,1" shape="rect" id="closeBtnFileC">
+            <area coords="177,227,305,403" shape="rect" id="Try1">
+            <area coords="333,235,458,406" shape="rect" id="Try2">
+            <area coords="477,237,609,406" shape="rect" id="CorrectFileC">
+            <area coords="621,234,742,411" shape="rect" id="Try3">
+            <area coords="755,233,891,413" shape="rect" id="Try4">
+        </map>
+    </div>
+    <!--Jogo 3- Parte teórica e onde o exercício prático deve aparecer-->
+    <div class="container-fluid d-flex justify-content-center align-items-center" id="fileCEx">
+        <img src="..\assets\images\imgFileCEx.png" usemap="#image-fileCExMap" id="imgFileCEx" class="rwdimgmap img-fluid custom-image">
+        <map name="image-fileCExMap">
+            <area coords="1468,1,1511,24" shape="rect"id='closeBtnFileCEx'>
+            <area coords="178,232,336,416" shape="rect" id="expositiveFileC">
+        </map>
+    </div>
+    <!--Jogo 4 Pasta-->
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js" integrity="sha512-eZB7hQa0bRlrKMQ2njpP0d/Klu6o30Gsr8e5FUCjUT3fSlnVkm/1J14n58BuwgaMuObrGb7SvUfQuF8qFsPU4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="../js/views/workspaceView.js"></script>
+   
+</body>
+</html>
