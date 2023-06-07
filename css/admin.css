@@ -13,8 +13,9 @@ body {
 #titleAdmin {
     font-family: 'VCRDOSDMONO';
     color: #00ff06;
-    height: 25vh;
-    padding-top: 5vh;
+    height: 10vh;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
 }
 
 /* Admin Image */
