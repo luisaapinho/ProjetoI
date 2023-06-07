@@ -78,13 +78,15 @@ class User {
   password = "";
   time = 0;
   inventory = [];
+  hasFinished=false;
 
   // Constructor for creating a new User object
-  constructor(username, email, password,time=3600) {
+  constructor(username, email, password,time=3600,hasFinished=false) {
     this.username = username;
     this.email = email;
     this.password = password;
     this.time=time;
+    this.hasFinished=hasFinished;
   }
 }
 
