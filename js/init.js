@@ -67,6 +67,13 @@ function initdata() {
             time: 1020,
             hasFinished:true,
           },
+          {
+            username: "admin1",
+            email: "admin1@gmail.com",
+            password: "admin1",
+            time: 1020,
+            hasFinished:true,
+          },
         ];
         console.log("inject");
         localStorage.setItem("users", JSON.stringify(users));
