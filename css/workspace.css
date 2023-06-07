@@ -195,15 +195,68 @@
     display: none;
   cursor:default;
 }
+
+#imgFileG{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+  cursor:default;
+}
+#imgFileGEx{
+  z-index: 1;
+  width: 65%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%); 
+    display: none;
+  cursor:default;
+}
 /*only temporary this is the 3trd game it needs to show after the first one is completed*/
 #fileC{
+  display: none;
+}
+
+#fileD{
   display: none;
 }
 
 #fileE{
   position: absolute;
   top: 10vh;
+  display:none;
 }
+
+#fileF{
+  position: absolute;
+  top:20vh;
+  display: none;
+}
+#fileG{
+  position:absolute;
+  display: none;
+}
+/*Adjust the rewards*/
+#rewards {
+  position: absolute;
+  top: 35vh;
+  left:0;
+  width: 5vw; 
+  height: auto; 
+  cursor: pointer;
+  padding-left: 1vw;
+  display: none
+}
+#spotify,#steam,#chrome{
+  padding-bottom: 0.5vw;
+}
+
 /*animations*/
 .slideIn {
   opacity: 0; /* Set initial opacity to 0 */
@@ -213,12 +266,12 @@
 
 
 /* Transição de opacidade */
-#imgTrashOpen, #imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx{
+#imgTrashOpen, #imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx,#imgFileG,#imgFileGEx{
   transition: opacity 0.2s;
 }
 
 /* Mantém a imagem fixa durante a animação */
-#imgTrashOpen.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close{
+#imgTrashOpen.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close,#imgFileG.animated-close,#imgFileGEx.animated-close{
   opacity: 0;
 }
 

@@ -170,9 +170,15 @@ const imgFileF=document.querySelector("#imgFileF");
 const closeBtnFileF=document.querySelector("#closeBtnFileF");
 //File that opens the challenge u need to do before it to go to the expositive/exercise part
 const challengeF=document.querySelector("fileImgE");
+//File where are the expositive/exercise part of the game
 const imgFileFEx=document.querySelector("imgFileFEx");
+//Close button to the file above
+const closeBtnFileFEx=document.querySelector("#closeBtnFileFEx");
+//Expositive part of the game 6
+const expositiveFileF=document.querySelector("#expositiveFileF");
 
- 
+//GAME 7
+
 
 
 
@@ -308,6 +314,21 @@ closeBtnFileE.addEventListener("click",function(){
  setTimeout(function() {
   imgFileE.style.display = 'none'; // Remove the element after the animation
    imgFileE.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+
+fileF.addEventListener("click", function(){
+  imgFileF.style.display = 'flex'; // Show the bin
+  imgFileF.classList.add("slideIn"); // Add the class to the opening animation
+  setTimeout(function() {
+    imgFileF.classList.remove("slideIn"); // Remove class after the animation
+  }, 200); // Duration of the animation in ms
+})
+closeBtnFileF.addEventListener("click",function(){
+  imgFileF.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileF.style.display = 'none'; // Remove the element after the animation
+   imgFileF.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
 // Inicializa o plugin "Responsive Image Maps"
