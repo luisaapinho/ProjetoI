@@ -11,6 +11,11 @@ export function getUsers(){
 }
 
 
+export function getUsers(){
+  users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [];
+  return users
+}
+
 // Adds a new user to the users array and updates local storage
 export function add(username, email, password) {
   if (users.some((user) => user.username === username)) {
