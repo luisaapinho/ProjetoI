@@ -6,12 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Get all users from the UserModel module
   const allUsers = User.getUsers();
 
-  // Get the first 7 users from the allUsers array
-  const selectedUsers = allUsers.slice(0, 7);
-
-
   // Call the renderTable function to display all users in the table
-  renderTable(selectedUsers);
+  renderTable(allUsers);
 });
 
 // Select the elements with IDs "adminHome" and "lupa"
