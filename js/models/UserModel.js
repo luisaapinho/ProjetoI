@@ -20,7 +20,7 @@ export function add(username, email, password) {
     localStorage.setItem("users", JSON.stringify(users));
   }
 }
-
+ 
 // Saves new user password in the local storage
 export function changePassword(user,password) {
   // Update the password of the logged-in user

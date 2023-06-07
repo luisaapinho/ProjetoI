@@ -84,7 +84,7 @@ search.addEventListener("click",async function(){
                         `;
                         
                     }
-                    c+=1
+                    c+=1 
                     
                 
 
