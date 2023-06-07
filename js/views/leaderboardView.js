@@ -15,10 +15,11 @@ search.addEventListener("click",async function(){
   
     let content = "<tr><th>RANK</th><th>USER</th><th>TIME</th><tr>";
     let userFound = false; // Flag to check if a matching user is found
-    
+    let c=0
     for (let i = 0; i < allUsers.length; i++) {
+        
         const user = allUsers[i];
-        if(i<7)
+        if(c<7)
         {
             if(user.username.includes(usernameSearched))
             {   
@@ -83,6 +84,7 @@ search.addEventListener("click",async function(){
                         `;
                         
                     }
+                    c+=1
                     
                 
 
