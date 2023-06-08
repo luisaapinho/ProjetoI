@@ -57,6 +57,21 @@ function padZero(num) {
   return (num < 10) ? `0${num}` : num;
 }
 
+function renderTableInventory()
+{
+  let content="";
+  for(let i=0;i<loggedUser.inventory.length;i++)
+  {
+    content+= `
+      <tr>
+       <td>${loggedUser.inventory[i]}</td>
+      </tr>
+
+    `
+  }
+  tableInventory.innerHTML=content
+}
+
 
 
 const pause = document.querySelector("#pause");
@@ -121,6 +136,12 @@ const CorrectFileC=document.querySelector("#CorrectFileC");
 const imgFileCEx=document.querySelector("#imgFileCEx");
 //this is the close button to the imgFileCEX
 const closeBtnFileCEx=document.querySelector("#closeBtnFileCEx");
+
+const inventoryIcon=document.querySelector("#inventoryIcon");
+const inventoryOpen=document.querySelector("#imgInventoryOpen");
+const inventoryCloseBtn=document.querySelector("#inventoryCloseBtn");
+const tableInventory=document.querySelector("#tableInventory")
+
 //The expositive part of the game 3
 const expositiveFileC=document.querySelector("#expositiveFileC");
 
@@ -211,6 +232,29 @@ closeBtn.addEventListener("click", function() {
     trashOpen.classList.remove("animated-close"); // Remove class after the animation
   }, 200); //Duration of the animation in ms
 });
+inventoryIcon.addEventListener("click", function() {
+  inventoryOpen.style.display = 'flex'; // Show the inventory
+  tableInventory.style.display = 'flex'; // Show the inventory table
+  inventoryOpen.classList.add("slideIn"); // Add the class to the opening animation
+  tableInventory.classList.add("slideIn"); // Add the class to the opening animation
+  setTimeout(function() {
+    inventoryOpen.classList.remove("slideIn"); // Remove class after the animation
+    tableInventory.classList.remove("slideIn"); // Remove class after the animation
+  }, 200); // Duration of the animation in ms
+
+  renderTableInventory();
+});
+inventoryCloseBtn.addEventListener("click", function() {
+  inventoryOpen.classList.add("animated-close"); // Add the class to the closing animation
+  tableInventory.classList.add("animated-close"); // Add the class to the closing animation
+  setTimeout(function() {
+    inventoryOpen.style.display = 'none'; // Remove the element after the animation
+    tableInventory.style.display = 'none'; // Remove the element after the animation
+    inventoryOpen.classList.remove("animated-close"); // Remove class after the animation
+    tableInventory.classList.remove("animated-close"); // Remove class after the animation
+  }, 200); //Duration of the animation in ms
+});
+
 
 fileImage.addEventListener("click", function() {
   trashOpen.classList.add("animated-close"); // Add the class to the closing animation

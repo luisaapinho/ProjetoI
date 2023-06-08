@@ -52,6 +52,28 @@
     transform: translate(-50%, -60%);
   display: none;
 }
+/*Makes the imgTrashOpen be in the center of the screen and be hidden until someone clicks the button to open it*/
+#imgInventoryOpen{
+  z-index: 1;
+  width: 55%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+  display: none;
+}
+#tableInventory{
+  z-index: 2;
+  display: none;
+  font-family: 'VCRDOSDMONO';
+  src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+  color:#00FF06;
+  font-size: 1.7vw;
+  position: fixed;
+   left:25%;
+   top:30%;
+}
 /*Makes the imgCodeForms be in the center of the screen and be hidden until someone clicks the button to open it*/
 #imgCodeForms{
   z-index: 1;
@@ -65,7 +87,7 @@
 }
 
 /*Make the image centered */
-#imgTrashOpen, #imgCodeForms {
+#imgTrashOpen, #imgCodeForms,#imgInventoryOpen {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -75,7 +97,8 @@
   height: 30vh;
 }
 
-#pause,#closeBtn,#fileImage,#closeBtnForms,#closeBtnFileA,#fileA,#fileC,#closeBtnFileC,#CorrectFileC, #Try1,#Try2,#Try3,#Try4,#closeBtnFileD{
+
+#pause,#closeBtn,#inventoryCloseBtn,#fileImage,#closeBtnForms,#closeBtnFileA,#fileA,#fileC,#closeBtnFileC,#CorrectFileC, #Try1,#Try2,#Try3,#Try4,#closeBtnFileD{
   cursor: pointer;
 }
 
@@ -266,12 +289,14 @@
 
 
 /* Transição de opacidade */
-#imgTrashOpen, #imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx,#imgFileG,#imgFileGEx{
+
+#imgTrashOpen, #imgInventoryOpen, #tableInventory,#imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx,#imgFileG,#imgFileGEx{
+
   transition: opacity 0.2s;
 }
 
-/* Mantém a imagem fixa durante a animação */
-#imgTrashOpen.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close,#imgFileG.animated-close,#imgFileGEx.animated-close{
+
+#imgTrashOpen.animated-close, #imgInventoryOpen.animated-close,#tableInventory.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close,#imgFileG.animated-close,#imgFileGEx.animated-close{
   opacity: 0;
 }
 

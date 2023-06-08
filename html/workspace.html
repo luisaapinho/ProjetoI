@@ -16,7 +16,7 @@
             <img src="..\assets\images\trashCan.png" alt="Trash" class="img-fluid custom-image" id="trashCan">
         </div>
         <div id="inventory">
-            <img src="..\assets\images\inventory.png" alt="inventory" class="img-fluid custom-image" id="inventory">
+            <img src="..\assets\images\inventory.png" alt="inventory" class="img-fluid custom-image" id="inventoryIcon">
         </div>
         <div id="rewards">
             <div id="chrome">
@@ -28,6 +28,7 @@
             <div id="steam">
                 <img src="..\assets\images\steamIcon.png" class="img-fluid custom-image" id="steam">
             </div>
+
         </div>
     </div>
       <!--Código para jogo 6-->
@@ -50,6 +51,20 @@
             <area coords="54,182,192,342" shape="rect" id="fileImageTrash">
         </map>
     </div>
+    <!--Inventário aberto-->
+    <div class="container d-flex justify-content-center align-items-center" id="inventoryOpen">
+        <img src="..\assets\images\inventoryOpen.png" id="imgInventoryOpen" usemap="#image-inventoryMap">
+        <map name="image-inventoryMap">
+            <area coords="1088,14,1128,36" shape="rect" id="inventoryCloseBtn">
+        </map>
+        <div class="container d-flex justify-content-center align-items-center">
+            <table id="tableInventory">
+                <tr><td>"THE"</td></tr>
+                <tr><td>"GAME"</td></tr>
+            </table>
+        </div>
+    </div>
+
     <!--Foto das formas geométricas- Código para jogo 4-->
     <div class="container d-flex justify-content-center align-items-center" id="fileImageOpen">
         <img src="..\assets\images\trashForms.png" usemap="#image-FormMap"id='imgCodeForms'class="rwdimgmap">
