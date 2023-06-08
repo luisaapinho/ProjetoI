@@ -5,8 +5,11 @@ let users = [];
 export function init() {
   users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [];
 }
+
 export function getUsers(){
+  // Retrieve the "users" data from local storage
   users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [];
+  // Return the retrieved users
   return users
 }
 
