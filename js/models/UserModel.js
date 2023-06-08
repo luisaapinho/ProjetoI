@@ -101,11 +101,12 @@ class User {
   hasFinished=false;
 
   // Constructor for creating a new User object
-  constructor(username, email, password,time=3600,hasFinished=false) {
+  constructor(username, email, password,time=3600, inventory=[],hasFinished=false) {
     this.username = username;
     this.email = email;
     this.password = password;
     this.time=time;
+    this.inventory=inventory;
     this.hasFinished=hasFinished;
   }
 }

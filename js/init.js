@@ -8,6 +8,7 @@ function initdata() {
             email: "luisa@gmail.com",
             password: "luisa123",
             time: 3010,
+            inventory:[],
             hasFinished:true,
 
           },
@@ -16,6 +17,7 @@ function initdata() {
             email: "nelson@gmail.com",
             password: "nelson123",
             time: 2920,
+            inventory:[],
             hasFinished:true,
           },
           {
@@ -23,6 +25,7 @@ function initdata() {
             email: "simao@gmail.com",
             password: "simao123",
             time: 2345,
+            inventory:[],
             hasFinished:true,
           },
           {
@@ -30,6 +33,7 @@ function initdata() {
             email: "nerdgamer@gmail.com",
             password: "nerd123",
             time: 2000,
+            inventory:[],
             hasFinished:true,
           },
           {
@@ -37,6 +41,7 @@ function initdata() {
             email: "gamergirl@gmail.com",
             password: "girl123",
             time: 1910,
+            inventory:[],
             hasFinished:true,
           },
           {
@@ -44,6 +49,15 @@ function initdata() {
             email: "teste@gmail.com",
             password: "teste123",
             time: 1910,
+            inventory:['"the"'],
+            hasFinished:false,
+          },
+          {
+            username: "teste2",
+            email: "teste2@gmail.com",
+            password: "teste123",
+            time: 1910,
+            inventory:['"the"','"real"','"game"'],
             hasFinished:false,
           },
           {
@@ -51,6 +65,7 @@ function initdata() {
             email: "mei@gmail.com",
             password: "mei123",
             time: 1610,
+            inventory:[],
             hasFinished:true,
           },
           {
@@ -58,6 +73,7 @@ function initdata() {
             email: "steca@gmail.com",
             password: "steca123",
             time: 1320,
+            inventory:[],
             hasFinished:true,
           },
           {
@@ -65,6 +81,7 @@ function initdata() {
             email: "demon@gmail.com",
             password: "demon123",
             time: 1020,
+            inventory:[],
             hasFinished:true,
           },
         ];
