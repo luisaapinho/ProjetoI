@@ -105,6 +105,13 @@ function updateRewards() // UPDATE REWARDS
     steam.style.display= 'flex';
     document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
   }
+  if(loggedUser.inventory.length==5)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+    steam.style.display= 'flex';
+    document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
+  }
 
   
   

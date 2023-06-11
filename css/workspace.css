@@ -276,7 +276,7 @@
   padding-left: 0.5vw;
 }
 #spotify,#steam,#chrome{
-  padding-bottom: 2.2vh;
+  padding-top: 2.2vh;
   display: none;
 }
 
