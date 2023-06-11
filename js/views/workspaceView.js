@@ -480,7 +480,11 @@ okEnding.addEventListener("click", function(){
   const word5=document.querySelector("#word5").value;
   console.log("oi");
   if(word1 === "The" && word2 === "real" && word3 === "game" && word4 === "starts" && word5 === "now") {
+    //SHOW ANIMATION LETTER
     
+  }
+  else{
+    //SHOW SAM MESSAGE
   }
 });
 
