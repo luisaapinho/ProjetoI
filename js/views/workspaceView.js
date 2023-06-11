@@ -296,6 +296,10 @@ closeBtnFileA.addEventListener("click",function(){
   }, 200); //Duration of the animation in ms
 })
 
+expositiveFileA.addEventListener("click", () => {
+  window.open("../assets/pdf/variables.pdf", "_blank");
+});
+
 fileB.addEventListener("click", function(){
   imgFileB.style.display = 'flex'; // Show the bin
   imgFileB.classList.add("slideIn"); // Add the class to the opening animation
@@ -311,6 +315,10 @@ closeBtnFileB.addEventListener("click",function(){
    imgFileB.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
+
+expositiveFileB.addEventListener("click", () => {
+  window.open("../assets/pdf/variables.pdf", "_blank");
+});
 
 fileC.addEventListener("click", function(){
   imgFileC.style.display = 'flex'; // Show the bin
