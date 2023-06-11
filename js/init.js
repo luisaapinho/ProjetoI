@@ -57,7 +57,7 @@ function initdata() {
             email: "teste2@gmail.com",
             password: "teste123",
             time: 1910,
-            inventory:['"the"'],
+            inventory:['"The"'],
             hasFinished:false,
           },
           {
@@ -65,7 +65,7 @@ function initdata() {
             email: "teste2@gmail.com",
             password: "teste123",
             time: 1910,
-            inventory:['"the"','"real"'],
+            inventory:['"The"','"real"'],
             hasFinished:false,
           },
           {
@@ -73,7 +73,7 @@ function initdata() {
             email: "teste2@gmail.com",
             password: "teste123",
             time: 1910,
-            inventory:['"the"','"real"','"game"'],
+            inventory:['"The"','"real"','"game"'],
             hasFinished:false,
           },
           {
@@ -81,15 +81,15 @@ function initdata() {
             email: "teste2@gmail.com",
             password: "teste123",
             time: 1910,
-            inventory:['"the"','"real"','"game"','"starts"'],
+            inventory:['"The"','"real"','"game"','"starts"'],
             hasFinished:false,
           },
           {
-            username: "teste4",
+            username: "teste5",
             email: "teste2@gmail.com",
             password: "teste123",
             time: 1910,
-            inventory:['"the"','"real"','"game"','"starts"','"now"'],
+            inventory:['"The"','"real"','"game"','"starts"','"now"'],
             hasFinished:false,
           },
           {
