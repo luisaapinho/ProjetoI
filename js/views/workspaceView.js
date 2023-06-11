@@ -214,6 +214,10 @@ const closeBtnFileGEx=document.querySelector("#closeBtnFileGEx");
 //Expositive part of the game 6
 const expositiveFileG=document.querySelector("#expositiveFileg");
 
+//ENDING
+
+
+
 
 
 
@@ -404,6 +408,63 @@ closeBtnFileG.addEventListener("click",function(){
    imgFileG.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
+
+// Ending riddle and cutscene
+
+const endingFile=document.querySelector("#endingFile");
+const endingOpen=document.querySelector("#imgEndingOpen");
+const endingCloseBtn=document.querySelector("#closeEnding");
+const formEnding=document.querySelector("#formEnding")
+const okEnding=document.querySelector("#okEnding")
+
+checkEnding()
+
+function checkEnding(){
+  if(loggedUser.inventory.length==5)
+  {
+    endingFile.style.display="flex";
+  }
+  else
+  {
+    endingFile.style.display="none";
+  }
+}
+
+
+endingFile.addEventListener("click", function(){
+  endingOpen.style.display = 'flex'; // Show the ending challenge
+  endingOpen.classList.add("slideIn"); // Add the class to the opening animation´
+  formEnding.style.display = 'flex'; // Show the form
+  formEnding.classList.add("slideIn"); // Add the class to the opening animation´
+  setTimeout(function() {
+    endingOpen.classList.remove("slideIn"); // Remove class after the animation
+    formEnding.classList.remove("slideIn"); // Remove class after the animation
+  }, 200); // Duration of the animation in ms
+})
+endingCloseBtn.addEventListener("click",function(){
+  endingOpen.classList.add("animated-close"); // Add the class to the closing animation
+  formEnding.classList.add("animated-close"); // Add the class to the closing animation
+  
+ setTimeout(function() {
+  endingOpen.style.display = 'none'; // Remove the element after the animation
+  endingOpen.classList.remove("animated-close"); // Remove class after the animation
+  formEnding.style.display = 'none'; // Remove the element after the animation
+  formEnding.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+okEnding.addEventListener("click", function(){
+  const word1=document.querySelector("#word1").value;
+  const word2=document.querySelector("#word2").value;
+  const word3=document.querySelector("#word3").value;
+  const word4=document.querySelector("#word4").value;
+  const word5=document.querySelector("#word5").value;
+  console.log("oi");
+  if(word1 === "The" && word2 === "real" && word3 === "game" && word4 === "starts" && word5 === "now") {
+    
+  }
+});
+
+
 
 // Inicializa o plugin "Responsive Image Maps"
 $('img[usemap]').rwdImageMaps();
