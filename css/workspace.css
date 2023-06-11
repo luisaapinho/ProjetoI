@@ -268,16 +268,16 @@
 /*Adjust the rewards*/
 #rewards {
   position: absolute;
-  top: 35vh;
+  top: 30vh;
   left:0;
   width: 5vw; 
   height: auto; 
   cursor: pointer;
-  padding-left: 1vw;
-  display: none
+  padding-left: 0.5vw;
 }
 #spotify,#steam,#chrome{
-  padding-bottom: 0.5vw;
+  padding-top: 2.2vh;
+  display: none;
 }
 
 /*animations*/

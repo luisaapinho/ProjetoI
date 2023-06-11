@@ -57,7 +57,7 @@ function padZero(num) {
   return (num < 10) ? `0${num}` : num;
 }
 
-function renderTableInventory()
+function renderTableInventory() // RENDER USER INVENTORY
 {
   let content="";
   for(let i=0;i<loggedUser.inventory.length;i++)
@@ -74,13 +74,61 @@ function renderTableInventory()
 
 
 
+function updateRewards() // UPDATE REWARDS
+{
+  //REWARD ICONS
+
+  const chrome=document.querySelector("#chrome");
+  const spotify=document.querySelector("#spotify");
+  const steam=document.querySelector("#steam");
+  
+  console.log(loggedUser.inventory)
+  if(loggedUser.inventory.length==1)
+  {
+    chrome.style.display= 'flex';
+  }
+  if(loggedUser.inventory.length==2)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+  }
+  if(loggedUser.inventory.length==3)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+    steam.style.display= 'flex';
+  }
+  if(loggedUser.inventory.length==4)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+    steam.style.display= 'flex';
+    document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
+  }
+  if(loggedUser.inventory.length==5)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+    steam.style.display= 'flex';
+    document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
+  }
+
+  
+  
+}
+
+updateRewards()
+
+
+
 const pause = document.querySelector("#pause");
 pause.addEventListener("click", function(event) {
   event.preventDefault(); // takes to the pauseScreen when clicked the windows button
   window.location.href = "../html/pauseScreen.html";
 });
 
-//ICONS THAT DONT ARE GAMES
+
+//ICONS THAT AREN'T GAMES
 
 //Trash bin icon
 const trashCan = document.querySelector("#trashCan");
