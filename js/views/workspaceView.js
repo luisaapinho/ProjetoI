@@ -336,6 +336,10 @@ closeBtnFileC.addEventListener("click",function(){
  }, 200); //Duration of the animation in ms
 })
 
+expositiveFileC.addEventListener("click", () => {
+  window.open("../assets/videos/if-elseif-else.mp4", "_blank");
+});
+
 CorrectFileC.addEventListener("click", function() {
   imgFileC.classList.add("animated-close"); // Add the class to the closing animation
   setTimeout(function() {
