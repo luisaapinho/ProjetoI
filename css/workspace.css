@@ -256,12 +256,12 @@
   display:none;
 }
 
-#fileF{
+#fileF{/*Close button not in the correct spot*/
   position: absolute;
   top:20vh;
   display: none;
 }
-#fileG{
+#fileG{ /*Close button not working*/
   position:absolute;
   display: none;
 }
