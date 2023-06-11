@@ -54,7 +54,7 @@ function initdata() {
           },
           {
             username: "teste1",
-            email: "teste2@gmail.com",
+            email: "teste@gmail.com",
             password: "teste123",
             time: 1910,
             inventory:['"The"'],

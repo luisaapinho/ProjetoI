@@ -34,7 +34,7 @@
     top: 0;
     right: 0;
     color: white;
-    font-size: 12px;}
+    font-size: 1.3vw;}
 
 /*Align the image to the full size of the screen*/
 #divTaskBar{
@@ -256,12 +256,12 @@
   display:none;
 }
 
-#fileF{
+#fileF{/*Close button not in the correct spot*/
   position: absolute;
   top:20vh;
   display: none;
 }
-#fileG{
+#fileG{ /*Close button not working*/
   position:absolute;
   display: none;
 }
@@ -288,15 +288,15 @@
 }
 
 
-/* Transição de opacidade */
+/* Opacity transition */
 
-#imgTrashOpen, #imgInventoryOpen, #tableInventory,#imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx,#imgFileG,#imgFileGEx{
+#imgTrashOpen, #imgInventoryOpen, #tableInventory,#imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx,#imgFileG,#imgFileGEx,#imgEndingOpen,#formEnding{
 
   transition: opacity 0.2s;
 }
 
 
-#imgTrashOpen.animated-close, #imgInventoryOpen.animated-close,#tableInventory.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close,#imgFileG.animated-close,#imgFileGEx.animated-close{
+#imgTrashOpen.animated-close, #imgInventoryOpen.animated-close,#tableInventory.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close,#imgFileG.animated-close,#imgFileGEx.animated-close,#imgEndingOpen.animated-close,#formEnding.animated-close{
   opacity: 0;
 }
 
@@ -317,7 +317,7 @@
   src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
   font-size: 1.5vw;
   position: fixed;
-  bottom: -1.2vh;
+  bottom: -1.8vh;
   right: 4vw;
   z-index: 1;
   color:white;
@@ -326,11 +326,64 @@
 @media only screen and (max-width: 1000px) and (orientation: landscape) {
   #timer{
     
-    bottom: -3.5vh;
+    bottom: -4vh;
    
   
   }
 }
 
+#endingFile{
+  position: absolute;
+  bottom: 10vh;
+  left:1vw;
+  display:flex;
+}
   
+#imgEndingOpen{
+  z-index: 1;
+  width: 55%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+  display: none;
+}
+
+#word1,#word2,#word3,#word4,#word5{
+  text-align: center;
+  font-family: 'VCRDOSDMONO';
+  src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+  border: none;
+  background-color: black;
+  border-bottom: 2px solid #00ff06;
+  font-size: 2vw;
+  color: white;
+  margin-right:1vw; 
+}
+#word1:focus,#word2:focus,#word3:focus,#word4:focus,#word5:focus{
+  outline: none;
+ 
+}
+#word1,#word5{
+  width: 4.5vw;
+}
+#word2,#word3{
+  width: 6vw;
+
+}
+#word4{
+  width: 8vw;
+}
+
+#formEnding{
+  display: none;
+  z-index: 3;
+  position: absolute;
+  top:30vh;
+}
+#okEnding{
+  cursor: pointer;
+}
+
 
