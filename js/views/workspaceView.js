@@ -355,6 +355,14 @@ CorrectFileC.addEventListener("click", function() {
   }, 200); // Duration of the closing animation
 });
 
+closeBtnFileCEx.addEventListener("click",function(){
+  imgFileCEx.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileCEx.style.display = 'none'; // Remove the element after the animation
+   imgFileCEx.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+
 
 fileD.addEventListener("click", function(){
   imgFileD.style.display = 'flex'; // Show the bin
