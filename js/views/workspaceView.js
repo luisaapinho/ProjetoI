@@ -57,7 +57,7 @@ function padZero(num) {
   return (num < 10) ? `0${num}` : num;
 }
 
-function renderTableInventory()
+function renderTableInventory() // RENDER USER INVENTORY
 {
   let content="";
   for(let i=0;i<loggedUser.inventory.length;i++)
@@ -74,13 +74,61 @@ function renderTableInventory()
 
 
 
+function updateRewards() // UPDATE REWARDS
+{
+  //REWARD ICONS
+
+  const chrome=document.querySelector("#chrome");
+  const spotify=document.querySelector("#spotify");
+  const steam=document.querySelector("#steam");
+  
+  console.log(loggedUser.inventory)
+  if(loggedUser.inventory.length==1)
+  {
+    chrome.style.display= 'flex';
+  }
+  if(loggedUser.inventory.length==2)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+  }
+  if(loggedUser.inventory.length==3)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+    steam.style.display= 'flex';
+  }
+  if(loggedUser.inventory.length==4)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+    steam.style.display= 'flex';
+    document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
+  }
+  if(loggedUser.inventory.length==5)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+    steam.style.display= 'flex';
+    document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
+  }
+
+  
+  
+}
+
+updateRewards()
+
+
+
 const pause = document.querySelector("#pause");
 pause.addEventListener("click", function(event) {
   event.preventDefault(); // takes to the pauseScreen when clicked the windows button
   window.location.href = "../html/pauseScreen.html";
 });
 
-//ICONS THAT DONT ARE GAMES
+
+//ICONS THAT AREN'T GAMES
 
 //Trash bin icon
 const trashCan = document.querySelector("#trashCan");
@@ -213,6 +261,10 @@ const imgFileGEx=document.querySelector("#fileImgGEx");
 const closeBtnFileGEx=document.querySelector("#closeBtnFileGEx");
 //Expositive part of the game 6
 const expositiveFileG=document.querySelector("#expositiveFileg");
+
+//ENDING
+
+
 
 
 
@@ -424,6 +476,67 @@ closeBtnFileG.addEventListener("click",function(){
    imgFileG.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
+
+// Ending riddle and cutscene
+
+const endingFile=document.querySelector("#endingFile");
+const endingOpen=document.querySelector("#imgEndingOpen");
+const endingCloseBtn=document.querySelector("#closeEnding");
+const formEnding=document.querySelector("#formEnding")
+const okEnding=document.querySelector("#okEnding")
+
+checkEnding()
+
+function checkEnding(){
+  if(loggedUser.inventory.length==5)
+  {
+    endingFile.style.display="flex";
+  }
+  else
+  {
+    endingFile.style.display="none";
+  }
+}
+
+
+endingFile.addEventListener("click", function(){
+  endingOpen.style.display = 'flex'; // Show the ending challenge
+  endingOpen.classList.add("slideIn"); // Add the class to the opening animation´
+  formEnding.style.display = 'flex'; // Show the form
+  formEnding.classList.add("slideIn"); // Add the class to the opening animation´
+  setTimeout(function() {
+    endingOpen.classList.remove("slideIn"); // Remove class after the animation
+    formEnding.classList.remove("slideIn"); // Remove class after the animation
+  }, 200); // Duration of the animation in ms
+})
+endingCloseBtn.addEventListener("click",function(){
+  endingOpen.classList.add("animated-close"); // Add the class to the closing animation
+  formEnding.classList.add("animated-close"); // Add the class to the closing animation
+  
+ setTimeout(function() {
+  endingOpen.style.display = 'none'; // Remove the element after the animation
+  endingOpen.classList.remove("animated-close"); // Remove class after the animation
+  formEnding.style.display = 'none'; // Remove the element after the animation
+  formEnding.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+okEnding.addEventListener("click", function(){
+  const word1=document.querySelector("#word1").value;
+  const word2=document.querySelector("#word2").value;
+  const word3=document.querySelector("#word3").value;
+  const word4=document.querySelector("#word4").value;
+  const word5=document.querySelector("#word5").value;
+  console.log("oi");
+  if(word1 === "The" && word2 === "real" && word3 === "game" && word4 === "starts" && word5 === "now") {
+    //SHOW ANIMATION LETTER
+    
+  }
+  else{
+    //SHOW SAM MESSAGE
+  }
+});
+
+
 
 // Inicializa o plugin "Responsive Image Maps"
 $('img[usemap]').rwdImageMaps();
