@@ -570,7 +570,8 @@ okEnding.addEventListener("click", function(){
   }
 });
 
-
+//EXERCISES
+    
 
 // Inicializa o plugin "Responsive Image Maps"
 $('img[usemap]').rwdImageMaps();

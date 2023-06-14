@@ -287,13 +287,13 @@
 
 /* Opacity transition */
 
-#imgTrashOpen, #imgInventoryOpen, #tableInventory,#imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx,#imgFileG,#imgFileGEx,#imgEndingOpen,#formEnding{
+#imgTrashOpen, #imgInventoryOpen, #tableInventory,#imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx,#imgFileG,#imgFileGEx,#imgEndingOpen,#formEnding,.exerciseDiv{
 
   transition: opacity 0.2s;
 }
 
 
-#imgTrashOpen.animated-close, #imgInventoryOpen.animated-close,#tableInventory.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close,#imgFileG.animated-close,#imgFileGEx.animated-close,#imgEndingOpen.animated-close,#formEnding.animated-close{
+#imgTrashOpen.animated-close, #imgInventoryOpen.animated-close,#tableInventory.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close,#imgFileG.animated-close,#imgFileGEx.animated-close,#imgEndingOpen.animated-close,#formEnding.animated-close,.exerciseDiv.animated-close{
   opacity: 0;
 }
 
@@ -384,7 +384,7 @@
 }
 
 
-.centered-div {
+.exerciseDiv {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -404,7 +404,7 @@
 }
 
 
-h2 {
+.exerciseQuestion {
     font-family: 'VCRDOSDMONO';
     font-size: 2vw;
     color: white;
@@ -412,7 +412,7 @@ h2 {
     margin-bottom: 65vh;
     
 }
-.close-icon {
+.exerciseClose {
   position: absolute;
   top: -16px;
   right: 10px;
