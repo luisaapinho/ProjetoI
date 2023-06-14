@@ -1,10 +1,27 @@
 import { getUserLogged, updateUserTime } from "../models/UserModel.js";
+import { displaySamMessage } from "../views/sam.js";
+
 
 // Retrieve the logged-in user
 const loggedUser = getUserLogged();
 // Set the countdown time (in seconds)
 
 const countdownTime = loggedUser.time; // start on the loggedUser time remaining
+
+
+if(loggedUser.time==3600)
+{
+  displaySamMessage('../assets/images/samMad.png',"So you're the inferior human being they hired to "+'"help"'+" me clean the virus that I'm already working on cleaning. This company doesn't trust me for anything, I'm almost at the point of resigning.")
+  let arrowSam=document.querySelector("#arrowSam");
+  arrowSam.addEventListener("click",function(){
+    setTimeout(()=>{
+      displaySamMessage('../assets/images/samMad.png',"These are corrupted folders that I'm STILL working on cleaning. But since you're here, make yourself useful and try to clean them, but don't come crying to me when you can't do it. You can choose one, and I'll work on cleaning the other.")
+    },1000)
+    
+  })
+  
+}
+
 
 
 
@@ -118,6 +135,23 @@ function updateRewards() // UPDATE REWARDS
 }
 
 updateRewards()
+
+const chrome=document.querySelector("#chrome");
+const spotify=document.querySelector("#spotify");
+const steam=document.querySelector("#steam");
+
+chrome.addEventListener("click",function(){
+  displaySamMessage('../assets/images/samNormal.png',"Hmm, I think you better go back to what you were doing... I haven't finished clearing the history yet.")
+
+});
+spotify.addEventListener("click",function(){
+  displaySamMessage('../assets/images/samNormal.png',"Better not... The company didn't want to make a deal with Spotify... A bit of disregard for the worker, I'd say...")
+
+});
+steam.addEventListener("click",function(){
+  displaySamMessage('../assets/images/samMad.png',"Now is not the time for that, we're almost there! FOCUS!")
+
+});
 
 
 

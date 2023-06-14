@@ -1,7 +1,7 @@
 /* Define a new font-face named 'VCRDOSDMONO' and specify the source file for the font */
 @font-face {
     font-family: 'VCRDOSDMONO';
-    src: url(VCR_OSD_MONO_1.001.ttf);
+    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
 }
 /* Set the background color of the entire page to black, remove any margin and padding, and hide any overflow content */
 body {
@@ -84,7 +84,7 @@ body {
 }
 
 /* Define styles for an element with the class 'arrow' */
-.arrow {
+.arrowSam {
      /* Position the element absolutely at the bottom right corner of its parent */
     position: absolute;
     bottom: 0;

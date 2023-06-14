@@ -1,3 +1,5 @@
+
+
 /**
  * Creates and appends a dialogue element to the body of the page.
  * @param {string} imageSrc - The source of the image to display.
@@ -19,12 +21,13 @@ function createDialogueElement(imageSrc,message) {
 
     // Create a new div element with the class 'arrow'
     let arrow = document.createElement('div');
-    arrow.className = 'arrow';
+    arrow.className = 'arrowSam';
 
     // Create a new img element, set its source to 'arrow.png', and set its alt text to 'Arrow'
     let arrowImg = document.createElement('img');
-    arrowImg.src = 'arrow.png';
+    arrowImg.src = '../assets/images/arrowSam.png';
     arrowImg.alt = 'Arrow';
+    arrowImg.id="arrowSam";
 
     // Append the arrowImg element to the arrow element
     arrow.appendChild(arrowImg);
@@ -37,19 +40,21 @@ function createDialogueElement(imageSrc,message) {
 
     // Append the dialogue element to the body of the page
     document.body.appendChild(dialogue);
+    hideSamMessage(dialogue);
 }
+
 
 /**
  * Hides the dialogue element when the arrow is clicked.
  */
-function hideSamMessage() {
-    document.querySelector('.arrow').addEventListener('click', function() {
+function hideSamMessage(dialogue) {
+    dialogue.querySelector('.arrowSam').addEventListener('click', function() {
         // Add the 'hidden' class to the dialogue element to fade it out
-        document.querySelector('.dialogue').classList.add('fadeOut');
+        dialogue.classList.add('fadeOut');
         // Wait for the fade-out animation to complete before hiding the dialogue element
         setTimeout(() => {
-            document.querySelector('.dialogue').style.display = 'none';
-          }, 500);
+            dialogue.style.display = 'none';
+        }, 500);
     });
 }
 /**
@@ -81,7 +86,7 @@ export function displaySamMessage(imageSrc, message) {
     // Call the showSamMessage function to set the text content of the text element inside the dialogue element
     showSamMessage(message);
     // Call the hideSamMessage function to add an event listener to hide the dialogue element when the arrow is clicked
-    hideSamMessage();
+    hideSamMessage(document.querySelector('.dialogue'));
 }
 
 // Call the displaySamMessage function to display a message in the dialogue element
