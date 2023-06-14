@@ -193,8 +193,41 @@ const closeBtnFileGEx=document.querySelector("#closeBtnFileGEx");
 //Expositive part of the game 6
 const expositiveFileG=document.querySelector("#expositiveFileg");
 
+//GENERATED ARCHIVES
+const generateArea = document.querySelector("#generate");
+let container = null;
 
+//Function that creates the file that u need to click to generate the exercise
+function criarArquivo(imgSrc, tituloImg) {
+  console.log("oi")
+  const containerImg = `
+    <div class="container" style="position: absolute; left: 30vw; top: 1vh; z-index: 9999;">
+      <div class="row justify-content-center align-items-center">
+        <div class="col">
+          <img class="img-fluid" src="${imgSrc}" style="width: 7.2vw; height: auto; cursor: pointer;">
+          <p class="text-center" style="position: absolute; left: 2.7vw; top: 12vh; font-size: 0.8vw;">${tituloImg}</p>
+        </div>
+      </div>
+    </div>
+  `;
 
+  const generateAreaParent = generateArea.parentElement;
+  generateAreaParent.style.position = "relative";
+
+  if (container) {
+    container.remove();
+    container = null;
+  }
+
+  container = document.createElement("div");
+  container.innerHTML = containerImg;
+  generateAreaParent.appendChild(container);
+
+  const generatedContainer = generateAreaParent.querySelector(".container");
+  generatedContainer.addEventListener("click", function () {
+    alert("Olá!");
+  });
+}
 
 
 trashCan.addEventListener("click", function() {
@@ -291,7 +324,8 @@ CorrectFileC.addEventListener("click", function() {
     imgFileC.classList.remove("animated-close"); // Remove class after the animation
     
     imgFileCEx.style.display = 'flex';   //Opens the image where are the code needed to one of the games
-    
+    criarArquivo("../assets/images/fileD.png", 'Teste');
+
     imgFileC.classList.add("slideIn"); // Add the class to the opening animation
     setTimeout(function() {
       imgFileC.classList.remove("slideIn"); // Remove class after the animation
@@ -299,6 +333,18 @@ CorrectFileC.addEventListener("click", function() {
   }, 200); // Duration of the closing animation
 });
 
+closeBtnFileCEx.addEventListener("click",function(){
+  imgFileCEx.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileCEx.style.display = 'none'; // Remove the element after the animation
+   imgFileCEx.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+
+ if (container) {
+  container.remove();
+  container = null;
+}
+})
 
 fileD.addEventListener("click", function(){
   imgFileD.style.display = 'flex'; // Show the bin
@@ -360,6 +406,8 @@ closeBtnFileG.addEventListener("click",function(){
    imgFileG.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
+
+
 
 // Inicializa o plugin "Responsive Image Maps"
 $('img[usemap]').rwdImageMaps();
