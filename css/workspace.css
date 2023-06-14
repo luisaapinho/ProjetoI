@@ -387,3 +387,26 @@
 }
 
 
+/* Media query for horizontal mobile devices with a maximum width of 1000px */
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+  /* Adjust the rewards */
+  #rewards {
+    position: absolute;
+    top: -1vh;
+    left: 12vw;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 130px;
+  }
+
+  #chrome,
+  #spotify,
+  #steam {
+    margin: 0 0.5vw;
+    padding-right: 1vw;
+  }
+}
+
+
