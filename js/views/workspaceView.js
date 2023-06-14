@@ -1,10 +1,27 @@
 import { getUserLogged, updateUserTime } from "../models/UserModel.js";
+import { displaySamMessage } from "../views/sam.js";
+
 
 // Retrieve the logged-in user
 const loggedUser = getUserLogged();
 // Set the countdown time (in seconds)
 
 const countdownTime = loggedUser.time; // start on the loggedUser time remaining
+
+
+if(loggedUser.time==3600)
+{
+  displaySamMessage('../assets/images/samMad.png',"So you're the inferior human being they hired to "+'"help"'+" me clean the virus that I'm already working on cleaning. This company doesn't trust me for anything, I'm almost at the point of resigning.")
+  let arrowSam=document.querySelector("#arrowSam");
+  arrowSam.addEventListener("click",function(){
+    setTimeout(()=>{
+      displaySamMessage('../assets/images/samMad.png',"These are corrupted folders that I'm STILL working on cleaning. But since you're here, make yourself useful and try to clean them, but don't come crying to me when you can't do it. You can choose one, and I'll work on cleaning the other.")
+    },1000)
+    
+  })
+  
+}
+
 
 
 
@@ -57,6 +74,85 @@ function padZero(num) {
   return (num < 10) ? `0${num}` : num;
 }
 
+function renderTableInventory() // RENDER USER INVENTORY
+{
+  let content="";
+  for(let i=0;i<loggedUser.inventory.length;i++)
+  {
+    content+= `
+      <tr>
+       <td>${loggedUser.inventory[i]}</td>
+      </tr>
+
+    `
+  }
+  tableInventory.innerHTML=content
+}
+
+
+
+function updateRewards() // UPDATE REWARDS
+{
+  //REWARD ICONS
+
+  const chrome=document.querySelector("#chrome");
+  const spotify=document.querySelector("#spotify");
+  const steam=document.querySelector("#steam");
+  
+  console.log(loggedUser.inventory)
+  if(loggedUser.inventory.length==1)
+  {
+    chrome.style.display= 'flex';
+  }
+  if(loggedUser.inventory.length==2)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+  }
+  if(loggedUser.inventory.length==3)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+    steam.style.display= 'flex';
+  }
+  if(loggedUser.inventory.length==4)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+    steam.style.display= 'flex';
+    document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
+  }
+  if(loggedUser.inventory.length==5)
+  {
+    chrome.style.display= 'flex';
+    spotify.style.display= 'flex';
+    steam.style.display= 'flex';
+    document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
+  }
+
+  
+  
+}
+
+updateRewards()
+
+const chrome=document.querySelector("#chrome");
+const spotify=document.querySelector("#spotify");
+const steam=document.querySelector("#steam");
+
+chrome.addEventListener("click",function(){
+  displaySamMessage('../assets/images/samNormal.png',"Hmm, I think you better go back to what you were doing... I haven't finished clearing the history yet.")
+
+});
+spotify.addEventListener("click",function(){
+  displaySamMessage('../assets/images/samNormal.png',"Better not... The company didn't want to make a deal with Spotify... A bit of disregard for the worker, I'd say...")
+
+});
+steam.addEventListener("click",function(){
+  displaySamMessage('../assets/images/samMad.png',"Now is not the time for that, we're almost there! FOCUS!")
+
+});
+
 
 
 const pause = document.querySelector("#pause");
@@ -65,7 +161,8 @@ pause.addEventListener("click", function(event) {
   window.location.href = "../html/pauseScreen.html";
 });
 
-//ICONS THAT DONT ARE GAMES
+
+//ICONS THAT AREN'T GAMES
 
 //Trash bin icon
 const trashCan = document.querySelector("#trashCan");
@@ -121,6 +218,12 @@ const CorrectFileC=document.querySelector("#CorrectFileC");
 const imgFileCEx=document.querySelector("#imgFileCEx");
 //this is the close button to the imgFileCEX
 const closeBtnFileCEx=document.querySelector("#closeBtnFileCEx");
+
+const inventoryIcon=document.querySelector("#inventoryIcon");
+const inventoryOpen=document.querySelector("#imgInventoryOpen");
+const inventoryCloseBtn=document.querySelector("#inventoryCloseBtn");
+const tableInventory=document.querySelector("#tableInventory")
+
 //The expositive part of the game 3
 const expositiveFileC=document.querySelector("#expositiveFileC");
 
@@ -193,41 +296,12 @@ const closeBtnFileGEx=document.querySelector("#closeBtnFileGEx");
 //Expositive part of the game 6
 const expositiveFileG=document.querySelector("#expositiveFileg");
 
-//GENERATED ARCHIVES
-const generateArea = document.querySelector("#generate");
-let container = null;
+//ENDING
 
-//Function that creates the file that u need to click to generate the exercise
-function criarArquivo(imgSrc, tituloImg) {
-  console.log('oi');
-  const containerImg = `
-    <div class="container" style="position: absolute; left: 30vw; top: 1vh; z-index: 9999;">
-      <div class="row justify-content-center align-items-center">
-        <div class="col">
-          <img class="img-fluid" src="${imgSrc}" style="width: 7.2vw; height: auto; cursor: pointer;">
-          <p class="text-center" style="position: absolute; left: 2.7vw; top: 12vh; font-size: 0.8vw;">${tituloImg}</p>
-        </div>
-      </div>
-    </div>
-  `;
 
-  const generateAreaParent = generateArea.parentElement;
-  generateAreaParent.style.position = "relative";
 
-  if (container) {
-    container.remove();
-    container = null;
-  }
 
-  container = document.createElement("div");
-  container.innerHTML = containerImg;
-  generateAreaParent.appendChild(container);
 
-  const generatedContainer = generateAreaParent.querySelector(".container");
-  generatedContainer.addEventListener("click", function () {
-    alert("Olá!");
-  });
-}
 
 
 trashCan.addEventListener("click", function() {
@@ -244,6 +318,29 @@ closeBtn.addEventListener("click", function() {
     trashOpen.classList.remove("animated-close"); // Remove class after the animation
   }, 200); //Duration of the animation in ms
 });
+inventoryIcon.addEventListener("click", function() {
+  inventoryOpen.style.display = 'flex'; // Show the inventory
+  tableInventory.style.display = 'flex'; // Show the inventory table
+  inventoryOpen.classList.add("slideIn"); // Add the class to the opening animation
+  tableInventory.classList.add("slideIn"); // Add the class to the opening animation
+  setTimeout(function() {
+    inventoryOpen.classList.remove("slideIn"); // Remove class after the animation
+    tableInventory.classList.remove("slideIn"); // Remove class after the animation
+  }, 200); // Duration of the animation in ms
+
+  renderTableInventory();
+});
+inventoryCloseBtn.addEventListener("click", function() {
+  inventoryOpen.classList.add("animated-close"); // Add the class to the closing animation
+  tableInventory.classList.add("animated-close"); // Add the class to the closing animation
+  setTimeout(function() {
+    inventoryOpen.style.display = 'none'; // Remove the element after the animation
+    tableInventory.style.display = 'none'; // Remove the element after the animation
+    inventoryOpen.classList.remove("animated-close"); // Remove class after the animation
+    tableInventory.classList.remove("animated-close"); // Remove class after the animation
+  }, 200); //Duration of the animation in ms
+});
+
 
 fileImage.addEventListener("click", function() {
   trashOpen.classList.add("animated-close"); // Add the class to the closing animation
@@ -285,6 +382,10 @@ closeBtnFileA.addEventListener("click",function(){
   }, 200); //Duration of the animation in ms
 })
 
+expositiveFileA.addEventListener("click", () => {
+  window.open("../assets/pdf/variables.pdf", "_blank");
+});
+
 fileB.addEventListener("click", function(){
   imgFileB.style.display = 'flex'; // Show the bin
   imgFileB.classList.add("slideIn"); // Add the class to the opening animation
@@ -300,6 +401,10 @@ closeBtnFileB.addEventListener("click",function(){
    imgFileB.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
+
+expositiveFileB.addEventListener("click", () => {
+  window.open("../assets/pdf/variables.pdf", "_blank");
+});
 
 fileC.addEventListener("click", function(){
   imgFileC.style.display = 'flex'; // Show the bin
@@ -317,6 +422,10 @@ closeBtnFileC.addEventListener("click",function(){
  }, 200); //Duration of the animation in ms
 })
 
+expositiveFileC.addEventListener("click", () => {
+  window.open("../assets/videos/if-elseif-else.mp4", "_blank");
+});
+
 CorrectFileC.addEventListener("click", function() {
   imgFileC.classList.add("animated-close"); // Add the class to the closing animation
   setTimeout(function() {
@@ -324,8 +433,7 @@ CorrectFileC.addEventListener("click", function() {
     imgFileC.classList.remove("animated-close"); // Remove class after the animation
     
     imgFileCEx.style.display = 'flex';   //Opens the image where are the code needed to one of the games
-    criarArquivo("../assets/images/fileD.png", 'Teste');
-
+    
     imgFileC.classList.add("slideIn"); // Add the class to the opening animation
     setTimeout(function() {
       imgFileC.classList.remove("slideIn"); // Remove class after the animation
@@ -339,12 +447,8 @@ closeBtnFileCEx.addEventListener("click",function(){
   imgFileCEx.style.display = 'none'; // Remove the element after the animation
    imgFileCEx.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
-
- if (container) {
-  container.remove();
-  container = null;
-}
 })
+
 
 fileD.addEventListener("click", function(){
   imgFileD.style.display = 'flex'; // Show the bin
@@ -406,6 +510,65 @@ closeBtnFileG.addEventListener("click",function(){
    imgFileG.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
+
+// Ending riddle and cutscene
+
+const endingFile=document.querySelector("#endingFile");
+const endingOpen=document.querySelector("#imgEndingOpen");
+const endingCloseBtn=document.querySelector("#closeEnding");
+const formEnding=document.querySelector("#formEnding")
+const okEnding=document.querySelector("#okEnding")
+
+checkEnding()
+
+function checkEnding(){
+  if(loggedUser.inventory.length==5)
+  {
+    endingFile.style.display="flex";
+  }
+  else
+  {
+    endingFile.style.display="none";
+  }
+}
+
+
+endingFile.addEventListener("click", function(){
+  endingOpen.style.display = 'flex'; // Show the ending challenge
+  endingOpen.classList.add("slideIn"); // Add the class to the opening animation´
+  formEnding.style.display = 'flex'; // Show the form
+  formEnding.classList.add("slideIn"); // Add the class to the opening animation´
+  setTimeout(function() {
+    endingOpen.classList.remove("slideIn"); // Remove class after the animation
+    formEnding.classList.remove("slideIn"); // Remove class after the animation
+  }, 200); // Duration of the animation in ms
+})
+endingCloseBtn.addEventListener("click",function(){
+  endingOpen.classList.add("animated-close"); // Add the class to the closing animation
+  formEnding.classList.add("animated-close"); // Add the class to the closing animation
+  
+ setTimeout(function() {
+  endingOpen.style.display = 'none'; // Remove the element after the animation
+  endingOpen.classList.remove("animated-close"); // Remove class after the animation
+  formEnding.style.display = 'none'; // Remove the element after the animation
+  formEnding.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+okEnding.addEventListener("click", function(){
+  const word1=document.querySelector("#word1").value;
+  const word2=document.querySelector("#word2").value;
+  const word3=document.querySelector("#word3").value;
+  const word4=document.querySelector("#word4").value;
+  const word5=document.querySelector("#word5").value;
+  console.log("oi");
+  if(word1 === "The" && word2 === "real" && word3 === "game" && word4 === "starts" && word5 === "now") {
+    //SHOW ANIMATION LETTER
+    
+  }
+  else{
+    //SHOW SAM MESSAGE
+  }
+});
 
 
 
