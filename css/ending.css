@@ -32,14 +32,6 @@ h2 {
     margin-bottom: 7vh;
 }
 
-/* Set the h2 properties */
-h3 {
-    font-family: 'VCRDOSDMONO';
-    font-size: 2vw;
-    color: #00ff06;
-    margin-top: 0; /* Add margin-top to move it further to the top */
-}
-
 /* Set the horizontal properties */
 .horizontal {
     display: flex;
@@ -48,7 +40,7 @@ h3 {
     width: 30%;
 }
 
-/* Add this CSS to style the input fields */
+/* Style the input fields */
 .horizontal input[type="text"] {
     text-align: center;
     border: none;
@@ -65,29 +57,39 @@ h3 {
     outline: none;
 }
 
-/* Add this CSS to remove the up and down arrows */
+/* CSS to remove the up and down arrows */
 .horizontal input[type="text"]::-webkit-outer-spin-button,
 .horizontal input[type="text"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
+/* Set the first input properties */
 .horizontal input:nth-child(1) {
     width: 2em;
 }
+
+/* Set the second input properties */
 .horizontal input:nth-child(2) {
     width: 2.5em;
 }
+
+/* Set the third input properties */
 .horizontal input:nth-child(3) {
     width: 2.5em;
 }
+
+/* Set the fourth input properties */
 .horizontal input:nth-child(4) {
     width: 3.5em;
 }
+
+/* Set the fifth input properties */
 .horizontal input:nth-child(5) {
     width: 2em;
 }
 
+/* Set the words img properties */
 #words {
     width: 60%;
     height: auto;
@@ -127,35 +129,34 @@ h3 {
 
 /* Define the keyframes for the shake animation */
 @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    50% { transform: translateX(10px); }
-    75% { transform: translateX(-10px); }
-    100% { transform: translateX(0); }
+    0% { transform: translate(-50%, -50%); }
+    25% { transform: translate(-52%, -50%); }
+    50% { transform: translate(-48%, -50%); }
+    75% { transform: translate(-52%, -50%); }
+    100% { transform: translate(-50%, -50%); }
 }
+
+
 
 /* Media query for horizontal mobile devices with a maximum width of 1000px */
 @media only screen and (max-width: 1000px) and (orientation: landscape) {
+    /* Set the centered div properties for mobile landscape */
     .centered-div {
         width: 70%;
         height: 70%;
     }
 
+    /* Set the h2 properties for mobile landscape */
     h2 {
         font-size: 1.5em;
     }
-
-    h3 {
-        font-size: 1.5em;
-    }
-
-    /* Add this CSS to style the input fields */
+   
+    /*CSS to style the input fields */
     .horizontal input[type="text"] {
     font-size: 1.5em;
     }
 
-    
-
+    /* Set the submit button properties for mobile landscape */
     .submitBtn {
         font-size: 1.2em;
         width: 6vw;
