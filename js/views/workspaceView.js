@@ -574,62 +574,65 @@ function resetCode() {
 function playAudio(audioFile) {
     const audio = new Audio(audioFile); // Create a new Audio object with the provided audio file
     audio.play(); // Play the audio file
-  }
+}
   
-  /**
-   * Handles the submission of the entered code and performs necessary actions based on correctness.
-   */
-  function submitCode() {
-    const word1 = document.querySelector("#word1").value;
-    const word2 = document.querySelector("#word2").value;
-    const word3 = document.querySelector("#word3").value;
-    const word4 = document.querySelector("#word4").value;
-    const word5 = document.querySelector("#word5").value;
-  
-  
-    // Check if the entered code matches the target code
-    if (word1 == "The" && word2 == "real" && word3 == "game" && word4 == "starts" && word5 == "now" ) {
-      const container = document.querySelector('.centered-div');
-  
-      // Set the container's border color to green
-      container.style.borderColor = 'green';
-  
-      // Play the audio for correct answer
-      playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+/**
+ * Handles the submission of the entered code and performs necessary actions based on correctness.
+ */
+function submitCode() {
+  // Retrieve the values of the input fields with specific IDs
+  const word1 = document.querySelector("#word1").value;
+  const word2 = document.querySelector("#word2").value;
+  const word3 = document.querySelector("#word3").value;
+  const word4 = document.querySelector("#word4").value;
+  const word5 = document.querySelector("#word5").value;
 
-      setTimeout(() => {
-        window.location.href = "../html/fim.html"
-      }, 2500);
-      
-  
-    } else {
-      // Code is incorrect
-      const container = document.querySelector('.centered-div');
-  
-      // Set the container's border color to red
-      container.style.borderColor = 'red';
-  
-      // Play the audio for incorrect answer
-      playAudio("../assets/audios/wrongAnswer.mp3", "incorrectAnswer")
-  
-      // Shake effect
-      const centeredDiv = document.querySelector('.centered-div');
-  
-      // Add the 'shake' class to initiate shaking effect
-      centeredDiv.classList.add('shake');
-      setTimeout(() => {
-        resetCode()
-        centeredDiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
-      }, 2500);
-    }
-  }
 
-  
-  // Attach event listener to the submit button
-  const submitButton = document.querySelector('.submitBtn');
-  submitButton.addEventListener('click', () => {
-    submitCode();
-  });
+  // Check if the entered code matches the target code
+  if (word1 == "The" && word2 == "real" && word3 == "game" && word4 == "starts" && word5 == "now" ) {
+    const container = document.querySelector('.centered-div');
+
+    // Code matches the target code
+    // Set the container's border color to green
+    container.style.borderColor = 'green';
+
+    // Play the audio for correct answer
+    playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+
+    // Waits 2.5 seconds and redirects to the end page
+    setTimeout(() => {
+      window.location.href = "../html/fim.html"
+    }, 2500);
+    
+
+  } else {
+    // Code is incorrect
+    const container = document.querySelector('.centered-div');
+
+    // Set the container's border color to red
+    container.style.borderColor = 'red';
+
+    // Play the audio for incorrect answer
+    playAudio("../assets/audios/wrongAnswer.mp3", "incorrectAnswer")
+
+    // Shake effect
+    const centeredDiv = document.querySelector('.centered-div');
+
+    // Add the 'shake' class to initiate shaking effect
+    centeredDiv.classList.add('shake');
+    setTimeout(() => {
+      resetCode()
+      centeredDiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+    }, 2500);
+  }
+}
+
+
+// Attach event listener to the submit button
+const submitButton = document.querySelector('.submitBtn');
+submitButton.addEventListener('click', () => {
+  submitCode();
+});
 
 
 
