@@ -93,6 +93,15 @@ export function updateUserTime(username, time) {
   }
 }
 
+export function updateUserStatus(username) {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  const userIndex = users.findIndex((user) => user.username === username);
+  if (userIndex !== -1) {
+    users[userIndex].hasFinished = true;
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+}
+
 
 // User class definition
 class User {
