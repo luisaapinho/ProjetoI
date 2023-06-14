@@ -199,7 +199,7 @@ let container = null;
 
 //Function that creates the file that u need to click to generate the exercise
 function criarArquivo(imgSrc, tituloImg) {
-  console.log("oi")
+  console.log('oi');
   const containerImg = `
     <div class="container" style="position: absolute; left: 30vw; top: 1vh; z-index: 9999;">
       <div class="row justify-content-center align-items-center">
