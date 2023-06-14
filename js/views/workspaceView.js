@@ -514,10 +514,8 @@ closeBtnFileG.addEventListener("click",function(){
 // Ending riddle and cutscene
 
 const endingFile=document.querySelector("#endingFile");
-const endingOpen=document.querySelector("#imgEndingOpen");
-const endingCloseBtn=document.querySelector("#closeEnding");
-const formEnding=document.querySelector("#formEnding")
-const okEnding=document.querySelector("#okEnding")
+const endingOpen=document.querySelector(".centered-div");
+const endingCloseBtn=document.querySelector("#close-end");
 
 checkEnding()
 
@@ -536,16 +534,13 @@ function checkEnding(){
 endingFile.addEventListener("click", function(){
   endingOpen.style.display = 'flex'; // Show the ending challenge
   endingOpen.classList.add("slideIn"); // Add the class to the opening animation´
-  formEnding.style.display = 'flex'; // Show the form
-  formEnding.classList.add("slideIn"); // Add the class to the opening animation´
   setTimeout(function() {
     endingOpen.classList.remove("slideIn"); // Remove class after the animation
-    formEnding.classList.remove("slideIn"); // Remove class after the animation
   }, 200); // Duration of the animation in ms
 })
+
 endingCloseBtn.addEventListener("click",function(){
   endingOpen.classList.add("animated-close"); // Add the class to the closing animation
-  formEnding.classList.add("animated-close"); // Add the class to the closing animation
   
  setTimeout(function() {
   endingOpen.style.display = 'none'; // Remove the element after the animation
@@ -554,21 +549,87 @@ endingCloseBtn.addEventListener("click",function(){
   formEnding.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
-okEnding.addEventListener("click", function(){
-  const word1=document.querySelector("#word1").value;
-  const word2=document.querySelector("#word2").value;
-  const word3=document.querySelector("#word3").value;
-  const word4=document.querySelector("#word4").value;
-  const word5=document.querySelector("#word5").value;
-  console.log("oi");
-  if(word1 === "The" && word2 === "real" && word3 === "game" && word4 === "starts" && word5 === "now") {
-    //SHOW ANIMATION LETTER
-    
+
+// Get the inputs
+const inputs = document.querySelectorAll('input');
+
+/**
+ * Resets the code input by clearing the input values.
+ */
+function resetCode() {
+    // Clear the input values
+    inputs.forEach((input) => {
+      input.value = "";  // Set the input value to empty, effectively resetting it
+    });
+  
+    // Reset the container's border color
+    const container = document.querySelector('.centered-div');
+    container.style.borderColor = 'white';
   }
-  else{
-    //SHOW SAM MESSAGE
+  
+/**
+ * Plays an audio file.
+ * @param {string} audioFile - The path or URL of the audio file to be played.
+ */
+function playAudio(audioFile) {
+    const audio = new Audio(audioFile); // Create a new Audio object with the provided audio file
+    audio.play(); // Play the audio file
   }
-});
+  
+  /**
+   * Handles the submission of the entered code and performs necessary actions based on correctness.
+   */
+  function submitCode() {
+    const word1 = document.querySelector("#word1").value;
+    const word2 = document.querySelector("#word2").value;
+    const word3 = document.querySelector("#word3").value;
+    const word4 = document.querySelector("#word4").value;
+    const word5 = document.querySelector("#word5").value;
+  
+  
+    // Check if the entered code matches the target code
+    if (word1 == "The" && word2 == "real" && word3 == "game" && word4 == "starts" && word5 == "now" ) {
+      const container = document.querySelector('.centered-div');
+  
+      // Set the container's border color to green
+      container.style.borderColor = 'green';
+  
+      // Play the audio for correct answer
+      playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+
+      setTimeout(() => {
+        window.location.href = "../html/fim.html"
+      }, 2500);
+      
+  
+    } else {
+      // Code is incorrect
+      const container = document.querySelector('.centered-div');
+  
+      // Set the container's border color to red
+      container.style.borderColor = 'red';
+  
+      // Play the audio for incorrect answer
+      playAudio("../assets/audios/wrongAnswer.mp3", "incorrectAnswer")
+  
+      // Shake effect
+      const centeredDiv = document.querySelector('.centered-div');
+  
+      // Add the 'shake' class to initiate shaking effect
+      centeredDiv.classList.add('shake');
+      setTimeout(() => {
+        resetCode()
+        centeredDiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+      }, 2500);
+    }
+  }
+
+  
+  // Attach event listener to the submit button
+  const submitButton = document.querySelector('.submitBtn');
+  submitButton.addEventListener('click', () => {
+    submitCode();
+  });
 
 
 
