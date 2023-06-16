@@ -1,6 +1,6 @@
 import { getUserLogged, updateUserTime } from "../models/UserModel.js";
 import { displaySamMessage } from "../views/sam.js";
-
+import { generateCenteredDivNewWord } from "../views/newWordView.js"
 
 // Retrieve the logged-in user
 const loggedUser = getUserLogged();
@@ -17,13 +17,8 @@ if(loggedUser.time==3600)
     setTimeout(()=>{
       displaySamMessage('../assets/images/samMad.png',"These are corrupted folders that I'm STILL working on cleaning. But since you're here, make yourself useful and try to clean them, but don't come crying to me when you can't do it. You can choose one, and I'll work on cleaning the other.")
     },1000)
-    
   })
-  
 }
-
-
-
 
 // Calculate the end time
 const endTime = new Date();
@@ -65,8 +60,6 @@ function updateTimer() {
       loggedUser.time = remainingTime;
       updateUserTime(loggedUser.username, loggedUser.time);
     }
-    
-    
   }
 }
 
@@ -311,6 +304,7 @@ trashCan.addEventListener("click", function() {
     trashOpen.classList.remove("slideIn"); // Remove class after the animation
   }, 200); // Duration of the animation in ms
 });
+
 closeBtn.addEventListener("click", function() {
   trashOpen.classList.add("animated-close"); // Add the class to the closing animation
   setTimeout(function() {
@@ -318,6 +312,7 @@ closeBtn.addEventListener("click", function() {
     trashOpen.classList.remove("animated-close"); // Remove class after the animation
   }, 200); //Duration of the animation in ms
 });
+
 inventoryIcon.addEventListener("click", function() {
   inventoryOpen.style.display = 'flex'; // Show the inventory
   tableInventory.style.display = 'flex'; // Show the inventory table
@@ -330,6 +325,7 @@ inventoryIcon.addEventListener("click", function() {
 
   renderTableInventory();
 });
+
 inventoryCloseBtn.addEventListener("click", function() {
   inventoryOpen.classList.add("animated-close"); // Add the class to the closing animation
   tableInventory.classList.add("animated-close"); // Add the class to the closing animation
@@ -633,6 +629,7 @@ const submitButton = document.querySelector('.submitBtn');
 submitButton.addEventListener('click', () => {
   submitCode();
 });
+
 
 
 
