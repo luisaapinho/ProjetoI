@@ -500,7 +500,8 @@ closeBtnFileG.addEventListener("click",function(){
    imgFileG.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
-// MINIGAME //
+
+// MINIGAME FOR FOLDER D //
 // Get the buttons and inputs
 const increaseButtonsCodeArrow = document.querySelectorAll('.input-container-codeArrow .up-arrow');
 const decreaseButtonsCodeArrow = document.querySelectorAll('.input-container-codeArrow .down-arrow');
@@ -662,6 +663,219 @@ closeBtnFileDEx.addEventListener("click",function(){
 expositiveFileD.addEventListener("click", () => {
   window.open("../assets/videos/for loop.mp4", "_blank");
 });
+
+// Select the element with class "map-container-ImageKey" and assign it to the variable "serverMapImageMap"
+let serverMapImageMap = document.querySelector(".map-container-ImageKey");
+
+// Select the <img> element within the element with class "map-container-ImageKey" and assign it to the variable "mapImageImageMap"
+let mapImageImageMap = document.querySelector(".map-container-ImageKey img");
+
+// Select the element with ID "closeMap-ImageKey" and assign it to the variable "closeMapImageMap"
+let closeMapImageMap = document.querySelector("#closeMap-ImageKey");
+
+// Initialize the variable "hasKeyImageMap" to false
+let hasKeyImageMap = false; 
+
+// Attach a click event listener to the "blueBox" element
+fileServerImg.addEventListener("click", function(){
+    imgFileE.style.display = "none";
+    // Set the "display" style property of "serverMapImageMap" to "flex"
+    serverMapImageMap.style.display = "flex";
+    // Call the function "centerImageMap()"
+    centerImageMap();
+    // Call the function "addKeyImageMap()"
+    addKeyImageMap();
+});
+
+// Attach a click event listener to the "redBox" element
+challengeE.addEventListener("click", function(){
+    imgFileE.style.display = "none";
+    // Call the function "createCenteredDivWithImageMap()" with the argument "doorClose.png"
+    createCenteredDivWithImageMap("../assets/images/doorClose.png")
+
+    // Set the "display" style property of the element with class "centered-div-ImageKey" to "block"
+    document.querySelector(".centered-div-ImageKey").style.display = "block";
+});
+
+// Attach a click event listener to the element with ID "close"
+document.querySelector("#closeImageKey").addEventListener("click", function() {
+  document.querySelector(".centered-div-ImageKey").classList.add("animated-close");
+  setTimeout(() => {
+    document.querySelector(".centered-div-ImageKey").style.display = 'none'; // Remove the element after the animation
+    document.querySelector(".centered-div-ImageKey").classList.remove("animated-close"); // Remove class after the animation
+  }, 200); //Duration of the animation in ms
+});
+
+// Attach a click event listener to the "closeMapImageMap" element
+closeMapImageMap.addEventListener("click", function(){
+    // Set the "display" style property of "serverMapImageMap" to "none"
+    serverMapImageMap.style.display = "none";
+
+    // Call the function "removeKeyImageMap()"
+    removeKeyImageMap();
+});
+
+// Function to add a key image to the server image map
+function addKeyImageMap() {
+  // Select the server image within the map container
+  let serverImageMap = document.querySelector(".map-container-ImageKey img");
+
+  // Create the key image element
+  let keyImageMap = document.createElement('img');
+  keyImageMap.src = "../assets/images/key.png"; 
+  keyImageMap.classList.add('key-image'); // Add CSS class for styling
+
+  // Generate random coordinates within the boundaries of the server image
+  let serverRect = serverImageMap.getBoundingClientRect();
+  let serverLeft = serverRect.left;
+  let serverTop = serverRect.top;
+  let serverWidth = serverRect.width;
+  let serverHeight = serverRect.height;
+  let randomX, randomY;
+
+  if (window.innerWidth <= 1000) {
+    // Adjust the key size for mobile devices
+    keyImageMap.style.width = '3%';
+    keyImageMap.style.height = 'auto';
+
+    // Calculate random coordinates within the adjusted boundaries
+    randomX = Math.floor(Math.random() * (serverWidth - keyImageMap.offsetWidth)) + serverLeft;
+    randomY = Math.floor(Math.random() * (serverHeight - keyImageMap.offsetHeight)) + serverTop;
+  } else {
+    // Default key size for other devices
+    keyImageMap.style.width = '2%';
+    keyImageMap.style.height = 'auto';
+
+    // Calculate random coordinates within the default boundaries
+    randomX = Math.floor(Math.random() * (serverWidth - keyImageMap.width)) + serverLeft;
+    randomY = Math.floor(Math.random() * (serverHeight - keyImageMap.height)) + serverTop;
+  }
+
+  // Set the position of the key image
+  keyImageMap.style.position = 'absolute';
+  keyImageMap.style.left = randomX + 'px';
+  keyImageMap.style.top = randomY + 'px';
+
+  // Append the key image to the server image
+  serverImageMap.parentNode.appendChild(keyImageMap);
+
+  // Add click event listener to the key image
+  keyImageMap.addEventListener('click', collectKeyImageMap);
+  
+  // Function to handle key collection
+  function collectKeyImageMap() {
+    // Remove the key image from the DOM
+    keyImageMap.parentNode.removeChild(keyImageMap);
+    playAudio("../assets/audios/pickUp.mp3");
+    // Set the flag to indicate that the user has collected the key
+    hasKeyImageMap = true;
+  }
+}
+
+// Function to remove the key image from the server image map
+function removeKeyImageMap() {
+    // Select the key image element
+    let keyImageMap = document.querySelector(".key-image");
+
+    // Check if the key image exists
+    if (keyImageMap) {
+      // If the key image exists, remove it from the DOM by removing its parent node
+      keyImageMap.parentNode.removeChild(keyImageMap);
+    }
+}
+
+/**
+ *  Function to create a centered div element with an image for the image map
+ * @param {string} imageUrl - The path or URL of the image to be displayed
+ */
+function createCenteredDivWithImageMap(imageUrl) {
+    // Get the existing centered div element
+    let centeredDivImageMap = document.querySelector('.centered-div-ImageKey');
+  
+    // Create the image element
+    let imageMap = document.querySelector(".centered-image-ImageKey")
+    imageMap.src = imageUrl;
+    imageMap.classList.add('centered-image-ImageKey'); // Add CSS class for styling
+  
+    // Append the image to the centered div
+    centeredDivImageMap.appendChild(imageMap);
+
+    // Attach click event listener to the door image
+    imageMap.addEventListener('click', openDoorImageMap);
+}
+  
+// Function to center the image map within the map container
+function centerImageMap() {
+    // Get the width and height of the map container
+    let mapContainerWidth = serverMapImageMap.offsetWidth;
+    let mapContainerHeight = serverMapImageMap.offsetHeight;
+
+    // Get the width and height of the image map
+    let imageMapWidth = mapImageImageMap.offsetWidth;
+    let imageMapHeight = mapImageImageMap.offsetHeight;
+
+    // Calculate the left and top positions to center the image map
+    let imageMapLeft = (mapContainerWidth - imageMapWidth) / 2 + "px";
+    let imageMapTop = (mapContainerHeight - imageMapHeight) / 2 + "px";
+
+    // Set the left and top positions of the image map
+    mapImageImageMap.style.left = imageMapLeft;
+    mapImageImageMap.style.top = imageMapTop;
+}
+
+
+/**
+ *  Function to change the door image in the image map
+
+ * @param {string} imageUrl - The path or URL of the image to be displayed
+ */
+function changeDoorImageMap(imageUrl) {
+    // Select the door image element
+    let doorImageMap = document.querySelector(".centered-image-ImageKey");
+
+    // Check if the door image element exists
+    if (doorImageMap) {
+      // If the door image element exists, set its source to the provided imageUrl
+      doorImageMap.src = imageUrl;
+    }
+}
+
+// Function to handle opening the door in the image map
+function openDoorImageMap() {
+    if (hasKeyImageMap) {
+      // User has the key, perform actions to open the door
+      playAudio("../assets/audios/lockerOpening.mp3"); // Play audio for opening the door
+      changeDoorImageMap("../assets/images/doorOpen.png"); // Change the door image to open state
+      document.querySelector(".centered-div-ImageKey").classList.add("animated-close");
+      setTimeout(() => {
+        document.querySelector(".centered-div-ImageKey").style.display = "none";
+        document.querySelector(".centered-div-ImageKey").classList.remove("animated-close");
+        imgFileEEx.style.display = "flex";
+        imgFileEEx.classList.add("slideIn"); // Add the class to the opening animation´
+        setTimeout(function() {
+          imgFileEEx.classList.remove("slideIn"); // Remove class after the animation
+        }, 200); // Duration of the animation in ms
+      }, 2000);
+    } else {
+      // User does not have the key, show error alert
+      displaySamMessage('../assets/images/samNormal.png',"I would say you needed a key to open the door... Search better!")
+
+    }
+}
+
+closeBtnFileEEx.addEventListener("click",function(){
+  imgFileEEx.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileEEx.style.display = 'none'; // Remove the element after the animation
+   imgFileEEx.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+
+expositiveFileE.addEventListener("click", () => {
+  window.open("../assets/videos/array.mp4", "_blank");
+});
+
+
 
 // Ending riddle and cutscene
 
