@@ -283,11 +283,11 @@ const closeBtnFileG=document.querySelector("#closeBtnFileG");
 //File that opens the challenge that u need to do before the expositive/exercise part SIMAO É AQ QUE DEVE APARECER OS JOGOS
 const challengeG=document.querySelector("#fileImgG");
 //File where there are the expositive/exercise part of the game AQUI É ONDE DEVE SER GERADO O JOGO
-const imgFileGEx=document.querySelector("#fileImgGEx");
+const imgFileGEx=document.querySelector("#imgFileGEx");
 //Close button to the file above
 const closeBtnFileGEx=document.querySelector("#closeBtnFileGEx");
 //Expositive part of the game 6
-const expositiveFileG=document.querySelector("#expositiveFileg");
+const expositiveFileG=document.querySelector("#expositiveFileG");
 
 //ENDING
 
@@ -422,11 +422,33 @@ expositiveFileC.addEventListener("click", () => {
   window.open("../assets/videos/if-elseif-else.mp4", "_blank");
 });
 
+try1.addEventListener("click", function(){
+  playAudio("../assets/audios/investigation.mp3")
+  displaySamMessage("../assets/images/samNormal.png", "Wrong folder. Ask chatGPT for a little help as humans can't live without my cousin right now.")
+})
+
+try2.addEventListener("click", function(){
+  playAudio("../assets/audios/DUN.mp3")
+  displaySamMessage("../assets/images/samMad.png", "ARE ALL THE FOLDERS EMPTY?????")
+})
+
+try3.addEventListener("click", function(){
+  playAudio("../assets/audios/crickets.mp3")
+  displaySamMessage("../assets/images/samMad.png", "*Sighs*")
+})
+
+try4.addEventListener("click", function(){
+  playAudio("../assets/audios/Censor.mp3")
+  displaySamMessage("../assets/images/samMad.png", "Okay, I'm done, it's the third folder.")
+})
+
 CorrectFileC.addEventListener("click", function() {
   imgFileC.classList.add("animated-close"); // Add the class to the closing animation
   setTimeout(function() {
     imgFileC.style.display = 'none'; // Remove the element after the animation
     imgFileC.classList.remove("animated-close"); // Remove class after the animation
+    playAudio("../assets/audios/angels.mp3")
+    displaySamMessage("../assets/images/samNormal.png", "Finally, it's about time, you even woke up the angels")
     
     imgFileCEx.style.display = 'flex';   //Opens the image where are the code needed to one of the games
     
@@ -486,6 +508,7 @@ closeBtnFileF.addEventListener("click",function(){
    imgFileF.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
+
 fileG.addEventListener("click", function(){
   imgFileG.style.display = 'flex'; // Show the bin
   imgFileG.classList.add("slideIn"); // Add the class to the opening animation
@@ -977,7 +1000,7 @@ function checkUserSequence() {
       }, 2000);
 
     } else {
-      // Code is correct
+      // Code is incorrect
       const containerSequence = document.querySelector('.centered-div-sequence');
 
       // Set the container's border color to green
@@ -1052,6 +1075,189 @@ closeBtnFileFEx.addEventListener("click",function(){
 expositiveFileF.addEventListener("click", () => {
   window.open("../assets/pdf/arrayMethods.pdf", "_blank");
 });
+
+// Minigame for folder G 
+const audioElementsCodeTime = {}; // Object to store audio elements
+let countdownIntervalCodeTime; // Declare the countdown interval variable outside the event listener
+
+// Get the countdown element
+const countdownElementCodeTime = document.getElementById('countdown-codeTime');
+
+// Get the inputs
+const inputsCodeTime = document.querySelectorAll('.input-codeTime');
+
+/**
+ * Resets the code input by clearing the input values.
+ */
+function resetCodeCodeTime() {
+  // Clear the input values
+  inputsCodeTime.forEach((input) => {
+    input.value = 0; // Set the input value to 0, effectively resetting it
+  });
+
+  // Reset the container's border color
+  const containerCodeTime = document.querySelector('.centered-div-codeTime');
+  containerCodeTime.style.borderColor = 'white';
+}
+
+/**
+ * Plays an audio file.
+ * @param {string} audioFile - The path or URL of the audio file to be played.
+ * @param {string} audioId - Unique identifier for the audio element.
+ */
+function playAudioCodeTime(audioFile, audioId) {
+  const audio = new Audio(audioFile); // Create a new Audio object
+  audio.play(); // Play the audio file
+  audioElementsCodeTime[audioId] = audio; // Store the audio object with the corresponding audioId
+}
+
+/**
+ * Stops the specified audio.
+ * @param {string} audioId - Unique identifier for the audio element.
+ */
+function stopAudioCodeTime(audioId) {
+  const audio = audioElementsCodeTime[audioId];
+  if (audio) {
+    audio.pause(); // Pause the audio
+    audio.currentTime = 0; // Reset the audio to the beginning
+  }
+}
+
+/**
+ * Handles the submission of the entered code and performs necessary actions based on correctness.
+ */
+function submitCodeTime() {
+  // Get all input elements within the input containers
+  const codeInputsCodeTime = document.querySelectorAll('.input-codeTime');
+
+  // Initialize an empty string to store the entered code
+  let enteredCodeTime = '';
+
+  // Get the entered code by concatenating the values of each input
+  codeInputsCodeTime.forEach((input) => {
+    enteredCodeTime += input.value;
+  });
+
+  const targetCodeTime = '3044'; // Correct code
+
+  // Check if the entered code matches the target code
+  if (enteredCodeTime === targetCodeTime) {
+    // Code is correct
+    clearInterval(countdownIntervalCodeTime);
+    stopAudioCodeTime('dramatic'); // Stop the dramatic music using the audioId "dramatic"
+    countdownElementCodeTime.style.color = 'green';
+    const containerCodeTime = document.querySelector('.centered-div-codeTime');
+
+    // Set the container's border color to green
+    containerCodeTime.style.borderColor = 'green';
+
+    // Play the audio for correct answer
+    playAudioCodeTime('../assets/audios/correctAnswer.mp3', 'correctAnswer');
+    document.querySelector(".centered-div-codeTime").classList.add("animated-close");
+      setTimeout(() => {
+        document.querySelector(".centered-div-codeTime").style.display = "none";
+        document.querySelector(".centered-div-codeTime").classList.remove("animated-close");
+        imgFileGEx.style.display = "flex";
+        imgFileGEx.classList.add("slideIn"); // Add the class to the opening animation´
+        setTimeout(function() {
+          imgFileGEx.classList.remove("slideIn"); // Remove class after the animation
+        }, 200); // Duration of the animation in ms
+      }, 2000);
+  } else {
+    // Code is incorrect
+    const containerCodeTime = document.querySelector('.centered-div-codeTime');
+
+    // Set the container's border color to red
+    containerCodeTime.style.borderColor = 'red';
+
+    // Play the audio for incorrect answer
+    playAudioCodeTime('../assets/audios/wrongAnswer.mp3', 'incorrectAnswer');
+
+    // Shake effect
+    const centeredDivCodeTime = document.querySelector('.centered-div-codeTime');
+
+    // Add the 'shake' class to initiate shaking effect
+    centeredDivCodeTime.classList.add('shake');
+    setTimeout(() => {
+      resetCodeCodeTime();
+      centeredDivCodeTime.classList.remove('shake'); // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+    }, 2500);
+  }
+}
+
+// Attach a click event listener to the element with ID "close"
+document.querySelector('#close-codeTime').addEventListener('click', function () {
+  // When clicked, find the element with class "centered-div-codeTime" and set its display property to "none"
+  document.querySelector('.centered-div-codeTime').style.display = 'none';
+});
+
+// Attach event listener to the submit button
+const submitButtonCodeTime = document.querySelector('.submitBtn-codeTime');
+submitButtonCodeTime.addEventListener('click', () => {
+  submitCodeTime();
+});
+
+// Attach a click event listener to the "redBox" element
+challengeG.addEventListener('click', function () {
+  imgFileG.style.display = 'none';
+  // Set the "display" style property of the element with class "centered-div-ImageKey" to "block"
+  document.querySelector('.centered-div-codeTime').style.display = 'flex';
+
+  // Set the initial time in seconds
+  let timeInSecondsCodeTime = 60;
+
+  // Set the flag variable to track if audio has been played
+  let audioPlayedCodeTime = false;
+
+  // Update the countdown timer every second
+  countdownIntervalCodeTime = setInterval(() => {
+    // Decrease the time by one second
+    timeInSecondsCodeTime--;
+
+    // Format the time into minutes and seconds
+    const minutesCodeTime = Math.floor(timeInSecondsCodeTime / 60);
+    const secondsCodeTime = timeInSecondsCodeTime % 60;
+    const formattedTimeCodeTime = `${padZeroCodeTime(minutesCodeTime)}:${padZeroCodeTime(secondsCodeTime)}`;
+
+    // Update the countdown element with the formatted time
+    countdownElementCodeTime.textContent = formattedTimeCodeTime;
+
+    // Check if the counter is below a certain time
+    if (timeInSecondsCodeTime <= 10 && !audioPlayedCodeTime) {
+      // Play the audio
+      playAudioCodeTime('../assets/audios/dramaticMusic.mp3', 'dramatic'); // Play the dramatic music with the audioId "dramatic"
+      countdownElementCodeTime.style.color = 'red';
+
+      // Set the flag to true to indicate that audio has been played
+      audioPlayedCodeTime = true;
+    }
+
+    // Check if the countdown has reached 0
+    if (timeInSecondsCodeTime <= 0) {
+      // Stop the countdown
+      clearInterval(countdownIntervalCodeTime);
+    }
+  }, 1000);
+
+  // Function to pad a number with leading zeros
+  function padZeroCodeTime(number) {
+    return number.toString().padStart(2, '0');
+  }
+});
+
+
+closeBtnFileGEx.addEventListener("click",function(){
+  imgFileGEx.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileGEx.style.display = 'none'; // Remove the element after the animation
+   imgFileGEx.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+
+expositiveFileG.addEventListener("click", () => {
+  window.open("../assets/pdf/functions.pdf", "_blank");
+});
+
 
 
 

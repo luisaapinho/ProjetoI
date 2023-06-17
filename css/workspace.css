@@ -98,7 +98,13 @@
 }
 
 
-#pause,#closeBtn,#inventoryCloseBtn,#fileImage,#closeBtnForms,#closeBtnFileA,#fileA,#fileC,#closeBtnFileC,#CorrectFileC, #Try1,#Try2,#Try3,#Try4,#closeBtnFileD{
+#pause, #closeBtn, #inventoryCloseBtn, #fileImage, #closeBtnForms, #closeBtnFileA, #fileA, #closeBtnFileB, #fileB, #closeBtnFileC, #closeBtnFileCEx,
+#fileC, #CorrectFileC, #Try1, #Try2, #Try3,#Try4, #closeBtnFileD, #closeBtnFileDEx, #fileD, #closeBtnFileE, #closeBtnFileEEx, #fileE,
+#closeBtnFileF, #closeBtnFileFEx, #fileF, #closeBtnFileG, #closeBtnFileGEx, #fileG {
+  cursor: pointer;
+}
+
+#fileImageTrash, #fileImgD, #fileImgE, #fileImgF, #fileImgG {
   cursor: pointer;
 }
 
@@ -516,7 +522,7 @@ margin: 0;
 #fileF{/*Close button not in the correct spot*/
   position: absolute;
   top:20vh;
-  display: flex;
+  display: none;
 }
 
 /* Game 6 MiniGame*/
@@ -623,6 +629,146 @@ margin: 0;
   position:absolute;
   display: none;
 }
+/*Game 7 Minigame*/
+/* Set the centered div properties */
+.centered-div-codeTime{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  width: 50%;
+  text-align: center;
+  background-color: black;
+  border-top: 1em solid white ;
+  border-bottom: 0.2em solid white;
+  border-left: 0.2em solid white;
+  border-right: 0.2em solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Set the h2 properties */
+#codeTime {
+  font-family: 'VCRDOSDMONO';
+  font-size: 2vw;
+  color: white;
+  margin-top: 0; /* Add margin-top to move it further to the top */
+  margin-bottom: 7vh;
+}
+
+/* Set the timer properties */
+#countdown-codeTime {
+  font-family: 'VCRDOSDMONO';
+  font-size: 2vw;
+  color: #00ff06;
+  margin-top: 0; /* Add margin-top to move it further to the top */
+}
+
+/* Set the horizontal properties */
+.horizontal-codeTime {
+  display: flex;
+  justify-content: center; /* Center the input containers horizontally */
+  margin-bottom: 5vh;
+  width: 80%;
+}
+
+/* Add this CSS to style the input fields */
+.horizontal-codeTime .input-codeTime {
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  font-size: 5em;
+  font-family: 'VCRDOSDMONO';
+  color: #00ff06;
+  height: 1em; /* Adjust the height of the input */
+  width: 3em; /* Adjust the width of the input */
+  margin-bottom: 0.5em; /* Add margin-bottom for spacing */
+  border-bottom: 5px solid #00ff06; /* Adjust the thickness of the line */
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  outline: none;
+}
+
+/* Add this CSS to remove the up and down arrows */
+.horizontal-codeTime .input-codeTime::-webkit-outer-spin-button,
+.horizontal-codeTime .input-codeTime::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+/* Set the submit button properties */
+.submitBtn-codeTime {
+  background-color: black;
+  color: white;
+  border: 3.5px solid #00ff06;
+  font-size: 1.6em;
+  font-family: 'VCRDOSDMONO';
+  width: 4vw;
+  height: 6vh;
+  cursor: pointer;
+}
+
+/* Set the hover effect for the submit button */
+.submitBtn-codeTime:hover {
+  transform: scale(1.1,1.1);
+}
+
+/* Set the close icon properties */
+.close-icon-codeTime {
+  position: absolute;
+  top: -16px;
+  right: 10px;
+  width: 1.1em; /* Adjust the width of the image as desired */
+  height: 1.1em; /* Adjust the height of the image as desired */
+  cursor: pointer;
+}
+
+/* Set the shake animation */
+.shake {
+  animation: shake 0.5s infinite;
+}
+
+/* Define the keyframes for the shake animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+/* Media query for horizontal mobile devices with a maximum width of 1000px */
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+  .centered-div-codeTime{
+      width: 70%;
+      height: 70%;
+  }
+
+  #codeTime {
+      font-size: 1.5em;
+  }
+
+  #countdown-codeTime {
+      font-size: 1.5em;
+  }
+
+  /* Add this CSS to style the input fields */
+  .horizontal-codeTime .input-codeTime {
+  font-size: 3em;
+  }
+
+  .submitBtn-codeTime {
+      font-size: 1.2em;
+      width: 6vw;
+      height: 8vh;
+  }
+}
+
 /*Adjust the rewards*/
 #rewards {
   position: absolute;
