@@ -265,9 +265,9 @@ const imgFileF=document.querySelector("#imgFileF");
 //Close button to the img above
 const closeBtnFileF=document.querySelector("#closeBtnFileF");
 //File that opens the challenge u need to do before it to go to the expositive/exercise part
-const challengeF=document.querySelector("fileImgE");
+const challengeF=document.querySelector("#fileImgF");
 //File where are the expositive/exercise part of the game
-const imgFileFEx=document.querySelector("imgFileFEx");
+const imgFileFEx=document.querySelector("#imgFileFEx");
 //Close button to the file above
 const closeBtnFileFEx=document.querySelector("#closeBtnFileFEx");
 //Expositive part of the game 6
@@ -283,11 +283,11 @@ const closeBtnFileG=document.querySelector("#closeBtnFileG");
 //File that opens the challenge that u need to do before the expositive/exercise part SIMAO É AQ QUE DEVE APARECER OS JOGOS
 const challengeG=document.querySelector("#fileImgG");
 //File where there are the expositive/exercise part of the game AQUI É ONDE DEVE SER GERADO O JOGO
-const imgFileGEx=document.querySelector("#fileImgGEx");
+const imgFileGEx=document.querySelector("#imgFileGEx");
 //Close button to the file above
 const closeBtnFileGEx=document.querySelector("#closeBtnFileGEx");
 //Expositive part of the game 6
-const expositiveFileG=document.querySelector("#expositiveFileg");
+const expositiveFileG=document.querySelector("#expositiveFileG");
 
 //ENDING
 
@@ -422,11 +422,33 @@ expositiveFileC.addEventListener("click", () => {
   window.open("../assets/videos/if-elseif-else.mp4", "_blank");
 });
 
+try1.addEventListener("click", function(){
+  playAudio("../assets/audios/investigation.mp3")
+  displaySamMessage("../assets/images/samNormal.png", "Wrong folder. Ask chatGPT for a little help as humans can't live without my cousin right now.")
+})
+
+try2.addEventListener("click", function(){
+  playAudio("../assets/audios/DUN.mp3")
+  displaySamMessage("../assets/images/samMad.png", "ARE ALL THE FOLDERS EMPTY?????")
+})
+
+try3.addEventListener("click", function(){
+  playAudio("../assets/audios/crickets.mp3")
+  displaySamMessage("../assets/images/samMad.png", "*Sighs*")
+})
+
+try4.addEventListener("click", function(){
+  playAudio("../assets/audios/Censor.mp3")
+  displaySamMessage("../assets/images/samMad.png", "Okay, I'm done, it's the third folder.")
+})
+
 CorrectFileC.addEventListener("click", function() {
   imgFileC.classList.add("animated-close"); // Add the class to the closing animation
   setTimeout(function() {
     imgFileC.style.display = 'none'; // Remove the element after the animation
     imgFileC.classList.remove("animated-close"); // Remove class after the animation
+    playAudio("../assets/audios/angels.mp3")
+    displaySamMessage("../assets/images/samNormal.png", "Finally, it's about time, you even woke up the angels")
     
     imgFileCEx.style.display = 'flex';   //Opens the image where are the code needed to one of the games
     
@@ -445,7 +467,6 @@ closeBtnFileCEx.addEventListener("click",function(){
  }, 200); //Duration of the animation in ms
 })
 
-
 fileD.addEventListener("click", function(){
   imgFileD.style.display = 'flex'; // Show the bin
   imgFileD.classList.add("slideIn"); // Add the class to the opening animation
@@ -453,6 +474,7 @@ fileD.addEventListener("click", function(){
     imgFileD.classList.remove("slideIn"); // Remove class after the animation
   }, 200); // Duration of the animation in ms
 })
+
 
 closeBtnFileD.addEventListener("click",function(){
   imgFileD.classList.add("animated-close"); // Add the class to the closing animation
@@ -492,6 +514,7 @@ closeBtnFileF.addEventListener("click",function(){
    imgFileF.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
+
 fileG.addEventListener("click", function(){
   imgFileG.style.display = 'flex'; // Show the bin
   imgFileG.classList.add("slideIn"); // Add the class to the opening animation
@@ -506,6 +529,745 @@ closeBtnFileG.addEventListener("click",function(){
    imgFileG.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
+
+// MINIGAME FOR FOLDER D //
+// Get the buttons and inputs
+const increaseButtonsCodeArrow = document.querySelectorAll('.input-container-codeArrow .up-arrow');
+const decreaseButtonsCodeArrow = document.querySelectorAll('.input-container-codeArrow .down-arrow');
+const inputsCodeArrow = document.querySelectorAll('.input-container-codeArrow .input-codeArrow');
+
+// Attach event listeners to the buttons
+increaseButtonsCodeArrow.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    increaseValueCodeArrow(index);
+  });
+});
+
+/**
+ * Increases the value of the input element at the specified index.
+ *
+ * @param {number} index - The index of the input element to be updated.
+ */
+function increaseValueCodeArrow(index) {
+  // Get the input element at the specified index
+  const inputCodeArrow = inputsCodeArrow[index];
+
+  // Extract the current value of the input element and convert it to an integer
+  let currentValueCodeArrow = parseInt(inputCodeArrow.value);
+
+  // Increment the current value by 1 and wrap around from 9 to 0 using modulo operator
+  currentValueCodeArrow = (currentValueCodeArrow + 1) % 10;
+
+  // Update the value of the input element with the new value
+  inputCodeArrow.value = currentValueCodeArrow;
+}
+
+// Attach event listeners to the buttons
+decreaseButtonsCodeArrow.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    decreaseValueCodeArrow(index);
+  });
+});
+
+/**
+ * Decreases the value of the input element at the specified index.
+ *
+ * @param {number} index - The index of the input element to be updated.
+ */
+function decreaseValueCodeArrow(index) {
+  // Get the input element at the specified index
+  const inputCodeArrow = inputsCodeArrow[index];
+
+  // Get the current value of the input element
+  let currentValueCodeArrow = parseInt(inputCodeArrow.value);
+
+  // Calculate the new value by decrementing and handling wrapping around from 0 to 9
+  currentValueCodeArrow = (currentValueCodeArrow - 1 + 10) % 10;
+
+  // Update the value of the input element with the new value
+  inputCodeArrow.value = currentValueCodeArrow;
+}
+
+/**
+ * Resets the code input by clearing the input values.
+ */
+function resetCodeArrow() {
+  // Clear the input values
+  inputsCodeArrow.forEach((input) => {
+    input.value = 0;  // Set the input value to 0, effectively resetting it
+  });
+
+  // Reset the container's border color
+  const containerCodeArrow = document.querySelector('.centered-div-codeArrow');
+  containerCodeArrow.style.borderColor = 'white';
+}
+/**
+ * Handles the submission of the entered code and performs necessary actions based on correctness.
+ */
+function submitCodeArrow() {
+  // Get all input elements within the input containers
+  const codeInputsCodeArrow = document.querySelectorAll('.input-container-codeArrow .input-codeArrow');
+
+  // Initialize an empty string to store the entered code
+  let enteredCodeArrow = '';
+
+  // Get the entered code by concatenating the values of each input
+  codeInputsCodeArrow.forEach((input) => {
+    enteredCodeArrow += input.value;
+  });
+
+  const targetCodeArrow = '1131'; // Correct code
+
+  // Check if the entered code matches the target code
+  if (enteredCodeArrow === targetCodeArrow) {
+    // Code is correct
+    const containerCodeArrow = document.querySelector('.centered-div-codeArrow');
+
+    // Set the container's border color to green
+    containerCodeArrow.style.borderColor = 'green';
+
+    // Play the audio for correct answer
+    playAudio("../assets/audios/correctAnswer.mp3")
+
+    setTimeout(() => {
+      containerCodeArrow.style.display = "none";
+      imgFileDEx.style.display = "flex";  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+    }, 2500);
+    
+
+  } else {
+    // Code is incorrect
+    const containerCodeArrow = document.querySelector('.centered-div-codeArrow');
+
+    // Set the container's border color to red
+    containerCodeArrow.style.borderColor = 'red';
+
+    // Play the audio for incorrect answer
+    playAudio("../assets/audios/wrongAnswer.mp3")
+
+    // Shake effect
+    const centeredDivCodeArrow = document.querySelector('.centered-div-codeArrow');
+
+    // Add the 'shake' class to initiate shaking effect
+    centeredDivCodeArrow.classList.add('shake');
+    setTimeout(() => {
+      resetCodeArrow()
+      centeredDivCodeArrow.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+    }, 2500);
+  }
+}
+
+// Attach a click event listener to the element with ID "close"
+document.querySelector("#close-codeArrow").addEventListener("click", function() {
+  document.querySelector(".centered-div-codeArrow").classList.add("animated-close"); // Add the class to the closing animation
+  setTimeout(function() {
+  document.querySelector(".centered-div-codeArrow").style.display = 'none'; // Remove the element after the animation
+   document.querySelector(".centered-div-codeArrow").classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+  // When clicked, find the element with class "centered-div" and set its display property to "none"
+});
+
+// Attach event listener to the submit button
+const submitButtonCodeArrow = document.querySelector('.submitBtn-codeArrow');
+submitButtonCodeArrow.addEventListener('click', () => {
+  submitCodeArrow();
+});
+
+challengeD.addEventListener("click", function(){
+  imgFileD.style.display = "none";
+  document.querySelector(".centered-div-codeArrow").style.display = "flex"; // Show the bin
+  document.querySelector(".centered-div-codeArrow").classList.add("slideIn"); // Add the class to the opening animation
+  setTimeout(function() {
+    document.querySelector(".centered-div-codeArrow").classList.remove("slideIn"); // Remove class after the animation
+  }, 200); // Duration of the animation in ms
+})
+
+closeBtnFileDEx.addEventListener("click",function(){
+  imgFileDEx.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileDEx.style.display = 'none'; // Remove the element after the animation
+   imgFileDEx.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+
+expositiveFileD.addEventListener("click", () => {
+  window.open("../assets/videos/for loop.mp4", "_blank");
+});
+
+// MINIGAME FOR FOLDER E //
+// Select the element with class "map-container-ImageKey" and assign it to the variable "serverMapImageMap"
+let serverMapImageMap = document.querySelector(".map-container-ImageKey");
+
+// Select the <img> element within the element with class "map-container-ImageKey" and assign it to the variable "mapImageImageMap"
+let mapImageImageMap = document.querySelector(".map-container-ImageKey img");
+
+// Select the element with ID "closeMap-ImageKey" and assign it to the variable "closeMapImageMap"
+let closeMapImageMap = document.querySelector("#closeMap-ImageKey");
+
+// Initialize the variable "hasKeyImageMap" to false
+let hasKeyImageMap = false; 
+
+// Attach a click event listener to the "blueBox" element
+fileServerImg.addEventListener("click", function(){
+    imgFileE.style.display = "none";
+    // Set the "display" style property of "serverMapImageMap" to "flex"
+    serverMapImageMap.style.display = "flex";
+    // Call the function "centerImageMap()"
+    centerImageMap();
+    // Call the function "addKeyImageMap()"
+    addKeyImageMap();
+});
+
+// Attach a click event listener to the "redBox" element
+challengeE.addEventListener("click", function(){
+    imgFileE.style.display = "none";
+    // Call the function "createCenteredDivWithImageMap()" with the argument "doorClose.png"
+    createCenteredDivWithImageMap("../assets/images/doorClose.png")
+
+    // Set the "display" style property of the element with class "centered-div-ImageKey" to "block"
+    document.querySelector(".centered-div-ImageKey").style.display = "block";
+});
+
+// Attach a click event listener to the element with ID "close"
+document.querySelector("#closeImageKey").addEventListener("click", function() {
+  document.querySelector(".centered-div-ImageKey").classList.add("animated-close");
+  setTimeout(() => {
+    document.querySelector(".centered-div-ImageKey").style.display = 'none'; // Remove the element after the animation
+    document.querySelector(".centered-div-ImageKey").classList.remove("animated-close"); // Remove class after the animation
+  }, 200); //Duration of the animation in ms
+});
+
+// Attach a click event listener to the "closeMapImageMap" element
+closeMapImageMap.addEventListener("click", function(){
+    // Set the "display" style property of "serverMapImageMap" to "none"
+    serverMapImageMap.style.display = "none";
+
+    // Call the function "removeKeyImageMap()"
+    removeKeyImageMap();
+});
+
+// Function to add a key image to the server image map
+function addKeyImageMap() {
+  // Select the server image within the map container
+  let serverImageMap = document.querySelector(".map-container-ImageKey img");
+
+  // Create the key image element
+  let keyImageMap = document.createElement('img');
+  keyImageMap.src = "../assets/images/key.png"; 
+  keyImageMap.classList.add('key-image'); // Add CSS class for styling
+
+  // Generate random coordinates within the boundaries of the server image
+  let serverRect = serverImageMap.getBoundingClientRect();
+  let serverLeft = serverRect.left;
+  let serverTop = serverRect.top;
+  let serverWidth = serverRect.width;
+  let serverHeight = serverRect.height;
+  let randomX, randomY;
+
+  if (window.innerWidth <= 1000) {
+    // Adjust the key size for mobile devices
+    keyImageMap.style.width = '3%';
+    keyImageMap.style.height = 'auto';
+
+    // Calculate random coordinates within the adjusted boundaries
+    randomX = Math.floor(Math.random() * (serverWidth - keyImageMap.offsetWidth)) + serverLeft;
+    randomY = Math.floor(Math.random() * (serverHeight - keyImageMap.offsetHeight)) + serverTop;
+  } else {
+    // Default key size for other devices
+    keyImageMap.style.width = '2%';
+    keyImageMap.style.height = 'auto';
+
+    // Calculate random coordinates within the default boundaries
+    randomX = Math.floor(Math.random() * (serverWidth - keyImageMap.width)) + serverLeft;
+    randomY = Math.floor(Math.random() * (serverHeight - keyImageMap.height)) + serverTop;
+  }
+
+  // Set the position of the key image
+  keyImageMap.style.position = 'absolute';
+  keyImageMap.style.left = randomX + 'px';
+  keyImageMap.style.top = randomY + 'px';
+
+  // Append the key image to the server image
+  serverImageMap.parentNode.appendChild(keyImageMap);
+
+  // Add click event listener to the key image
+  keyImageMap.addEventListener('click', collectKeyImageMap);
+  
+  // Function to handle key collection
+  function collectKeyImageMap() {
+    // Remove the key image from the DOM
+    keyImageMap.parentNode.removeChild(keyImageMap);
+    playAudio("../assets/audios/pickUp.mp3");
+    // Set the flag to indicate that the user has collected the key
+    hasKeyImageMap = true;
+  }
+}
+
+// Function to remove the key image from the server image map
+function removeKeyImageMap() {
+    // Select the key image element
+    let keyImageMap = document.querySelector(".key-image");
+
+    // Check if the key image exists
+    if (keyImageMap) {
+      // If the key image exists, remove it from the DOM by removing its parent node
+      keyImageMap.parentNode.removeChild(keyImageMap);
+    }
+}
+
+/**
+ *  Function to create a centered div element with an image for the image map
+ * @param {string} imageUrl - The path or URL of the image to be displayed
+ */
+function createCenteredDivWithImageMap(imageUrl) {
+    // Get the existing centered div element
+    let centeredDivImageMap = document.querySelector('.centered-div-ImageKey');
+  
+    // Create the image element
+    let imageMap = document.querySelector(".centered-image-ImageKey")
+    imageMap.src = imageUrl;
+    imageMap.classList.add('centered-image-ImageKey'); // Add CSS class for styling
+  
+    // Append the image to the centered div
+    centeredDivImageMap.appendChild(imageMap);
+
+    // Attach click event listener to the door image
+    imageMap.addEventListener('click', openDoorImageMap);
+}
+  
+// Function to center the image map within the map container
+function centerImageMap() {
+    // Get the width and height of the map container
+    let mapContainerWidth = serverMapImageMap.offsetWidth;
+    let mapContainerHeight = serverMapImageMap.offsetHeight;
+
+    // Get the width and height of the image map
+    let imageMapWidth = mapImageImageMap.offsetWidth;
+    let imageMapHeight = mapImageImageMap.offsetHeight;
+
+    // Calculate the left and top positions to center the image map
+    let imageMapLeft = (mapContainerWidth - imageMapWidth) / 2 + "px";
+    let imageMapTop = (mapContainerHeight - imageMapHeight) / 2 + "px";
+
+    // Set the left and top positions of the image map
+    mapImageImageMap.style.left = imageMapLeft;
+    mapImageImageMap.style.top = imageMapTop;
+}
+
+
+/**
+ *  Function to change the door image in the image map
+
+ * @param {string} imageUrl - The path or URL of the image to be displayed
+ */
+function changeDoorImageMap(imageUrl) {
+    // Select the door image element
+    let doorImageMap = document.querySelector(".centered-image-ImageKey");
+
+    // Check if the door image element exists
+    if (doorImageMap) {
+      // If the door image element exists, set its source to the provided imageUrl
+      doorImageMap.src = imageUrl;
+    }
+}
+
+// Function to handle opening the door in the image map
+function openDoorImageMap() {
+    if (hasKeyImageMap) {
+      // User has the key, perform actions to open the door
+      playAudio("../assets/audios/lockerOpening.mp3"); // Play audio for opening the door
+      changeDoorImageMap("../assets/images/doorOpen.png"); // Change the door image to open state
+      document.querySelector(".centered-div-ImageKey").classList.add("animated-close");
+      setTimeout(() => {
+        document.querySelector(".centered-div-ImageKey").style.display = "none";
+        document.querySelector(".centered-div-ImageKey").classList.remove("animated-close");
+        imgFileEEx.style.display = "flex";
+        imgFileEEx.classList.add("slideIn"); // Add the class to the opening animation´
+        setTimeout(function() {
+          imgFileEEx.classList.remove("slideIn"); // Remove class after the animation
+        }, 200); // Duration of the animation in ms
+      }, 2000);
+    } else {
+      // User does not have the key, show error alert
+      displaySamMessage('../assets/images/samNormal.png',"I would say you needed a key to open the door... Search better!")
+
+    }
+}
+
+closeBtnFileEEx.addEventListener("click",function(){
+  imgFileEEx.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileEEx.style.display = 'none'; // Remove the element after the animation
+   imgFileEEx.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+
+expositiveFileE.addEventListener("click", () => {
+  window.open("../assets/videos/array.mp4", "_blank");
+});
+
+// MINIGAME FOR FOLDER F //
+const sequence = [];  // Array to store the sequence of box indexes
+const userSequence = [];  // Array to store the user's sequence of box indexes
+const boxesSequence = document.querySelectorAll('.boxSequence');  // NodeList of box elements
+let isSequenceShowing = false; // Flag to track if the sequence is being shown
+
+// Add event listeners to each box
+boxesSequence.forEach((box, index) => {
+  box.addEventListener('click', () => {
+    if (!isSequenceShowing) { // Allow clicks only when the sequence is not being shown
+      userSequence.push(index); // Add clicked box index to user's sequence
+      checkUserSequence();  // Check if the user's sequence matches the sequence
+      changeBoxOpacity(box);  // Change the opacity of the clicked box
+    }
+  });
+});
+
+/**
+ * Generates a random sequence of box indexes.
+ * The length of the sequence is fixed at 6.
+ */
+function generateSequence() {
+  for (let i = 0; i < 6; i++) {
+    const randomIndexSequence = Math.floor(Math.random() * boxesSequence.length); // Generate a random index within the available box indexes
+    sequence.push(randomIndexSequence); // Add the random index to the sequence
+  }
+}
+
+/**
+ * Changes the opacity of the clicked box.
+ * @param {Element} box - The clicked box element.
+ */
+function changeBoxOpacity(box) {
+    box.style.opacity = '1';  // Set the opacity to 1 (fully opaque)
+    setTimeout(() => {
+      box.style.opacity = '0.1';  // Set the opacity back to 0.1 (partially transparent)
+    }, 500);
+}
+
+/**
+ * Shows the sequence by blinking the boxes in order.
+ */
+function showSequence() {
+  isSequenceShowing = true; // Set the flag to true during sequence display
+  let iSequence = 0;
+  const intervalSequence = setInterval(() => {
+    const boxIndex = sequence[iSequence]; // Get the current box index from the sequence
+    blinkBox(boxIndex); // Blink the box with the current index
+
+    iSequence++;
+    if (iSequence >= sequence.length) { 
+      clearInterval(intervalSequence);  // Stop the interval when the entire sequence has been shown
+      // Add a delay before displaying "Your turn!" message and resetting the flag
+      setTimeout(() => {
+        updateMessageSequence('Your turn!', 'message-display'); // Display "Your turn" message
+        setTimeout(() => {
+          isSequenceShowing = false; // Reset the flag after the delay
+          updateMessageSequence('', ''); // Clear the message
+        }, 1000); // delay time 1s
+      }, 1000); // delay time 1s
+    }
+  }, 1000); // Interval between blinking each box 1s
+}
+
+/**
+ * Blinks a specific box by changing its opacity.
+ * @param {number} boxIndex - The index of the box to blink.
+ */
+function blinkBox(boxIndex) {
+    const box = boxesSequence[boxIndex];  // Get the box element with the provided index
+    box.style.opacity = '1';  // Set the opacity to 1 (fully opaque)
+    setTimeout(() => {
+      box.style.opacity = '0.1';  // Set the opacity back to 0.1 (partially transparent)
+    }, 500);
+}
+
+/**
+ * Checks if the user sequence matches the sequence.
+ */
+function checkUserSequence() {
+  if (userSequence.length === sequence.length) {
+    if (userSequence.join('') === sequence.join('')) {
+      // Code is correct
+      const containerSequence = document.querySelector('.centered-div-sequence');
+
+      // Set the container's border color to green
+      containerSequence.style.borderColor = 'green';
+      playAudio("../assets/audios/correctAnswer.mp3")  // Play a sound for correct answer
+      updateMessageSequence('Correct! Keep it up!', 'message-correct'); // Update message container with a success message
+      document.querySelector(".centered-div-sequence").classList.add("animated-close");
+      setTimeout(() => {
+        document.querySelector(".centered-div-sequence").style.display = "none";
+        document.querySelector(".centered-div-sequence").classList.remove("animated-close");
+        imgFileFEx.style.display = "flex";
+        imgFileFEx.classList.add("slideIn"); // Add the class to the opening animation´
+        setTimeout(function() {
+          imgFileFEx.classList.remove("slideIn"); // Remove class after the animation
+        }, 200); // Duration of the animation in ms
+      }, 2000);
+
+    } else {
+      // Code is incorrect
+      const containerSequence = document.querySelector('.centered-div-sequence');
+
+      // Set the container's border color to green
+      containerSequence.style.borderColor = 'red';
+      playAudio("../assets/audios/wrongAnswer.mp3")  // Play a sound for wrong answer
+      updateMessageSequence('Game over! You made a mistake. Try again.', 'message-incorrect');  // Update message container with a incorrect message
+      setTimeout(() => {
+        gameOverSequence(); // Reset the game after a delay
+      }, 1000);    // delay time 1s
+    }
+  }
+}
+
+/**
+ * Updates the message container with the provided text and CSS class.
+ * @param {string} text - The text to be displayed in the message container.
+ * @param {string} className - The CSS class to be applied to the message container.
+ */
+function updateMessageSequence(text,className) {
+  const messageContainer = document.getElementById('message-container-sequence');
+  messageContainer.textContent = text;
+  messageContainer.className = className;
+}
+
+/**
+ * Handles the game over state by resetting the game after a delay.
+ */
+function gameOverSequence() {
+   // Delay the reset of the game by 1 second (1000 milliseconds)
+   setTimeout(() => {
+    // Reset the message container
+    updateMessageSequence('', '');
+
+    // Reset the container's border color
+    const containerSequence = document.querySelector('.centered-div-sequence');
+    containerSequence.style.borderColor = '';
+
+    // Clear the sequences and generate a new one
+    sequence.length = 0;
+    userSequence.length = 0;
+    generateSequence();
+
+    // Show the sequence
+    showSequence();
+  }, 2000);
+}
+
+// Attach a click event listener to the element with ID "close"
+document.querySelector("#closeSequence").addEventListener("click", function() {
+  // When clicked, find the element with class "centered-div" and set its display property to "none"
+  document.querySelector(".centered-div-sequence").style.display = "none";
+});
+
+// Attach a click event listener to the "redBox" element
+challengeF.addEventListener("click", function(){
+  imgFileF.style.display = "none";
+  // Set the "display" style property of the element with class "centered-div-ImageKey" to "block"
+  document.querySelector(".centered-div-sequence").style.display = "flex";
+  // Start the game
+  generateSequence();
+  showSequence();
+});
+
+closeBtnFileFEx.addEventListener("click",function(){
+  imgFileFEx.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileFEx.style.display = 'none'; // Remove the element after the animation
+   imgFileFEx.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+
+expositiveFileF.addEventListener("click", () => {
+  window.open("../assets/pdf/arrayMethods.pdf", "_blank");
+});
+
+// Minigame for folder G 
+const audioElementsCodeTime = {}; // Object to store audio elements
+let countdownIntervalCodeTime; // Declare the countdown interval variable outside the event listener
+
+// Get the countdown element
+const countdownElementCodeTime = document.getElementById('countdown-codeTime');
+
+// Get the inputs
+const inputsCodeTime = document.querySelectorAll('.input-codeTime');
+
+/**
+ * Resets the code input by clearing the input values.
+ */
+function resetCodeCodeTime() {
+  // Clear the input values
+  inputsCodeTime.forEach((input) => {
+    input.value = 0; // Set the input value to 0, effectively resetting it
+  });
+
+  // Reset the container's border color
+  const containerCodeTime = document.querySelector('.centered-div-codeTime');
+  containerCodeTime.style.borderColor = 'white';
+}
+
+/**
+ * Plays an audio file.
+ * @param {string} audioFile - The path or URL of the audio file to be played.
+ * @param {string} audioId - Unique identifier for the audio element.
+ */
+function playAudioCodeTime(audioFile, audioId) {
+  const audio = new Audio(audioFile); // Create a new Audio object
+  audio.play(); // Play the audio file
+  audioElementsCodeTime[audioId] = audio; // Store the audio object with the corresponding audioId
+}
+
+/**
+ * Stops the specified audio.
+ * @param {string} audioId - Unique identifier for the audio element.
+ */
+function stopAudioCodeTime(audioId) {
+  const audio = audioElementsCodeTime[audioId];
+  if (audio) {
+    audio.pause(); // Pause the audio
+    audio.currentTime = 0; // Reset the audio to the beginning
+  }
+}
+
+/**
+ * Handles the submission of the entered code and performs necessary actions based on correctness.
+ */
+function submitCodeTime() {
+  // Get all input elements within the input containers
+  const codeInputsCodeTime = document.querySelectorAll('.input-codeTime');
+
+  // Initialize an empty string to store the entered code
+  let enteredCodeTime = '';
+
+  // Get the entered code by concatenating the values of each input
+  codeInputsCodeTime.forEach((input) => {
+    enteredCodeTime += input.value;
+  });
+
+  const targetCodeTime = '3044'; // Correct code
+
+  // Check if the entered code matches the target code
+  if (enteredCodeTime === targetCodeTime) {
+    // Code is correct
+    clearInterval(countdownIntervalCodeTime);
+    stopAudioCodeTime('dramatic'); // Stop the dramatic music using the audioId "dramatic"
+    countdownElementCodeTime.style.color = 'green';
+    const containerCodeTime = document.querySelector('.centered-div-codeTime');
+
+    // Set the container's border color to green
+    containerCodeTime.style.borderColor = 'green';
+
+    // Play the audio for correct answer
+    playAudioCodeTime('../assets/audios/correctAnswer.mp3', 'correctAnswer');
+    document.querySelector(".centered-div-codeTime").classList.add("animated-close");
+      setTimeout(() => {
+        document.querySelector(".centered-div-codeTime").style.display = "none";
+        document.querySelector(".centered-div-codeTime").classList.remove("animated-close");
+        imgFileGEx.style.display = "flex";
+        imgFileGEx.classList.add("slideIn"); // Add the class to the opening animation´
+        setTimeout(function() {
+          imgFileGEx.classList.remove("slideIn"); // Remove class after the animation
+        }, 200); // Duration of the animation in ms
+      }, 2000);
+  } else {
+    // Code is incorrect
+    const containerCodeTime = document.querySelector('.centered-div-codeTime');
+
+    // Set the container's border color to red
+    containerCodeTime.style.borderColor = 'red';
+
+    // Play the audio for incorrect answer
+    playAudioCodeTime('../assets/audios/wrongAnswer.mp3', 'incorrectAnswer');
+
+    // Shake effect
+    const centeredDivCodeTime = document.querySelector('.centered-div-codeTime');
+
+    // Add the 'shake' class to initiate shaking effect
+    centeredDivCodeTime.classList.add('shake');
+    setTimeout(() => {
+      resetCodeCodeTime();
+      centeredDivCodeTime.classList.remove('shake'); // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+    }, 2500);
+  }
+}
+
+// Attach a click event listener to the element with ID "close"
+document.querySelector('#close-codeTime').addEventListener('click', function () {
+  // When clicked, find the element with class "centered-div-codeTime" and set its display property to "none"
+  document.querySelector('.centered-div-codeTime').style.display = 'none';
+});
+
+// Attach event listener to the submit button
+const submitButtonCodeTime = document.querySelector('.submitBtn-codeTime');
+submitButtonCodeTime.addEventListener('click', () => {
+  submitCodeTime();
+});
+
+// Attach a click event listener to the "redBox" element
+challengeG.addEventListener('click', function () {
+  imgFileG.style.display = 'none';
+  // Set the "display" style property of the element with class "centered-div-ImageKey" to "block"
+  document.querySelector('.centered-div-codeTime').style.display = 'flex';
+
+  // Set the initial time in seconds
+  let timeInSecondsCodeTime = 60;
+
+  // Set the flag variable to track if audio has been played
+  let audioPlayedCodeTime = false;
+
+  // Update the countdown timer every second
+  countdownIntervalCodeTime = setInterval(() => {
+    // Decrease the time by one second
+    timeInSecondsCodeTime--;
+
+    // Format the time into minutes and seconds
+    const minutesCodeTime = Math.floor(timeInSecondsCodeTime / 60);
+    const secondsCodeTime = timeInSecondsCodeTime % 60;
+    const formattedTimeCodeTime = `${padZeroCodeTime(minutesCodeTime)}:${padZeroCodeTime(secondsCodeTime)}`;
+
+    // Update the countdown element with the formatted time
+    countdownElementCodeTime.textContent = formattedTimeCodeTime;
+
+    // Check if the counter is below a certain time
+    if (timeInSecondsCodeTime <= 10 && !audioPlayedCodeTime) {
+      // Play the audio
+      playAudioCodeTime('../assets/audios/dramaticMusic.mp3', 'dramatic'); // Play the dramatic music with the audioId "dramatic"
+      countdownElementCodeTime.style.color = 'red';
+
+      // Set the flag to true to indicate that audio has been played
+      audioPlayedCodeTime = true;
+    }
+
+    // Check if the countdown has reached 0
+    if (timeInSecondsCodeTime <= 0) {
+      // Stop the countdown
+      clearInterval(countdownIntervalCodeTime);
+    }
+  }, 1000);
+
+  // Function to pad a number with leading zeros
+  function padZeroCodeTime(number) {
+    return number.toString().padStart(2, '0');
+  }
+});
+
+
+closeBtnFileGEx.addEventListener("click",function(){
+  imgFileGEx.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileGEx.style.display = 'none'; // Remove the element after the animation
+   imgFileGEx.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+
+expositiveFileG.addEventListener("click", () => {
+  window.open("../assets/pdf/functions.pdf", "_blank");
+});
+
+
+
+
 
 // Ending riddle and cutscene
 
