@@ -1352,9 +1352,25 @@ const endingCloseBtn=document.querySelector("#close-end");
       if (selectedAnswerA && selectedAnswerA.value == challengeA.multipleChoiceCorrectAnswer) {
         // Correct answer
         console.log("Correct answer!");
+        exerciseADiv.style.borderColor = 'green';
+        playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
       } else {
         // Incorrect answer or no answer selected
         console.log("Incorrect answer!");
+        exerciseADiv.style.borderColor = 'red';
+
+        // Play the audio for incorrect answer
+        playAudio("../assets/audios/wrongAnswer.mp3")
+
+        // Shake effect
+
+        // Add the 'shake' class to initiate shaking effect
+        exerciseADiv.classList.add('shake');
+        setTimeout(() => {
+          resetCode()
+          exerciseADiv.style.borderColor = 'white';
+          exerciseADiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+        }, 2500);
       }
     });
 
@@ -1407,9 +1423,25 @@ const endingCloseBtn=document.querySelector("#close-end");
       {
 
         console.log("Correct answer!");
+        exerciseBDiv.style.borderColor = 'green';
+        playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
       } else {
         // Incorrect answer or no answer selected
         console.log("Incorrect answer!");
+        exerciseBDiv.style.borderColor = 'red';
+
+        // Play the audio for incorrect answer
+        playAudio("../assets/audios/wrongAnswer.mp3")
+
+        // Shake effect
+
+        // Add the 'shake' class to initiate shaking effect
+        exerciseBDiv.classList.add('shake');
+        setTimeout(() => {
+          resetCode()
+          exerciseBDiv.style.borderColor = 'white';
+          exerciseBDiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+        }, 2500);
       }
     });
 
@@ -1463,9 +1495,25 @@ const endingCloseBtn=document.querySelector("#close-end");
       if (selectedAnswerC && selectedAnswerC.value == challengeC.multipleChoiceCorrectAnswer) {
         // Correct answer
         console.log("Correct answer!");
+        exerciseCDiv.style.borderColor = 'green';
+        playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
       } else {
         // Incorrect answer or no answer selected
         console.log("Incorrect answer!");
+        exerciseCDiv.style.borderColor = 'red';
+
+        // Play the audio for incorrect answer
+        playAudio("../assets/audios/wrongAnswer.mp3")
+
+        // Shake effect
+
+        // Add the 'shake' class to initiate shaking effect
+        exerciseCDiv.classList.add('shake');
+        setTimeout(() => {
+          resetCode()
+          exerciseCDiv.style.borderColor = 'white';
+          exerciseCDiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+        }, 2500);
       }
     });
 
@@ -1522,9 +1570,25 @@ console.log(sum);<br>\
       {
 
         console.log("Correct answer!");
+        exerciseDDiv.style.borderColor = 'green';
+        playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
       } else {
         // Incorrect answer or no answer selected
         console.log("Incorrect answer!");
+        exerciseDDiv.style.borderColor = 'red';
+
+        // Play the audio for incorrect answer
+        playAudio("../assets/audios/wrongAnswer.mp3")
+
+        // Shake effect
+
+        // Add the 'shake' class to initiate shaking effect
+        exerciseDDiv.classList.add('shake');
+        setTimeout(() => {
+          resetCode()
+          exerciseDDiv.style.borderColor = 'white';
+          exerciseDDiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+        }, 2500);
       }
     });
 
@@ -1573,9 +1637,25 @@ console.log(sum);<br>\
           {
     
             console.log("Correct answer!");
+            exerciseEDiv.style.borderColor = 'green';
+            playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
           } else {
             // Incorrect answer or no answer selected
-            console.log("Incorrect answer!");
+          console.log("Incorrect answer!");
+          exerciseEDiv.style.borderColor = 'red';
+
+          // Play the audio for incorrect answer
+          playAudio("../assets/audios/wrongAnswer.mp3")
+
+          // Shake effect
+
+          // Add the 'shake' class to initiate shaking effect
+          exerciseEDiv.classList.add('shake');
+          setTimeout(() => {
+            resetCode()
+            exerciseEDiv.style.borderColor = 'white';
+            exerciseEDiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+          }, 2500);
           }
         });
 
@@ -1626,12 +1706,28 @@ console.log(sum);<br>\
     exerciseSubmitF.addEventListener("click", function() {
       const selectedAnswerF = document.querySelector("input[name='exerciseFAnswers']:checked");
       
-      if (selectedAnswerF && selectedAnswerF.value == challengeF.multipleChoiceCorrectAnswer) {
+      if (selectedAnswerF && selectedAnswerF.value == EchallengeF.multipleChoiceCorrectAnswer) {
         // Correct answer
         console.log("Correct answer!");
+        exerciseFDiv.style.borderColor = 'green';
+        playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
       } else {
         // Incorrect answer or no answer selected
         console.log("Incorrect answer!");
+        exerciseFDiv.style.borderColor = 'red';
+
+        // Play the audio for incorrect answer
+        playAudio("../assets/audios/wrongAnswer.mp3")
+
+        // Shake effect
+
+        // Add the 'shake' class to initiate shaking effect
+        exerciseFDiv.classList.add('shake');
+        setTimeout(() => {
+          resetCode()
+          exerciseFDiv.style.borderColor = 'white';
+          exerciseFDiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+        }, 2500);
       }
     });
 
@@ -1680,7 +1776,32 @@ console.log(sum);<br>\
       const input1G=document.querySelector("#exerciseGInput1").value;
       const input2G=document.querySelector("#exerciseGInput2").value;
       const input3G=document.querySelector("#exerciseGInput3").value;
-=======
+      if(input1G===EchallengeG.fillCorrectAnswers[0] && input2G===EchallengeG.fillCorrectAnswers[1] && input3G===EchallengeG.fillCorrectAnswers[2])
+      {
+
+        console.log("Correct answer!");
+        exerciseGDiv.style.borderColor = 'green';
+        playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+      } else {
+        // Incorrect answer or no answer selected
+        console.log("Incorrect answer!");
+        exerciseGDiv.style.borderColor = 'red';
+
+        // Play the audio for incorrect answer
+        playAudio("../assets/audios/wrongAnswer.mp3")
+
+        // Shake effect
+
+        // Add the 'shake' class to initiate shaking effect
+        exerciseGDiv.classList.add('shake');
+        setTimeout(() => {
+          resetCode()
+          exerciseGDiv.style.borderColor = 'white';
+          exerciseGDiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+        }, 2500);
+      }
+    });
+
 endingFile.addEventListener("click", function(){
   endingOpen.style.display = 'flex'; // Show the ending challenge
   endingOpen.classList.add("slideIn"); // Add the class to the opening animation´
@@ -1784,15 +1905,6 @@ submitButton.addEventListener('click', () => {
   submitCode();
 });
 
-      if(input1G===EchallengeG.fillCorrectAnswers[0] && input2G===EchallengeG.fillCorrectAnswers[1] && input3G===EchallengeG.fillCorrectAnswers[2])
-      {
-
-        console.log("Correct answer!");
-      } else {
-        // Incorrect answer or no answer selected
-        console.log("Incorrect answer!");
-      }
-    });
 
     
 
