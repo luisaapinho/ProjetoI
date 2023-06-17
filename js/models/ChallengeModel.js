@@ -1,4 +1,4 @@
-class Challenge {
+export class Challenge {
     id=0
 
     multipleChoiceQuestion=""

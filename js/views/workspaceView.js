@@ -1,5 +1,7 @@
 import { getUserLogged, updateUserTime } from "../models/UserModel.js";
 import { displaySamMessage } from "../views/sam.js";
+import { Challenge } from "../models/ChallengeModel.js";
+
 
 
 // Retrieve the logged-in user
@@ -571,7 +573,422 @@ okEnding.addEventListener("click", function(){
 });
 
 //EXERCISES
+    const exerciseA=document.querySelector("#exerciseA");
+    const exerciseB=document.querySelector("#exerciseB");
+    const exerciseC=document.querySelector("#exerciseC");
+    const exerciseD=document.querySelector("#exerciseD");
+    const exerciseE=document.querySelector("#exerciseE");
+    const exerciseF=document.querySelector("#exerciseF");
+    const exerciseG=document.querySelector("#exerciseG");
     
+    const exerciseADiv=document.querySelector("#exerciseADiv")
+    const exerciseBDiv=document.querySelector("#exerciseBDiv")
+    const exerciseCDiv=document.querySelector("#exerciseCDiv")
+    const exerciseDDiv=document.querySelector("#exerciseDDiv")
+    const exerciseEDiv=document.querySelector("#exerciseEDiv")
+    const exerciseFDiv=document.querySelector("#exerciseFDiv")
+    const exerciseGDiv=document.querySelector("#exerciseGDiv")
+
+    const closeExerciseA=document.querySelector("#closeExerciseA")
+    const closeExerciseB=document.querySelector("#closeExerciseB")
+    const closeExerciseC=document.querySelector("#closeExerciseC")
+    const closeExerciseD=document.querySelector("#closeExerciseD")
+    const closeExerciseE=document.querySelector("#closeExerciseE")
+    const closeExerciseF=document.querySelector("#closeExerciseF")
+    const closeExerciseG=document.querySelector("#closeExerciseG")
+
+    //EXERCISE A - MULTIPLE CHOICE
+
+    exerciseA.addEventListener("click",function(){
+      exerciseADiv.style.display = 'flex'; // Show the ending challenge
+      exerciseADiv.classList.add("slideIn"); // Add the class to the opening animation´
+      setTimeout(function() {
+        exerciseADiv.classList.remove("slideIn"); // Remove class after the animation
+      }, 200); // Duration of the animation in ms
+
+    });
+    closeExerciseA.addEventListener("click",function(){
+      exerciseADiv.classList.add("animated-close"); // Add the class to the closing animation
+      setTimeout(function() {
+      exerciseADiv.style.display = 'none'; // Remove the element after the animation
+      exerciseADiv.classList.remove("animated-close"); // Remove class after the animation
+    }, 200); //Duration of the animation in ms
+    })
+    const challengeA = new Challenge(
+      1,
+      "Which of the following is not a JavaScript data type?",
+      ["Boolean", "String", "Float", "Null"],
+      3,
+      "",
+      [],
+      "",
+      ""
+    );
+    
+    const exerciseAQuestion = exerciseADiv.querySelector("#exerciseAQuestion");
+    const exerciseAAnswers = exerciseADiv.querySelectorAll("input[name='exerciseAAnswers']");
+    
+    exerciseAQuestion.textContent = challengeA.multipleChoiceQuestion;
+    
+    exerciseAAnswers.forEach((input, index) => {
+      input.id = "exerciseAOption" + index; // Set the id attribute for each radio input
+      input.nextElementSibling.setAttribute("for", "exerciseAOption" + index); // Set the "for" attribute for each label
+      input.value = index;
+      input.nextElementSibling.textContent = challengeA.multipleChoiceAnswers[index];
+    });
+
+    const exerciseSubmitA = document.querySelector("#exerciseSubmitA");
+
+    exerciseSubmitA.addEventListener("click", function() {
+      const selectedAnswerA = document.querySelector("input[name='exerciseAAnswers']:checked");
+      
+      if (selectedAnswerA && selectedAnswerA.value == challengeA.multipleChoiceCorrectAnswer) {
+        // Correct answer
+        console.log("Correct answer!");
+      } else {
+        // Incorrect answer or no answer selected
+        console.log("Incorrect answer!");
+      }
+    });
+
+
+
+    //EXERCISE B - FILL IN THE BLANKS
+
+    exerciseB.addEventListener("click",function(){
+      exerciseBDiv.style.display = 'flex'; // Show the ending challenge
+      exerciseBDiv.classList.add("slideIn"); // Add the class to the opening animation´
+      setTimeout(function() {
+        exerciseBDiv.classList.remove("slideIn"); // Remove class after the animation
+      }, 200); // Duration of the animation in ms
+
+    });
+    closeExerciseB.addEventListener("click",function(){
+      exerciseBDiv.classList.add("animated-close"); // Add the class to the closing animation
+      setTimeout(function() {
+      exerciseBDiv.style.display = 'none'; // Remove the element after the animation
+      exerciseBDiv.classList.remove("animated-close"); // Remove class after the animation
+    }, 200); //Duration of the animation in ms
+    })
+
+
+    const challengeB = new Challenge(
+      2,
+      "",
+      [],
+      0,
+      "The value of a variable can be assigned using the <<input1>> operator.\nThe <<input2>> operator is used to concatenate two strings in JavaScript.",
+      ["=","+"],
+      "",
+      ""
+    );
+    
+    const exerciseBQuestion = exerciseBDiv.querySelector("#exerciseBQuestion");
+    exerciseBQuestion.innerHTML = challengeB.fillText.replace(/<<input(\d+)>>/g, (_, index) => {
+      const inputId = `exerciseBInput${index}`;
+      const placeholder = `Input ${index + 1}`;
+      return `<input type="text" id="${inputId}" maxlength="1" size="1">`;
+    });
+    
+    const exerciseSubmitB = document.querySelector("#exerciseSubmitB");
+    
+    exerciseSubmitB.addEventListener("click", function() {
+      const input1B=document.querySelector("#exerciseBInput1").value;
+      const input2B=document.querySelector("#exerciseBInput2").value;
+
+      if(input1B===challengeB.fillCorrectAnswers[0] && input2B===challengeB.fillCorrectAnswers[1])
+      {
+
+        console.log("Correct answer!");
+      } else {
+        // Incorrect answer or no answer selected
+        console.log("Incorrect answer!");
+      }
+    });
+
+
+
+    //EXERCISE C - MULTIPLE CHOICE
+
+    exerciseC.addEventListener("click",function(){
+      exerciseCDiv.style.display = 'flex'; // Show the ending challenge
+      exerciseCDiv.classList.add("slideIn"); // Add the class to the opening animation´
+      setTimeout(function() {
+        exerciseCDiv.classList.remove("slideIn"); // Remove class after the animation
+      }, 200); // Duration of the animation in ms
+
+    });
+    closeExerciseC.addEventListener("click",function(){
+      exerciseCDiv.classList.add("animated-close"); // Add the class to the closing animation
+      setTimeout(function() {
+      exerciseCDiv.style.display = 'none'; // Remove the element after the animation
+      exerciseCDiv.classList.remove("animated-close"); // Remove class after the animation
+    }, 200); //Duration of the animation in ms
+    })
+    const challengeC = new Challenge(
+      3,
+      "Which keyword is used to declare a block of code that should be executed if a certain condition is true?",
+      ["if", "else", "switch", "case"],
+      0,
+      "",
+      [],
+      "",
+      ""
+    );
+    
+    const exerciseCQuestion = exerciseCDiv.querySelector("#exerciseCQuestion");
+    const exerciseCAnswers = exerciseCDiv.querySelectorAll("input[name='exerciseCAnswers']");
+    
+    exerciseCQuestion.textContent = challengeC.multipleChoiceQuestion;
+    
+    exerciseCAnswers.forEach((input, index) => {
+      input.id = "exerciseCOption" + index; // Set the id attribute for each radio input
+      input.nextElementSibling.setAttribute("for", "exerciseCOption" + index); // Set the "for" attribute for each label
+      input.value = index;
+      input.nextElementSibling.textContent = challengeC.multipleChoiceAnswers[index];
+    });
+
+    const exerciseSubmitC = document.querySelector("#exerciseSubmitC");
+
+    exerciseSubmitC.addEventListener("click", function() {
+      const selectedAnswerC = document.querySelector("input[name='exerciseCAnswers']:checked");
+      
+      if (selectedAnswerC && selectedAnswerC.value == challengeC.multipleChoiceCorrectAnswer) {
+        // Correct answer
+        console.log("Correct answer!");
+      } else {
+        // Incorrect answer or no answer selected
+        console.log("Incorrect answer!");
+      }
+    });
+
+
+     //EXERCISE D - SHORT ANSWER
+
+     exerciseD.addEventListener("click",function(){
+      exerciseDDiv.style.display = 'flex'; // Show the ending challenge
+      exerciseDDiv.classList.add("slideIn"); // Add the class to the opening animation´
+      setTimeout(function() {
+        exerciseDDiv.classList.remove("slideIn"); // Remove class after the animation
+      }, 200); // Duration of the animation in ms
+
+    });
+    closeExerciseD.addEventListener("click",function(){
+      exerciseDDiv.classList.add("animated-close"); // Add the class to the closing animation
+      setTimeout(function() {
+      exerciseDDiv.style.display = 'none'; // Remove the element after the animation
+      exerciseDDiv.classList.remove("animated-close"); // Remove class after the animation
+    }, 200); //Duration of the animation in ms
+    })
+
+
+    const EchallengeD = new Challenge(
+      4,
+      "",
+      [],
+      0,
+      "",
+      [],
+      "What will be the output of the code snippet?<br><br>\
+let sum = 0;<br>\
+for (let i = 1; i <= 10; i++) {<br>\
+  if (i % 2 === 0) {<br>\
+    sum += i;<br>\
+  }<br>\
+}<br>\
+console.log(sum);<br>\
+",
+      "30"
+    );
+    
+    const exerciseDQuestion = exerciseDDiv.querySelector("#exerciseDQuestion");
+    exerciseDQuestion.innerHTML = EchallengeD.shortQuestion;
+    
+    
+    const exerciseSubmitD = document.querySelector("#exerciseSubmitD");
+    
+    exerciseSubmitD.addEventListener("click", function() {
+      const inputShortD=document.querySelector("#exerciseDInput").value;
+      
+
+      if(inputShortD==EchallengeD.shortCorrectAnswer)
+      {
+
+        console.log("Correct answer!");
+      } else {
+        // Incorrect answer or no answer selected
+        console.log("Incorrect answer!");
+      }
+    });
+
+
+         //EXERCISE E - SHORT
+
+         exerciseE.addEventListener("click",function(){
+          exerciseEDiv.style.display = 'flex'; // Show the ending challenge
+          exerciseEDiv.classList.add("slideIn"); // Add the class to the opening animation´
+          setTimeout(function() {
+            exerciseEDiv.classList.remove("slideIn"); // Remove class after the animation
+          }, 200); // Duration of the animation in ms
+    
+        });
+        closeExerciseE.addEventListener("click",function(){
+          exerciseEDiv.classList.add("animated-close"); // Add the class to the closing animation
+          setTimeout(function() {
+          exerciseEDiv.style.display = 'none'; // Remove the element after the animation
+          exerciseEDiv.classList.remove("animated-close"); // Remove class after the animation
+        }, 200); //Duration of the animation in ms
+        })
+    
+    
+        const EchallengeE = new Challenge(
+          5,
+          "",
+          [],
+          0,
+          "",
+          [],
+          'What is going to be shown on the console?<br>let brands = ["BMW", "Mercedes", "Audi", "Porsche", "Renault", "Bugatti"]<br>console.log(brands.indexOf("Mercedes",2));',
+          "-1"
+        );
+        
+        const exerciseEQuestion = exerciseEDiv.querySelector("#exerciseEQuestion");
+        exerciseEQuestion.innerHTML = EchallengeE.shortQuestion;
+        
+        
+        const exerciseSubmitE = document.querySelector("#exerciseSubmitE");
+        
+        exerciseSubmitE.addEventListener("click", function() {
+        const inputShortE=document.querySelector("#exerciseEInput").value;
+          
+    
+          if(inputShortE==EchallengeE.shortCorrectAnswer)
+          {
+    
+            console.log("Correct answer!");
+          } else {
+            // Incorrect answer or no answer selected
+            console.log("Incorrect answer!");
+          }
+        });
+
+
+
+        //EXERCISE F - MULTIPLE CHOICE
+
+    exerciseF.addEventListener("click",function(){
+      exerciseFDiv.style.display = 'flex'; // Show the ending challenge
+      exerciseFDiv.classList.add("slideIn"); // Add the class to the opening animation´
+      setTimeout(function() {
+        exerciseFDiv.classList.remove("slideIn"); // Remove class after the animation
+      }, 200); // Duration of the animation in ms
+
+    });
+    closeExerciseF.addEventListener("click",function(){
+      exerciseFDiv.classList.add("animated-close"); // Add the class to the closing animation
+      setTimeout(function() {
+      exerciseFDiv.style.display = 'none'; // Remove the element after the animation
+      exerciseFDiv.classList.remove("animated-close"); // Remove class after the animation
+    }, 200); //Duration of the animation in ms
+    })
+    const EchallengeF = new Challenge(
+      6,
+      "What is the result of the expression: [1, 2, 3, 4].filter(x => x > 2)?",
+      ["[1, 2]", "[2, 3]", "[3, 4]", "[1, 3, 4]"],
+      2,
+      "",
+      [],
+      "",
+      ""
+    );
+    
+    const exerciseFQuestion = exerciseFDiv.querySelector("#exerciseFQuestion");
+    const exerciseFAnswers = exerciseFDiv.querySelectorAll("input[name='exerciseFAnswers']");
+    
+    exerciseFQuestion.textContent = EchallengeF.multipleChoiceQuestion;
+    
+    exerciseFAnswers.forEach((input, index) => {
+      input.id = "exerciseFOption" + index; // Set the id attribute for each radio input
+      input.nextElementSibling.setAttribute("for", "exerciseFOption" + index); // Set the "for" attribute for each label
+      input.value = index;
+      input.nextElementSibling.textContent = EchallengeF.multipleChoiceAnswers[index];
+    });
+
+    const exerciseSubmitF = document.querySelector("#exerciseSubmitF");
+
+    exerciseSubmitF.addEventListener("click", function() {
+      const selectedAnswerF = document.querySelector("input[name='exerciseFAnswers']:checked");
+      
+      if (selectedAnswerF && selectedAnswerF.value == challengeF.multipleChoiceCorrectAnswer) {
+        // Correct answer
+        console.log("Correct answer!");
+      } else {
+        // Incorrect answer or no answer selected
+        console.log("Incorrect answer!");
+      }
+    });
+
+
+
+    //EXERCISE G - FILL IN THE BLANKS
+
+    exerciseG.addEventListener("click",function(){
+      exerciseGDiv.style.display = 'flex'; // Show the ending challenge
+      exerciseGDiv.classList.add("slideIn"); // Add the class to the opening animation´
+      setTimeout(function() {
+        exerciseGDiv.classList.remove("slideIn"); // Remove class after the animation
+      }, 200); // Duration of the animation in ms
+
+    });
+    closeExerciseG.addEventListener("click",function(){
+      exerciseGDiv.classList.add("animated-close"); // Add the class to the closing animation
+      setTimeout(function() {
+      exerciseGDiv.style.display = 'none'; // Remove the element after the animation
+      exerciseGDiv.classList.remove("animated-close"); // Remove class after the animation
+    }, 200); //Duration of the animation in ms
+    })
+
+
+    const EchallengeG = new Challenge(
+      7,
+      "",
+      [],
+      0,
+      "A JavaScript function is defined using the <<input1>> keyword.<br>The <<input2>> statement in a function is used to return a value from the function.The <<input3>> parameter in a function definition allows the function to accept any number of arguments",
+      ["function","return","rest"],
+      "",
+      ""
+    );
+    
+    const exerciseGQuestion = exerciseGDiv.querySelector("#exerciseGQuestion");
+    exerciseGQuestion.innerHTML = EchallengeG.fillText.replace(/<<input(\d+)>>/g, (_, index) => {
+      const inputId = `exerciseGInput${index}`;
+      const placeholder = `Input ${index + 1}`;
+      return `<input type="text" id="${inputId}" maxlength="8" size="8">`;
+    });
+    
+    const exerciseSubmitG = document.querySelector("#exerciseSubmitG");
+    
+    exerciseSubmitG.addEventListener("click", function() {
+      const input1G=document.querySelector("#exerciseGInput1").value;
+      const input2G=document.querySelector("#exerciseGInput2").value;
+      const input3G=document.querySelector("#exerciseGInput3").value;
+
+      if(input1G===EchallengeG.fillCorrectAnswers[0] && input2G===EchallengeG.fillCorrectAnswers[1] && input3G===EchallengeG.fillCorrectAnswers[2])
+      {
+
+        console.log("Correct answer!");
+      } else {
+        // Incorrect answer or no answer selected
+        console.log("Incorrect answer!");
+      }
+    });
+
+    
+
+
+    
+
 
 // Inicializa o plugin "Responsive Image Maps"
 $('img[usemap]').rwdImageMaps();

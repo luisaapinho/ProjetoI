@@ -95,11 +95,27 @@
         </map>
     </div>
     <!--Game 1- Exercise-->
-    <div class="exerciseDiv" id="exerciseA">
-        <img id="close-end" src="../assets/images/close.png" class="exerciseClose" id="closeExerciseA">
-        <h2 class="exerciseAQuestion"></h2>
-        <button class="submitBtn" id="exerciseSubmitA">OK</button>
-    </div>
+    <div class="exerciseDiv" id="exerciseADiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseA">
+        <h2 class="exerciseQuestion" id="exerciseAQuestion"></h2>
+        <div class="radioOption">
+          <input type="radio" id="exerciseAOption0" name="exerciseAAnswers" value="0">
+          <label for="exerciseAOption0">Option 1</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseAOption1" name="exerciseAAnswers" value="1">
+          <label for="exerciseAOption1">Option 2</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseAOption2" name="exerciseAAnswers" value="2">
+          <label for="exerciseAOption2">Option 3</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseAOption3" name="exerciseAAnswers" value="3">
+          <label for="exerciseAOption3">Option 4</label>
+        </div>
+        <button class="submitBtnExercise" id="exerciseSubmitA">OK</button>
+      </div>
     
     <!--Game 2- Theoretical part and where the practical exercise should appear-->
     <div class="container-fluid d-flex justify-content-center align-items-center" id="fileBOpen">
@@ -111,10 +127,10 @@
         </map>
     </div>
     <!--Game 2- Exercise-->
-    <div class="exerciseDiv" id="exerciseB">
-        <img id="close-end" src="../assets/images/close.png" class="exerciseClose" id="closeExerciseB">
-        <h2 class="exerciseBQuestion"></h2>
-        <button class="submitBtn" id="exerciseSubmitB">OK</button>
+    <div class="exerciseDiv" id="exerciseBDiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseB">
+        <h2 class="fillInQuestions" id="exerciseBQuestion"></h2>
+        <button class="submitBtnExercise" id="exerciseSubmitB">OK</button>
     </div>
     <!--Game 3 Folder-->
     <div class="container d-flex justify-content-center align-items-center" id="divFileC">
@@ -144,11 +160,27 @@
         </map>
     </div>
     <!--Game 3- Exercise-->
-    <div class="exerciseDiv" id="exerciseC">
-        <img id="close-end" src="../assets/images/close.png" class="exerciseClose" id="closeExerciseC">
-        <h2 class="exerciseCQuestion"></h2>
-        <button class="submitBtn" id="exerciseSubmitC">OK</button>
-    </div>
+    <div class="exerciseDiv" id="exerciseCDiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseC">
+        <h2 class="exerciseQuestion" id="exerciseCQuestion"></h2>
+        <div class="radioOption">
+          <input type="radio" id="exerciseCOption0" name="exerciseCAnswers" value="0">
+          <label for="exerciseCOption0">Option 1</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseCOption1" name="exerciseCAnswers" value="1">
+          <label for="exerciseCOption1">Option 2</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseCOption2" name="exerciseCAnswers" value="2">
+          <label for="exerciseCOption2">Option 3</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseCOption3" name="exerciseCAnswers" value="3">
+          <label for="exerciseCOption3">Option 4</label>
+        </div>
+        <button class="submitBtnExercise" id="exerciseSubmitC">OK</button>
+      </div>
     <!--Game 4 Folder-->
     <div class="container d-flex justify-content-center align-items-center" id="divFileD">
         <img src="..\assets\images\fileD.png" id="fileD" class="img-fluid custom-image" >
@@ -174,10 +206,11 @@
         </map>
     </div>
     <!--Game 4- Exercise-->
-    <div class="exerciseDiv" id="exerciseD">
-        <img id="close-end" src="../assets/images/close.png" class="exerciseClose" id="closeExerciseD">
-        <h2 class="exerciseDQuestion"></h2>
-        <button class="submitBtn" id="exerciseSubmitD">OK</button>
+    <div class="exerciseDiv" id="exerciseDDiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseD">
+        <h2 class="exerciseQuestion" id="exerciseDQuestion"></h2>
+        <input type="text" class="inputShort" id="exerciseDInput">
+        <button class="submitBtnExercise" id="exerciseSubmitD">OK</button>
     </div>
 
     <!--Game 5 Folder-->
@@ -209,10 +242,11 @@
         </map>
     </div>
     <!--Game 5- Exercise-->
-    <div class="exerciseDiv" id="exerciseE">
-        <img id="close-end" src="../assets/images/close.png" class="exerciseClose" id="closeExerciseE">
-        <h2 class="exerciseEQuestion"></h2>
-        <button class="submitBtn" id="exerciseSubmitE">OK</button>
+    <div class="exerciseDiv" id="exerciseEDiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseE">
+        <h2 class="exerciseQuestion" id="exerciseEQuestion"></h2>
+        <input type="text" class="inputShort" id="exerciseEInput">
+        <button class="submitBtnExercise" id="exerciseSubmitE">OK</button>
     </div>
 
     <!--Game 6 Folder-->
@@ -242,11 +276,27 @@
         </map>
     </div>
     <!--Game 6- Exercise-->
-    <div class="exerciseDiv" id="exerciseF">
-        <img id="close-end" src="../assets/images/close.png" class="exerciseClose" id="closeExerciseF">
-        <h2 class="exerciseFQuestion"></h2>
-        <button class="submitBtn" id="exerciseSubmitF">OK</button>
-    </div>
+    <div class="exerciseDiv" id="exerciseFDiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseF">
+        <h2 class="exerciseQuestion" id="exerciseFQuestion"></h2>
+        <div class="radioOption">
+          <input type="radio" id="exerciseFOption0" name="exerciseFAnswers" value="0">
+          <label for="exerciseFOption0">Option 1</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseFOption1" name="exerciseFAnswers" value="1">
+          <label for="exerciseFOption1">Option 2</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseFOption2" name="exerciseFAnswers" value="2">
+          <label for="exerciseFOption2">Option 3</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseCOption3" name="exerciseFAnswers" value="3">
+          <label for="exerciseFOption3">Option 4</label>
+        </div>
+        <button class="submitBtnExercise" id="exerciseSubmitF">OK</button>
+      </div>
 
     <!--Game 7 Folder-->
     <div class="container d-flex flex-row-reverse align-self-start" id="divFileG">
@@ -276,10 +326,10 @@
         </map>
     </div>
     <!--Game 7- Exercise-->
-    <div class="exerciseDiv" id="exerciseG">
-        <img id="close-end" src="../assets/images/close.png" class="exerciseClose" id="closeExerciseG">
-        <h2 class="exerciseGQuestion"></h2>
-        <button class="submitBtn" id="exerciseSubmitG">OK</button>
+    <div class="exerciseDiv" id="exerciseGDiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseG">
+        <h2 class="fillInQuestions" id="exerciseGQuestion"></h2>
+        <button class="submitBtnExercise" id="exerciseSubmitG">OK</button>
     </div>
 
     <!--Pasta Final-->
