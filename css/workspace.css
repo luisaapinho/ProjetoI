@@ -329,59 +329,7 @@
   }
 }
 
-#endingFile{
-  position: absolute;
-  bottom: 10vh;
-  left:0.2vw;
-  display:flex;
-}
-  
-#imgEndingOpen{
-  z-index: 1;
-  width: 55%; 
-  height: auto; 
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -60%);
-  display: none;
-}
 
-#word1,#word2,#word3,#word4,#word5{
-  text-align: center;
-  font-family: 'VCRDOSDMONO';
-  src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
-  border: none;
-  background-color: black;
-  border-bottom: 2px solid #00ff06;
-  font-size: 2vw;
-  color: white;
-  margin-right:1vw; 
-}
-#word1:focus,#word2:focus,#word3:focus,#word4:focus,#word5:focus{
-  outline: none;
- 
-}
-#word1,#word5{
-  width: 4.5vw;
-}
-#word2,#word3{
-  width: 6vw;
-
-}
-#word4{
-  width: 8vw;
-}
-
-#formEnding{
-  display: none;
-  z-index: 3;
-  position: absolute;
-  top:30vh;
-}
-#okEnding{
-  cursor: pointer;
-}
 
 
 .exerciseDiv {
