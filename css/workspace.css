@@ -435,7 +435,7 @@ margin: 0;
 }
 
 #fileD{
-  display: none;
+  display: flex;
 }
 
 #fileE{
@@ -522,7 +522,7 @@ margin: 0;
 #fileF{/*Close button not in the correct spot*/
   position: absolute;
   top:20vh;
-  display: none;
+  display: flex;
 }
 
 /* Game 6 MiniGame*/
@@ -627,7 +627,7 @@ margin: 0;
 
 #fileG{ /*Close button not working*/
   position:absolute;
-  display: none;
+  display: flex;
 }
 /*Game 7 Minigame*/
 /* Set the centered div properties */
@@ -798,13 +798,13 @@ margin: 0;
 
 /* Opacity transition */
 
-#imgTrashOpen, #imgInventoryOpen, #tableInventory,#imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx,#imgFileG,#imgFileGEx,#imgEndingOpen,#formEnding{
+#imgTrashOpen, #imgInventoryOpen, #tableInventory,#imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx,#imgFileG,#imgFileGEx,#imgEndingOpen,#formEnding,#exerciseADiv,#exerciseBDiv,#exerciseCDiv,#exerciseDDiv,#exerciseEDiv,#exerciseFDiv,#exerciseGDiv{
 
   transition: opacity 0.2s;
 }
 
 
-#imgTrashOpen.animated-close, #imgInventoryOpen.animated-close,#tableInventory.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close,#imgFileG.animated-close,#imgFileGEx.animated-close,#imgEndingOpen.animated-close,#formEnding.animated-close{
+#imgTrashOpen.animated-close, #imgInventoryOpen.animated-close,#tableInventory.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close,#imgFileG.animated-close,#imgFileGEx.animated-close,#imgEndingOpen.animated-close,#formEnding.animated-close,.exerciseDiv.animated-close,#exerciseADiv.animated-close,#exerciseBDiv.animated-close,#exerciseCDiv.animated-close,#exerciseDDiv.animated-close,#exerciseEDiv.animated-close,#exerciseFDiv.animated-close,#exerciseGDiv.animated-close{
   opacity: 0;
 }
 
@@ -840,60 +840,120 @@ margin: 0;
   }
 }
 
-#endingFile{
-  position: absolute;
-  bottom: 10vh;
-  left:0.2vw;
-  display:flex;
-}
-  
-#imgEndingOpen{
-  z-index: 1;
-  width: 55%; 
-  height: auto; 
-    position: fixed;
-    left: 50%;
+
+
+
+.exerciseDiv {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 60%;
+    text-align: center;
+    background-color: black;
+    border-top: 1em solid white ;
+    border-bottom: 0.2em solid white;
+    border-left: 0.2em solid white;
+    border-right: 0.2em solid white;
+    position: absolute;
+    display: flex;
     top: 50%;
-    transform: translate(-50%, -60%);
-  display: none;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#word1,#word2,#word3,#word4,#word5{
-  text-align: center;
-  font-family: 'VCRDOSDMONO';
-  src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
-  border: none;
-  background-color: black;
-  border-bottom: 2px solid #00ff06;
-  font-size: 2vw;
-  color: white;
-  margin-right:1vw; 
-}
-#word1:focus,#word2:focus,#word3:focus,#word4:focus,#word5:focus{
-  outline: none;
- 
-}
-#word1,#word5{
-  width: 4.5vw;
-}
-#word2,#word3{
-  width: 6vw;
 
+.exerciseQuestion {
+    font-family: 'VCRDOSDMONO';
+    font-size: 1vw;
+    color: white;
+    margin-bottom: 10vh; 
+    
 }
-#word4{
-  width: 8vw;
-}
-
-#formEnding{
-  display: none;
-  z-index: 3;
+.exerciseClose {
   position: absolute;
-  top:30vh;
-}
-#okEnding{
+  top: -16px;
+  right: 10px;
+  width: 1.1em; 
+  height: 1.1em; 
   cursor: pointer;
 }
+/* Set the submit button properties */
+.submitBtnExercise {
+  
+  background-color: black;
+  color: white;
+  border: 3.5px solid #00ff06;
+  font-size: 1.6em;
+  font-family: 'VCRDOSDMONO';
+  cursor: pointer;
 
+}
+
+/* Set the hover effect for the submit button */
+.submitBtnExercise:hover {
+  transform: scale(1.1,1.1);
+}
+
+#exerciseADiv{
+  z-index: 3;
+  display: none;
+}
+#exerciseBDiv{
+  z-index: 3;
+  display: none;
+}
+#exerciseCDiv{
+  z-index: 3;
+  display: none;
+}
+#exerciseDDiv{
+  z-index: 3;
+  display: none;
+}
+#exerciseEDiv{
+  z-index: 3;
+  display: none;
+}
+#exerciseFDiv{
+  z-index: 3;
+  display: none;
+}
+#exerciseGDiv{
+  z-index: 3;
+  display: none;
+}
+
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: 'VCRDOSDMONO';
+  font-size: 1vw;
+  color: white;
+}
+
+
+.radioOption input[type="radio"] {
+  margin-right: 5px;
+}
+
+.fillInQuestions{
+  font-family: 'VCRDOSDMONO';
+    font-size: 1.2vw;
+    color: white;
+    margin-bottom: 20vh; 
+
+}
+
+.inputShort{
+  font-family: 'VCRDOSDMONO';
+    font-size: 1.5vw;
+    color: black;
+    margin-bottom: 4vh; 
+
+}
 
 /* Media query for horizontal mobile devices with a maximum width of 1000px */
 @media only screen and (max-width: 1000px) and (orientation: landscape) {

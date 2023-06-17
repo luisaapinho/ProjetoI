@@ -93,15 +93,46 @@
         <map name="image-fileAMap">
             <area coords="1472,0,1516,25" shape="rect" id="closeBtnFileA">
             <area coords="186,237,332,408" shape="rect" id="expositiveFileA">
+            <area  coords="327,233,498,418" shape="rect" id="exerciseA">
         </map>
     </div>
-    <!--Game 1- Theoretical part and where the practical exercise should appear-->
+    <!--Game 1- Exercise-->
+    <div class="exerciseDiv" id="exerciseADiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseA">
+        <h2 class="exerciseQuestion" id="exerciseAQuestion"></h2>
+        <div class="radioOption">
+          <input type="radio" id="exerciseAOption0" name="exerciseAAnswers" value="0">
+          <label for="exerciseAOption0">Option 1</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseAOption1" name="exerciseAAnswers" value="1">
+          <label for="exerciseAOption1">Option 2</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseAOption2" name="exerciseAAnswers" value="2">
+          <label for="exerciseAOption2">Option 3</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseAOption3" name="exerciseAAnswers" value="3">
+          <label for="exerciseAOption3">Option 4</label>
+        </div>
+        <button class="submitBtnExercise" id="exerciseSubmitA">OK</button>
+      </div>
+    
+    <!--Game 2- Theoretical part and where the practical exercise should appear-->
     <div class="container-fluid d-flex justify-content-center align-items-center" id="fileBOpen">
         <img src="..\assets\images\fileBopen.png" usemap="#image-fileBMap" id="imgFileB" class="rwdimgmap img-fluid custom-image">
         <map name="image-fileBMap">
             <area  coords="1461,-1,1516,25" shape="rect" id="closeBtnFileB">
             <area  coords="177,233,359,411" shape="rect" id='expositiveFileB'>
+            <area coords="329,238,498,406" shape="rect" id='exerciseB'>
         </map>
+    </div>
+    <!--Game 2- Exercise-->
+    <div class="exerciseDiv" id="exerciseBDiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseB">
+        <h2 class="fillInQuestions" id="exerciseBQuestion"></h2>
+        <button class="submitBtnExercise" id="exerciseSubmitB">OK</button>
     </div>
     <!--Game 3 Folder-->
     <div class="container d-flex justify-content-center align-items-center" id="divFileC">
@@ -126,9 +157,32 @@
         <map name="image-fileCExMap">
             <area coords="1468,1,1511,24" shape="rect"id='closeBtnFileCEx'>
             <area coords="178,232,336,416" shape="rect" id="expositiveFileC">
+            <area coords="337,229,494,410" shape="rect" id="exerciseC">
             
         </map>
     </div>
+    <!--Game 3- Exercise-->
+    <div class="exerciseDiv" id="exerciseCDiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseC">
+        <h2 class="exerciseQuestion" id="exerciseCQuestion"></h2>
+        <div class="radioOption">
+          <input type="radio" id="exerciseCOption0" name="exerciseCAnswers" value="0">
+          <label for="exerciseCOption0">Option 1</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseCOption1" name="exerciseCAnswers" value="1">
+          <label for="exerciseCOption1">Option 2</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseCOption2" name="exerciseCAnswers" value="2">
+          <label for="exerciseCOption2">Option 3</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseCOption3" name="exerciseCAnswers" value="3">
+          <label for="exerciseCOption3">Option 4</label>
+        </div>
+        <button class="submitBtnExercise" id="exerciseSubmitC">OK</button>
+      </div>
     <!--Game 4 Folder-->
     <div class="container d-flex justify-content-center align-items-center" id="divFileD">
         <img src="..\assets\images\fileD.png" id="fileD" class="img-fluid custom-image" >
@@ -178,7 +232,15 @@
         <map name="image-fileDExMap">
             <area coords="1463,3,1514,27" shape="rect" id="closeBtnFileDEx">
             <area coords="187,239,337,400" shape="rect" id="expositiveFileD">
+            <area coords="344,224,503,426" shape="rect" id="exerciseD">
         </map>
+    </div>
+    <!--Game 4- Exercise-->
+    <div class="exerciseDiv" id="exerciseDDiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseD">
+        <h2 class="exerciseQuestion" id="exerciseDQuestion"></h2>
+        <input type="text" class="inputShort" id="exerciseDInput">
+        <button class="submitBtnExercise" id="exerciseSubmitD">OK</button>
     </div>
 
     <!--Game 5 Folder-->
@@ -218,7 +280,15 @@
         <map name="image-fileEExMap">
             <area coords="1467,1,1516,21" shape="rect" id="closeBtnFileEEx">
             <area coords="173,224,339,422" shape="rect" id="expositiveFileE">
+            <area coords="343,233,487,411" shape="rect" id="exerciseE">
         </map>
+    </div>
+    <!--Game 5- Exercise-->
+    <div class="exerciseDiv" id="exerciseEDiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseE">
+        <h2 class="exerciseQuestion" id="exerciseEQuestion"></h2>
+        <input type="text" class="inputShort" id="exerciseEInput">
+        <button class="submitBtnExercise" id="exerciseSubmitE">OK</button>
     </div>
 
     <!--Game 6 Folder-->
@@ -256,8 +326,31 @@
         <map name="image-fileFExMap">
             <area coords="1460,0,1511,22" shape="rect" id="closeBtnFileFEx">
             <area coords="177,228,332,411" shape="rect" id="expositiveFileF">
+            <area coords="335,225,498,418" shape="rect" id="exerciseF">
         </map>
     </div>
+    <!--Game 6- Exercise-->
+    <div class="exerciseDiv" id="exerciseFDiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseF">
+        <h2 class="exerciseQuestion" id="exerciseFQuestion"></h2>
+        <div class="radioOption">
+          <input type="radio" id="exerciseFOption0" name="exerciseFAnswers" value="0">
+          <label for="exerciseFOption0">Option 1</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseFOption1" name="exerciseFAnswers" value="1">
+          <label for="exerciseFOption1">Option 2</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseFOption2" name="exerciseFAnswers" value="2">
+          <label for="exerciseFOption2">Option 3</label>
+        </div>
+        <div class="radioOption">
+          <input type="radio" id="exerciseCOption3" name="exerciseFAnswers" value="3">
+          <label for="exerciseFOption3">Option 4</label>
+        </div>
+        <button class="submitBtnExercise" id="exerciseSubmitF">OK</button>
+      </div>
 
     <!--Game 7 Folder-->
     <div class="container d-flex flex-row-reverse align-self-start" id="divFileG">
@@ -287,6 +380,8 @@
         <map name="image-fileGMap">
             <area  coords="1347,0,1392,25" shape="rect" id="closeBtnFileG">
             <area coords="153,190,295,364" shape="rect" id="fileImgG">
+            
+    
         
         </map>
     </div>
@@ -296,8 +391,15 @@
         <img src="..\assets\images\imgFileGEx.png" usemap="#image-fileGExMap" id="imgFileGEx" class="rwdimgmap img-fluid custom-image">
         <map name="image-fileGExMap">
             <area  coords="1461,0,1516,27" shape="rect"id='closeBtnFileGEx'>
+            <area coords="343,216,489,421" shape="rect" id="exerciseG">
             <area  coords="177,225,333,424" shape="rect" id="expositiveFileG">
         </map>
+    </div>
+    <!--Game 7- Exercise-->
+    <div class="exerciseDiv" id="exerciseGDiv">
+        <img src="../assets/images/close.png" class="exerciseClose" id="closeExerciseG">
+        <h2 class="fillInQuestions" id="exerciseGQuestion"></h2>
+        <button class="submitBtnExercise" id="exerciseSubmitG">OK</button>
     </div>
 
     <!--Final Folder-->
@@ -319,6 +421,8 @@
         <img src="../assets/images/words.png" id="words">
         <button class="submitBtn">OK</button>
     </div>
+
+
 
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
