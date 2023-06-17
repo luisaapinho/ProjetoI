@@ -516,8 +516,109 @@ margin: 0;
 #fileF{/*Close button not in the correct spot*/
   position: absolute;
   top:20vh;
-  display: none;
+  display: flex;
 }
+
+/* Game 6 MiniGame*/
+/* Set the centered div properties */
+.centered-div-sequence {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  width: 50%;
+  text-align: center;
+  background-color: black;
+  border-top: 1em solid white ;
+  border-bottom: 0.2em solid white;
+  border-left: 0.2em solid white;
+  border-right: 0.2em solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Set the h2 properties */
+#titleSequence {
+  font-family: 'VCRDOSDMONO';
+  font-size: 2vw;
+  color: #00ff06;
+  margin-top: 0; /* Add margin-top to move it further to the top */
+  margin-bottom: 10vh;
+}
+
+/* Set the message container properties */
+#message-container-sequence {
+  font-family: 'VCRDOSDMONO';
+  font-size: 2vw;
+  position: absolute;
+  white-space: nowrap;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Set the message display properties */
+.message-display {
+  color: gray;
+}
+
+/* Set the message correct properties */
+.message-correct {
+  color: green;
+}
+
+/* Set the message incorrect properties */
+.message-incorrect {
+  color: red;
+}
+
+
+/* Set the horizontal properties */
+.horizontalSequence {
+  display: flex;
+  justify-content: center; /* Center the input containers horizontally */
+  margin-bottom: 5vh;
+}
+
+/* Set the close icon properties */
+.close-icon-sequence {
+  position: absolute;
+  top: -16px;
+  right: 10px;
+  width: 1.1em; /* Adjust the width of the image as desired */
+  height: 1.1em; /* Adjust the height of the image as desired */
+  cursor: pointer;
+}
+
+/* Set the box properties */
+.boxSequence {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  cursor: pointer;
+  opacity: 0.1;
+}
+
+/* Media query for horizontal mobile devices with a maximum width of 1000px */
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+  .centered-div-sequence {
+      width: 70%;
+      height: 70%;
+  }
+
+  #titleSequence {
+      font-size: 1.5em;
+  }
+
+  .boxSequence {
+      width: 100px;
+      height: 100px;
+  }
+}
+
 #fileG{ /*Close button not working*/
   position:absolute;
   display: none;
@@ -542,6 +643,10 @@ margin: 0;
   opacity: 0; /* Set initial opacity to 0 */
   animation:fadeInAnimation 1s linear forwards; /* Add the 'forwards' property to keep the final animation state */
   animation-delay: 0.1s; /* Add a delay of 0.5 seconds before the animation starts */
+}
+
+#expositiveFileA, #expositiveFileB, #expositiveFileC, #expositiveFileD, #expositiveFileE, #expositiveFileF, #expositiveFileG {
+  cursor: pointer;
 }
 
 

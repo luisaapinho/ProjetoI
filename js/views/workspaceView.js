@@ -265,9 +265,9 @@ const imgFileF=document.querySelector("#imgFileF");
 //Close button to the img above
 const closeBtnFileF=document.querySelector("#closeBtnFileF");
 //File that opens the challenge u need to do before it to go to the expositive/exercise part
-const challengeF=document.querySelector("fileImgE");
+const challengeF=document.querySelector("#fileImgF");
 //File where are the expositive/exercise part of the game
-const imgFileFEx=document.querySelector("imgFileFEx");
+const imgFileFEx=document.querySelector("#imgFileFEx");
 //Close button to the file above
 const closeBtnFileFEx=document.querySelector("#closeBtnFileFEx");
 //Expositive part of the game 6
@@ -664,6 +664,7 @@ expositiveFileD.addEventListener("click", () => {
   window.open("../assets/videos/for loop.mp4", "_blank");
 });
 
+// MINIGAME FOR FOLDER E //
 // Select the element with class "map-container-ImageKey" and assign it to the variable "serverMapImageMap"
 let serverMapImageMap = document.querySelector(".map-container-ImageKey");
 
@@ -874,6 +875,184 @@ closeBtnFileEEx.addEventListener("click",function(){
 expositiveFileE.addEventListener("click", () => {
   window.open("../assets/videos/array.mp4", "_blank");
 });
+
+// MINIGAME FOR FOLDER F //
+const sequence = [];  // Array to store the sequence of box indexes
+const userSequence = [];  // Array to store the user's sequence of box indexes
+const boxesSequence = document.querySelectorAll('.boxSequence');  // NodeList of box elements
+let isSequenceShowing = false; // Flag to track if the sequence is being shown
+
+// Add event listeners to each box
+boxesSequence.forEach((box, index) => {
+  box.addEventListener('click', () => {
+    if (!isSequenceShowing) { // Allow clicks only when the sequence is not being shown
+      userSequence.push(index); // Add clicked box index to user's sequence
+      checkUserSequence();  // Check if the user's sequence matches the sequence
+      changeBoxOpacity(box);  // Change the opacity of the clicked box
+    }
+  });
+});
+
+/**
+ * Generates a random sequence of box indexes.
+ * The length of the sequence is fixed at 6.
+ */
+function generateSequence() {
+  for (let i = 0; i < 6; i++) {
+    const randomIndexSequence = Math.floor(Math.random() * boxesSequence.length); // Generate a random index within the available box indexes
+    sequence.push(randomIndexSequence); // Add the random index to the sequence
+  }
+}
+
+/**
+ * Changes the opacity of the clicked box.
+ * @param {Element} box - The clicked box element.
+ */
+function changeBoxOpacity(box) {
+    box.style.opacity = '1';  // Set the opacity to 1 (fully opaque)
+    setTimeout(() => {
+      box.style.opacity = '0.1';  // Set the opacity back to 0.1 (partially transparent)
+    }, 500);
+}
+
+/**
+ * Shows the sequence by blinking the boxes in order.
+ */
+function showSequence() {
+  isSequenceShowing = true; // Set the flag to true during sequence display
+  let iSequence = 0;
+  const intervalSequence = setInterval(() => {
+    const boxIndex = sequence[iSequence]; // Get the current box index from the sequence
+    blinkBox(boxIndex); // Blink the box with the current index
+
+    iSequence++;
+    if (iSequence >= sequence.length) { 
+      clearInterval(intervalSequence);  // Stop the interval when the entire sequence has been shown
+      // Add a delay before displaying "Your turn!" message and resetting the flag
+      setTimeout(() => {
+        updateMessageSequence('Your turn!', 'message-display'); // Display "Your turn" message
+        setTimeout(() => {
+          isSequenceShowing = false; // Reset the flag after the delay
+          updateMessageSequence('', ''); // Clear the message
+        }, 1000); // delay time 1s
+      }, 1000); // delay time 1s
+    }
+  }, 1000); // Interval between blinking each box 1s
+}
+
+/**
+ * Blinks a specific box by changing its opacity.
+ * @param {number} boxIndex - The index of the box to blink.
+ */
+function blinkBox(boxIndex) {
+    const box = boxesSequence[boxIndex];  // Get the box element with the provided index
+    box.style.opacity = '1';  // Set the opacity to 1 (fully opaque)
+    setTimeout(() => {
+      box.style.opacity = '0.1';  // Set the opacity back to 0.1 (partially transparent)
+    }, 500);
+}
+
+/**
+ * Checks if the user sequence matches the sequence.
+ */
+function checkUserSequence() {
+  if (userSequence.length === sequence.length) {
+    if (userSequence.join('') === sequence.join('')) {
+      // Code is correct
+      const containerSequence = document.querySelector('.centered-div-sequence');
+
+      // Set the container's border color to green
+      containerSequence.style.borderColor = 'green';
+      playAudio("../assets/audios/correctAnswer.mp3")  // Play a sound for correct answer
+      updateMessageSequence('Correct! Keep it up!', 'message-correct'); // Update message container with a success message
+      document.querySelector(".centered-div-sequence").classList.add("animated-close");
+      setTimeout(() => {
+        document.querySelector(".centered-div-sequence").style.display = "none";
+        document.querySelector(".centered-div-sequence").classList.remove("animated-close");
+        imgFileFEx.style.display = "flex";
+        imgFileFEx.classList.add("slideIn"); // Add the class to the opening animation´
+        setTimeout(function() {
+          imgFileFEx.classList.remove("slideIn"); // Remove class after the animation
+        }, 200); // Duration of the animation in ms
+      }, 2000);
+
+    } else {
+      // Code is correct
+      const containerSequence = document.querySelector('.centered-div-sequence');
+
+      // Set the container's border color to green
+      containerSequence.style.borderColor = 'red';
+      playAudio("../assets/audios/wrongAnswer.mp3")  // Play a sound for wrong answer
+      updateMessageSequence('Game over! You made a mistake. Try again.', 'message-incorrect');  // Update message container with a incorrect message
+      setTimeout(() => {
+        gameOverSequence(); // Reset the game after a delay
+      }, 1000);    // delay time 1s
+    }
+  }
+}
+
+/**
+ * Updates the message container with the provided text and CSS class.
+ * @param {string} text - The text to be displayed in the message container.
+ * @param {string} className - The CSS class to be applied to the message container.
+ */
+function updateMessageSequence(text,className) {
+  const messageContainer = document.getElementById('message-container-sequence');
+  messageContainer.textContent = text;
+  messageContainer.className = className;
+}
+
+/**
+ * Handles the game over state by resetting the game after a delay.
+ */
+function gameOverSequence() {
+   // Delay the reset of the game by 1 second (1000 milliseconds)
+   setTimeout(() => {
+    // Reset the message container
+    updateMessageSequence('', '');
+
+    // Reset the container's border color
+    const containerSequence = document.querySelector('.centered-div-sequence');
+    containerSequence.style.borderColor = '';
+
+    // Clear the sequences and generate a new one
+    sequence.length = 0;
+    userSequence.length = 0;
+    generateSequence();
+
+    // Show the sequence
+    showSequence();
+  }, 2000);
+}
+
+// Attach a click event listener to the element with ID "close"
+document.querySelector("#closeSequence").addEventListener("click", function() {
+  // When clicked, find the element with class "centered-div" and set its display property to "none"
+  document.querySelector(".centered-div-sequence").style.display = "none";
+});
+
+// Attach a click event listener to the "redBox" element
+challengeF.addEventListener("click", function(){
+  imgFileF.style.display = "none";
+  // Set the "display" style property of the element with class "centered-div-ImageKey" to "block"
+  document.querySelector(".centered-div-sequence").style.display = "flex";
+  // Start the game
+  generateSequence();
+  showSequence();
+});
+
+closeBtnFileFEx.addEventListener("click",function(){
+  imgFileFEx.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileFEx.style.display = 'none'; // Remove the element after the animation
+   imgFileFEx.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+
+expositiveFileF.addEventListener("click", () => {
+  window.open("../assets/pdf/arrayMethods.pdf", "_blank");
+});
+
 
 
 
