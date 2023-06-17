@@ -1,0 +1,64 @@
+/* Set the centered div properties */
+.centered-div-newWord {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 40%;
+    text-align: center;
+    background-color: black;
+    border-top: 1em solid white ;
+    border-bottom: 0.2em solid white;
+    border-left: 0.2em solid white;
+    border-right: 0.2em solid white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+}
+
+/* Set the h1 properties */
+.h1-newWord {
+    font-family: 'VCRDOSDMONO';
+    font-size: 3vw;
+    color: #ffffff;
+    margin-top: 0; /* Add margin-top to move it further to the top */
+    margin-bottom: 10vh;
+}
+
+/* Set the h2 properties */
+#h2-newWord {
+    font-family: 'VCRDOSDMONO';
+    font-size: 2.5vw;
+    color: #00ff06;
+    margin-top: 0; /* Add margin-top to move it further to the top */
+    margin-bottom: 10vh;
+    border: 50px solid black;
+    -webkit-box-shadow: -1px 2px 74px -8px rgba(0,255,4,1);
+    -moz-box-shadow: -1px 2px 74px -8px rgba(0,255,4,1);
+    box-shadow: -1px 2px 74px -8px rgba(0,255,4,1);
+}
+
+/* Set the close icon properties */
+.close-icon-newWord {
+    position: absolute;
+    top: -16px;
+    right: 10px;
+    width: 1.1em; /* Adjust the width of the image as desired */
+    height: 1.1em; /* Adjust the height of the image as desired */
+    cursor: pointer;
+}
+
+/* Media query for horizontal mobile devices with a maximum width of 1000px */
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+    .centered-div-newWord {
+        width: 50%;
+        height: 40%;
+    }
+
+    #h2-newWord {
+        font-size: 1.5em;
+    }
+}

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/workspace.css">
     <link rel="stylesheet" href="../css/sam.css">
+    <link rel="stylesheet" href="../css/ending.css">
+    <link rel="stylesheet" href="../css/newWord.css">
 </head>
 <body>
     <!--Trash and inventory icons-->
@@ -185,6 +187,34 @@
     <div class="container d-flex justify-content-center align-items-center" id="divFileD">
         <img src="..\assets\images\fileD.png" id="fileD" class="img-fluid custom-image" >
     </div>
+    <!--Game 4 MiniGame-->
+    <div class="centered-div-codeArrow">
+        <img id="close-codeArrow" src="../assets/images/close.png" class="close-icon-codeArrow">
+        <h2 id="codeArrow">Enter Code</h2>
+        <div class="horizontal-codeArrow">
+            <div class="input-container-codeArrow">
+                <button><img src="../assets/images/arrowCode.png" alt="arrow" class="up-arrow"></button>
+                <input class="input-codeArrow" type="number" min="0" max="9" value="0">
+                <button ><img src="../assets/images/arrowCode.png" alt="arrow" class="down-arrow"></button>
+              </div>
+              <div class="input-container-codeArrow">
+                <button><img src="../assets/images/arrowCode.png" alt="arrow" class="up-arrow"></button>
+                <input class="input-codeArrow" type="number" min="0" max="9" value="0">
+                <button><img src="../assets/images/arrowCode.png" alt="arrow" class="down-arrow"></button>
+              </div>
+              <div class="input-container-codeArrow">
+                <button><img src="../assets/images/arrowCode.png" alt="arrow" class="up-arrow"></button>
+                <input class="input-codeArrow" type="number" min="0" max="9" value="0">
+                <button><img src="../assets/images/arrowCode.png" alt="arrow" class="down-arrow"></button>
+              </div>
+              <div class="input-container-codeArrow">
+                <button><img src="../assets/images/arrowCode.png" alt="arrow" class="up-arrow"></button>
+                <input class="input-codeArrow" type="number" min="0" max="9" value="0">
+                <button><img src="../assets/images/arrowCode.png" alt="arrow" class="down-arrow"></button>
+              </div>
+        </div>
+        <button class="submitBtn-codeArrow">OK</button>
+      </div>
     <!--Challenge to enter the game 4 Folder-->
     <div class="container-fluid d-flex justify-content-center align-items-center" id="fileDOpen">
         
@@ -216,6 +246,18 @@
     <!--Game 5 Folder-->
     <div class="container d-flex justify-content-right align-items-center" id="divFileE">
         <img src="..\assets\images\fileE.png" id="fileE" class="img-fluid custom-image" >
+    </div>
+
+    <!--Game 5 MiniGame-->
+    <div class="map-container-ImageKey">
+        <img src="../assets/images/servidorFoto.png" alt="server" usemap="#server" id="serverImg">
+        <map name="server" id="serverMap">
+            <area shape="rect" coords="1110,0,1151,28" alt="server" href="#" id="closeMap-ImageKey">
+        </map>
+    </div>
+    <div class="centered-div-ImageKey">
+        <img id="closeImageKey" src="../assets/images/close.png" class="close-icon-ImageKey">
+        <img src="../assets/images/doorClose.png" class="centered-image-ImageKey">
     </div>
 
     <!--Folder that opens the challenge necessary to move on to the expository/practical part-->
@@ -253,6 +295,19 @@
     <div class="container d-flex flex-row-reverse align-self-start" id="divFileF">
         <img src="..\assets\images\fileF.png" id="fileF" class="img-fluid custom-image">
     </div>
+
+    <!--Game 6 MiniGame-->
+    <div class="centered-div-sequence">
+        <img id="closeSequence" src="../assets/images/close.png" class="close-icon-sequence">
+        <h2 id="titleSequence">Repeat the Sequence</h2>
+        <div class="horizontalSequence">
+          <img class="boxSequence" src="../assets/images/red-box.png" alt="Red Box">
+          <img class="boxSequence" src="../assets/images/blue-box.png" alt="Blue Box">
+          <img class="boxSequence" src="../assets/images/green-box.png" alt="Green Box">
+          <img class="boxSequence" src="../assets/images/yellow-box.png" alt="Yellow Box">
+        </div>
+        <div id="message-container-sequence"></div>
+    </div>
     
     <!--Game 6- Necessary challenge to move on to the expository/practical part-->
     <div class="container-fluid d-flex justify-content-center align-items-center" id="fileFOpen">
@@ -261,8 +316,7 @@
 
         <map name="image-fileFMap">
             <area coords="1353,26,1307,3" shape="rect" id="closeBtnFileF">
-            <area coords="154,201,287,345" shape="rect" id="fileImgE">
-            
+            <area coords="154,201,287,345" shape="rect" id="fileImgF">
         
         </map>
     </div>
@@ -302,10 +356,26 @@
     <div class="container d-flex flex-row-reverse align-self-start" id="divFileG">
         <img src="..\assets\images\fileG.png" id="fileG" class="img-fluid custom-image">
     </div>
+
+    <!--Game 7 MiniGame-->
+    <div class="centered-div-codeTime">
+        <h3 id="countdown-codeTime">01:00</h3>
+        <img id="close-codeTime" src="../assets/images/close.png" class="close-icon-codeTime">
+        <h2 id="codeTime">Insert the correct Code</h2>
+        <div class="horizontal-codeTime">
+            <input class="input-codeTime" type="number" min="0" max="9" value="0">
+            <input class="input-codeTime" type="number" min="0" max="9" value="0">
+            <input class="input-codeTime" type="number" min="0" max="9" value="0">
+            <input class="input-codeTime" type="number" min="0" max="9" value="0">
+        </div>
+        <button class="submitBtn-codeTime">OK</button>
+    </div>
+
+
     <!--Game 7- Necessary challenge to move on to the expository/practical part-->
     <div class="container-fluid d-flex justify-content-center align-items-center" id="fileGOpen">
         
-        <img src="..\assets\images\fileGopen.png" usemap="#image-fileFMap" id="imgFileG" class="rwdimgmap img-fluid custom-image">
+        <img src="..\assets\images\fileGopen.png" usemap="#image-fileGMap" id="imgFileG" class="rwdimgmap img-fluid custom-image">
 
         <map name="image-fileGMap">
             <area  coords="1347,0,1392,25" shape="rect" id="closeBtnFileG">
@@ -321,8 +391,8 @@
         <img src="..\assets\images\imgFileGEx.png" usemap="#image-fileGExMap" id="imgFileGEx" class="rwdimgmap img-fluid custom-image">
         <map name="image-fileGExMap">
             <area  coords="1461,0,1516,27" shape="rect"id='closeBtnFileGEx'>
-            <area  coords="177,225,333,424" shape="rect" id="expostiveFileG">
             <area coords="343,216,489,421" shape="rect" id="exerciseG">
+            <area  coords="177,225,333,424" shape="rect" id="expositiveFileG">
         </map>
     </div>
     <!--Game 7- Exercise-->
@@ -332,28 +402,24 @@
         <button class="submitBtnExercise" id="exerciseSubmitG">OK</button>
     </div>
 
-    <!--Pasta Final-->
+    <!--Final Folder-->
     <div class="container d-flex flex-row-reverse align-self-start" id="divEnding">
         <img src="..\assets\images\endingFile.png" id="endingFile" class="img-fluid custom-image">
     </div>
 
-    <div class="container-fluid d-flex justify-content-center align-items-center" id="endingOpen">
-        
-        <img src="..\assets\images\endingOpen.png" usemap="#image-endingMap" id="imgEndingOpen" class="rwdimgmap img-fluid custom-image">
-        <map name="image-endingMap">
-            <area coords="1092,8,1123,33" shape="rect" id="closeEnding">
-            <area coords="498,648,637,718" shape="rect" id="okEnding">
-        </map>
-        <div class="container d-flex justify-content-center align-items-center">
-            <form id="formEnding">
-                <input type="text" maxlength="3" id="word1">
-                <input type="text" maxlength="4" id="word2">
-                <input type="text" maxlength="4" id="word3">
-                <input type="text" maxlength="6" id="word4">
-                <input type="text" maxlength="3" id="word5">
-            </form>
-            
+    <!--Ending Part-->
+    <div class="centered-div ">
+        <img id="close-end" src="../assets/images/close.png" class="close-icon">
+        <h2>Insert the correct Code</h2>
+        <div class="horizontal">
+            <input type="text" maxlength="3" id="word1">
+            <input type="text" maxlength="4" id="word2">
+            <input type="text" maxlength="4" id="word3">
+            <input type="text" maxlength="6" id="word4">
+            <input type="text" maxlength="3" id="word5">
         </div>
+        <img src="../assets/images/words.png" id="words">
+        <button class="submitBtn">OK</button>
     </div>
 
 
