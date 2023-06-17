@@ -246,8 +246,190 @@
   display: none;
 }
 
-#fileD{
+/* Game 4 MiniGame*/
+/* Set the centered div properties */
+.centered-div-codeArrow {
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 50%;
+  text-align: center;
+  background-color: black;
+  border-top: 1em solid white ;
+  border-bottom: 0.2em solid white;
+  border-left: 0.2em solid white;
+  border-right: 0.2em solid white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Set the h2 properties */
+#codeArrow {
+  font-family: 'VCRDOSDMONO';
+  font-size: 2vw;
+  color: #00ff06;
+  margin-top: 0; /* Add margin-top to move it further to the top */
+  margin-bottom: 4vh;
+}
+
+/* Set the horizontal properties */
+.horizontal-codeArrow {
+  display: flex;
+  justify-content: center; /* Center the input containers horizontally */
+  margin-bottom: 5vh;
+}
+
+/* Set the input container properties */
+.input-container-codeArrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  margin-right: 3vw; /* Add margin-right for spacing */
+  margin-left: 3vw; /* Add margin-left for spacing */
+  width: 5vw;
+}
+
+.input-codeArrow::-webkit-outer-spin-button,
+.input-codeArrow::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* Set the input type number properties */
+.input-container-codeArrow .input-codeArrow {
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  font-size: 5em;
+  font-family: 'VCRDOSDMONO';
+}
+
+/* Set the button properties */
+.input-container-codeArrow button {
+  width: 4vw; /* Increase the width */
+  height: 4vh; /* Increase the height */
+  font-size: 20px; /* Increase the font size */
+  border: none;
+  background-color: transparent;
+  color: #000000;
+  cursor: pointer;
+}
+
+/* Set the up-arrow image properties */
+.input-container-codeArrow button img.up-arrow {
+  width: 100%; /* Make the image fill the button */
+  height: 100%; /* Make the image fill the button */
+  object-fit: contain; /* Preserve the image aspect ratio */
+  transform: rotate(270deg); /* Rotate the image 180 degrees */
+  margin-top: -4vh; /* Adjust the margin-top to move the arrow up */
+}
+
+/* Set the down-arrow image properties */
+.input-container-codeArrow button img.down-arrow {
+  width: 100%; /* Make the image fill the button */
+  height: 100%; /* Make the image fill the button */
+  object-fit: contain; /* Preserve the image aspect ratio */
+  transform: rotate(90deg); /* Rotate the image 180 degrees */
+  margin-bottom: -2vh; /* Adjust the margin-top to move the arrow up */
+}
+
+/* Set the submit button properties */
+.submitBtn-codeArrow {
+  background-color: black;
+  color: white;
+  border: 3.5px solid #00ff06;
+  font-size: 1.6em;
+  font-family: 'VCRDOSDMONO';
+  width: 4vw;
+  height: 6vh;
+  cursor: pointer;
+}
+
+/* Set the hover effect for the submit button */
+.submitBtn-codeArrow:hover {
+  transform: scale(1.1,1.1);
+}
+
+/* Set the close icon properties */
+.close-icon-codeArrow {
+  position: absolute;
+  top: -16px;
+  right: 10px;
+  width: 1.1em; /* Adjust the width of the image as desired */
+  height: 1.1em; /* Adjust the height of the image as desired */
+  cursor: pointer;
+}
+
+/* Set the shake animation */
+.shake {
+  animation: shake 0.5s infinite;
+}
+
+/* Define the keyframes for the shake animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+/* Media query for horizontal mobile devices with a maximum width of 1000px */
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+  .centered-div-codeArrow {
+      width: 70%;
+      height: 70%;
+  }
+
+  #codeArrow {
+      font-size: 1.5em;
+  }
+
+  .input-container-codeArrow {
+      width: 6vw;
+      height: 35vh;
+  }
+
+  .input-container-codeArrow .input-codeArrow {
+      font-size: 3em;
+      margin-top: -1.5vh;
+      margin-bottom: 2vh;
+  }
+
+  .input-container-codeArrow button {
+      width: 8vw;
+      height: 8vh;
+      font-size: 4vw;
+  }
+
+  .input-container-codeArrow button img.up-arrow {
+      width: 80%;
+      height: 80%;
+      margin-bottom: 8vh;
+  }
+
+  .input-container-codeArrow button img.down-arrow {
+      width: 80%;
+      height: 80%;
+      margin-bottom: 25vh;
+  }
+
+  .submitBtn-codeArrow {
+      font-size: 1.2em;
+      width: 5vw;
+      height: 8vh;
+  }
+}
+
+#fileD{
+  display: flex;
 }
 
 #fileE{

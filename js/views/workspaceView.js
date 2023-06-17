@@ -446,13 +446,7 @@ closeBtnFileCEx.addEventListener("click",function(){
 })
 
 
-fileD.addEventListener("click", function(){
-  imgFileD.style.display = 'flex'; // Show the bin
-  imgFileD.classList.add("slideIn"); // Add the class to the opening animation
-  setTimeout(function() {
-    imgFileD.classList.remove("slideIn"); // Remove class after the animation
-  }, 200); // Duration of the animation in ms
-})
+
 
 closeBtnFileD.addEventListener("click",function(){
   imgFileD.classList.add("animated-close"); // Add the class to the closing animation
@@ -506,6 +500,168 @@ closeBtnFileG.addEventListener("click",function(){
    imgFileG.classList.remove("animated-close"); // Remove class after the animation
  }, 200); //Duration of the animation in ms
 })
+// MINIGAME //
+// Get the buttons and inputs
+const increaseButtonsCodeArrow = document.querySelectorAll('.input-container-codeArrow .up-arrow');
+const decreaseButtonsCodeArrow = document.querySelectorAll('.input-container-codeArrow .down-arrow');
+const inputsCodeArrow = document.querySelectorAll('.input-container-codeArrow .input-codeArrow');
+
+// Attach event listeners to the buttons
+increaseButtonsCodeArrow.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    increaseValueCodeArrow(index);
+  });
+});
+
+/**
+ * Increases the value of the input element at the specified index.
+ *
+ * @param {number} index - The index of the input element to be updated.
+ */
+function increaseValueCodeArrow(index) {
+  // Get the input element at the specified index
+  const inputCodeArrow = inputsCodeArrow[index];
+
+  // Extract the current value of the input element and convert it to an integer
+  let currentValueCodeArrow = parseInt(inputCodeArrow.value);
+
+  // Increment the current value by 1 and wrap around from 9 to 0 using modulo operator
+  currentValueCodeArrow = (currentValueCodeArrow + 1) % 10;
+
+  // Update the value of the input element with the new value
+  inputCodeArrow.value = currentValueCodeArrow;
+}
+
+// Attach event listeners to the buttons
+decreaseButtonsCodeArrow.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    decreaseValueCodeArrow(index);
+  });
+});
+
+/**
+ * Decreases the value of the input element at the specified index.
+ *
+ * @param {number} index - The index of the input element to be updated.
+ */
+function decreaseValueCodeArrow(index) {
+  // Get the input element at the specified index
+  const inputCodeArrow = inputsCodeArrow[index];
+
+  // Get the current value of the input element
+  let currentValueCodeArrow = parseInt(inputCodeArrow.value);
+
+  // Calculate the new value by decrementing and handling wrapping around from 0 to 9
+  currentValueCodeArrow = (currentValueCodeArrow - 1 + 10) % 10;
+
+  // Update the value of the input element with the new value
+  inputCodeArrow.value = currentValueCodeArrow;
+}
+
+/**
+ * Resets the code input by clearing the input values.
+ */
+function resetCodeArrow() {
+  // Clear the input values
+  inputsCodeArrow.forEach((input) => {
+    input.value = 0;  // Set the input value to 0, effectively resetting it
+  });
+
+  // Reset the container's border color
+  const containerCodeArrow = document.querySelector('.centered-div-codeArrow');
+  containerCodeArrow.style.borderColor = 'white';
+}
+/**
+ * Handles the submission of the entered code and performs necessary actions based on correctness.
+ */
+function submitCodeArrow() {
+  // Get all input elements within the input containers
+  const codeInputsCodeArrow = document.querySelectorAll('.input-container-codeArrow .input-codeArrow');
+
+  // Initialize an empty string to store the entered code
+  let enteredCodeArrow = '';
+
+  // Get the entered code by concatenating the values of each input
+  codeInputsCodeArrow.forEach((input) => {
+    enteredCodeArrow += input.value;
+  });
+
+  const targetCodeArrow = '1131'; // Correct code
+
+  // Check if the entered code matches the target code
+  if (enteredCodeArrow === targetCodeArrow) {
+    // Code is correct
+    const containerCodeArrow = document.querySelector('.centered-div-codeArrow');
+
+    // Set the container's border color to green
+    containerCodeArrow.style.borderColor = 'green';
+
+    // Play the audio for correct answer
+    playAudio("../assets/audios/correctAnswer.mp3")
+
+    setTimeout(() => {
+      containerCodeArrow.style.display = "none";
+      imgFileDEx.style.display = "flex";  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+    }, 2500);
+    
+
+  } else {
+    // Code is incorrect
+    const containerCodeArrow = document.querySelector('.centered-div-codeArrow');
+
+    // Set the container's border color to red
+    containerCodeArrow.style.borderColor = 'red';
+
+    // Play the audio for incorrect answer
+    playAudio("../assets/audios/wrongAnswer.mp3")
+
+    // Shake effect
+    const centeredDivCodeArrow = document.querySelector('.centered-div-codeArrow');
+
+    // Add the 'shake' class to initiate shaking effect
+    centeredDivCodeArrow.classList.add('shake');
+    setTimeout(() => {
+      resetCodeArrow()
+      centeredDivCodeArrow.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+    }, 2500);
+  }
+}
+
+// Attach a click event listener to the element with ID "close"
+document.querySelector("#close-codeArrow").addEventListener("click", function() {
+  document.querySelector(".centered-div-codeArrow").classList.add("animated-close"); // Add the class to the closing animation
+  setTimeout(function() {
+  document.querySelector(".centered-div-codeArrow").style.display = 'none'; // Remove the element after the animation
+   document.querySelector(".centered-div-codeArrow").classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+  // When clicked, find the element with class "centered-div" and set its display property to "none"
+});
+
+// Attach event listener to the submit button
+const submitButtonCodeArrow = document.querySelector('.submitBtn-codeArrow');
+submitButtonCodeArrow.addEventListener('click', () => {
+  submitCodeArrow();
+});
+
+fileD.addEventListener("click", function(){
+  document.querySelector(".centered-div-codeArrow").style.display = "flex"; // Show the bin
+  document.querySelector(".centered-div-codeArrow").classList.add("slideIn"); // Add the class to the opening animation
+  setTimeout(function() {
+    document.querySelector(".centered-div-codeArrow").classList.remove("slideIn"); // Remove class after the animation
+  }, 200); // Duration of the animation in ms
+})
+
+closeBtnFileDEx.addEventListener("click",function(){
+  imgFileDEx.classList.add("animated-close"); // Add the class to the closing animation
+ setTimeout(function() {
+  imgFileDEx.style.display = 'none'; // Remove the element after the animation
+   imgFileDEx.classList.remove("animated-close"); // Remove class after the animation
+ }, 200); //Duration of the animation in ms
+})
+
+expositiveFileD.addEventListener("click", () => {
+  window.open("../assets/videos/for loop.mp4", "_blank");
+});
 
 // Ending riddle and cutscene
 
