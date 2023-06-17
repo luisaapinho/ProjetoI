@@ -467,7 +467,13 @@ closeBtnFileCEx.addEventListener("click",function(){
  }, 200); //Duration of the animation in ms
 })
 
-
+fileD.addEventListener("click", function(){
+  imgFileD.style.display = 'flex'; // Show the bin
+  imgFileD.classList.add("slideIn"); // Add the class to the opening animation
+  setTimeout(function() {
+    imgFileD.classList.remove("slideIn"); // Remove class after the animation
+  }, 200); // Duration of the animation in ms
+})
 
 
 closeBtnFileD.addEventListener("click",function(){
@@ -667,7 +673,8 @@ submitButtonCodeArrow.addEventListener('click', () => {
   submitCodeArrow();
 });
 
-fileD.addEventListener("click", function(){
+challengeD.addEventListener("click", function(){
+  imgFileD.style.display = "none";
   document.querySelector(".centered-div-codeArrow").style.display = "flex"; // Show the bin
   document.querySelector(".centered-div-codeArrow").classList.add("slideIn"); // Add the class to the opening animation
   setTimeout(function() {

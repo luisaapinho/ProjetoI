@@ -435,7 +435,7 @@ margin: 0;
 }
 
 #fileD{
-  display: none;
+  display: flex;
 }
 
 #fileE{
