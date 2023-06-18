@@ -114,7 +114,6 @@ function updateRewards() // UPDATE REWARDS
   const spotify=document.querySelector("#spotify");
   const steam=document.querySelector("#steam");
   
-  console.log(loggedUser.inventory)
   if(loggedUser.inventory.length==1)
   {
     setTimeout(function() {
@@ -1390,7 +1389,6 @@ const endingCloseBtn=document.querySelector("#close-end");
       
       if (selectedAnswerA && selectedAnswerA.value == challengeA.multipleChoiceCorrectAnswer) {
         // Correct answer
-        console.log("Correct answer!");
         exerciseADiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
         setTimeout(() => {
@@ -1402,7 +1400,6 @@ const endingCloseBtn=document.querySelector("#close-end");
         fileC.style.display="flex";
       } else {
         // Incorrect answer or no answer selected
-        console.log("Incorrect answer!");
         exerciseADiv.style.borderColor = 'red';
 
         // Play the audio for incorrect answer
@@ -1468,7 +1465,6 @@ const endingCloseBtn=document.querySelector("#close-end");
       if(input1B===challengeB.fillCorrectAnswers[0] && input2B===challengeB.fillCorrectAnswers[1])
       {
 
-        console.log("Correct answer!");
         exerciseBDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
         setTimeout(() => {
@@ -1483,7 +1479,6 @@ const endingCloseBtn=document.querySelector("#close-end");
         
       } else {
         // Incorrect answer or no answer selected
-        console.log("Incorrect answer!");
         exerciseBDiv.style.borderColor = 'red';
 
         // Play the audio for incorrect answer
@@ -1550,7 +1545,6 @@ const endingCloseBtn=document.querySelector("#close-end");
       
       if (selectedAnswerC && selectedAnswerC.value == challengeC.multipleChoiceCorrectAnswer) {
         // Correct answer
-        console.log("Correct answer!");
         exerciseCDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
         setTimeout(() => {
@@ -1578,7 +1572,6 @@ const endingCloseBtn=document.querySelector("#close-end");
         updateUserInventory(loggedUser.username, loggedUser.inventory)
       } else {
         // Incorrect answer or no answer selected
-        console.log("Incorrect answer!");
         exerciseCDiv.style.borderColor = 'red';
 
         // Play the audio for incorrect answer
@@ -1648,7 +1641,6 @@ console.log(sum);<br>\
       if(inputShortD==EchallengeD.shortCorrectAnswer)
       {
 
-        console.log("Correct answer!");
         exerciseDDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
         setTimeout(() => {
@@ -1665,7 +1657,6 @@ console.log(sum);<br>\
           updateUserInventory(loggedUser.username, loggedUser.inventory)
       } else {
         // Incorrect answer or no answer selected
-        console.log("Incorrect answer!");
         exerciseDDiv.style.borderColor = 'red';
 
         // Play the audio for incorrect answer
@@ -1727,7 +1718,6 @@ console.log(sum);<br>\
           if(inputShortE==EchallengeE.shortCorrectAnswer)
           {
     
-            console.log("Correct answer!");
             exerciseEDiv.style.borderColor = 'green';
             playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
             setTimeout(() => {
@@ -1744,7 +1734,6 @@ console.log(sum);<br>\
               updateUserInventory(loggedUser.username, loggedUser.inventory)
           } else {
             // Incorrect answer or no answer selected
-          console.log("Incorrect answer!");
           exerciseEDiv.style.borderColor = 'red';
 
           // Play the audio for incorrect answer
@@ -1811,7 +1800,6 @@ console.log(sum);<br>\
       
       if (selectedAnswerF && selectedAnswerF.value == EchallengeF.multipleChoiceCorrectAnswer) {
         // Correct answer
-        console.log("Correct answer!");
         exerciseFDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
         setTimeout(() => {
@@ -1828,7 +1816,6 @@ console.log(sum);<br>\
           updateUserInventory(loggedUser.username, loggedUser.inventory)
       } else {
         // Incorrect answer or no answer selected
-        console.log("Incorrect answer!");
         exerciseFDiv.style.borderColor = 'red';
 
         // Play the audio for incorrect answer
@@ -1894,7 +1881,6 @@ console.log(sum);<br>\
       if(input1G===EchallengeG.fillCorrectAnswers[0] && input2G===EchallengeG.fillCorrectAnswers[1] && input3G===EchallengeG.fillCorrectAnswers[2])
       {
 
-        console.log("Correct answer!");
         exerciseGDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
         setTimeout(() => {
@@ -1911,7 +1897,6 @@ console.log(sum);<br>\
         updateUserInventory(loggedUser.username, loggedUser.inventory)
       } else {
         // Incorrect answer or no answer selected
-        console.log("Incorrect answer!");
         exerciseGDiv.style.borderColor = 'red';
 
         // Play the audio for incorrect answer
