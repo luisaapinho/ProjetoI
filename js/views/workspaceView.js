@@ -117,25 +117,33 @@ function updateRewards() // UPDATE REWARDS
   console.log(loggedUser.inventory)
   if(loggedUser.inventory.length==1)
   {
-    chrome.style.display= 'flex';
+    setTimeout(function() {
+      chrome.style.display= 'flex';
+    }, 5000); //Duration of the animation in ms
   }
   if(loggedUser.inventory.length==2)
   {
     chrome.style.display= 'flex';
-    spotify.style.display= 'flex';
+    setTimeout(function() {
+      spotify.style.display= 'flex';
+    }, 2500); //Duration of the animation in ms
   }
   if(loggedUser.inventory.length==3)
   {
     chrome.style.display= 'flex';
     spotify.style.display= 'flex';
-    steam.style.display= 'flex';
+    setTimeout(function() {
+      steam.style.display= 'flex';
+    }, 2500); //Duration of the animation in ms
   }
   if(loggedUser.inventory.length==4)
   {
     chrome.style.display= 'flex';
     spotify.style.display= 'flex';
     steam.style.display= 'flex';
-    document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
+    setTimeout(function() {
+      document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
+    }, 2500); //Duration of the animation in ms
   }
   if(loggedUser.inventory.length==5)
   {
@@ -1385,6 +1393,10 @@ const endingCloseBtn=document.querySelector("#close-end");
         console.log("Correct answer!");
         exerciseADiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+        setTimeout(() => {
+          exerciseADiv.style.display = "none";
+          imgFileA.style.display = "none";
+        }, 2500);
         fileA.style.display="none";
         fileB.style.display="none";
         fileC.style.display="flex";
@@ -1459,9 +1471,15 @@ const endingCloseBtn=document.querySelector("#close-end");
         console.log("Correct answer!");
         exerciseBDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+        setTimeout(() => {
+          exerciseBDiv.style.display = "none";
+          imgFileB.style.display = "none";
+        }, 2500);
         fileA.style.display="none";
         fileB.style.display="none";
-        fileC.style.display="flex";
+        setTimeout(() => {
+          fileC.style.display="flex";
+        }, 2500);
         
       } else {
         // Incorrect answer or no answer selected
@@ -1536,13 +1554,25 @@ const endingCloseBtn=document.querySelector("#close-end");
         exerciseCDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
         setTimeout(() => {
+          exerciseCDiv.style.display = "none";
+          imgFileCEx.style.display = "none";
+        }, 2500);
+        setTimeout(() => {
         generateCenteredDivNewWord('"starts"')
         }, 2500);
         fileC.style.display="none";
-        fileD.style.display="flex";
-        fileE.style.display="flex";
-        fileF.style.display="flex";
-        fileG.style.display="flex";
+        setTimeout(() => {
+          fileD.style.display="flex";
+        }, 1000);
+        setTimeout(() => {
+          fileE.style.display="flex";
+        }, 2000);
+        setTimeout(() => {
+          fileF.style.display="flex";
+        }, 3000);
+        setTimeout(() => {
+          fileG.style.display="flex";
+        }, 4000);
         loggedUser.inventory.push('"starts"')
         updateRewards()
         updateUserInventory(loggedUser.username, loggedUser.inventory)
@@ -1622,6 +1652,10 @@ console.log(sum);<br>\
         exerciseDDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
         setTimeout(() => {
+          exerciseDDiv.style.display = "none";
+          imgFileDEx.style.display = "none";
+        }, 2500);
+        setTimeout(() => {
           generateCenteredDivNewWord('"game"')
           }, 2500);
           fileD.src="../assets/images/fileDdisable.png"
@@ -1696,6 +1730,10 @@ console.log(sum);<br>\
             console.log("Correct answer!");
             exerciseEDiv.style.borderColor = 'green';
             playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+            setTimeout(() => {
+              exerciseEDiv.style.display = "none";
+              imgFileEEx.style.display = "none";
+            }, 2500);
             setTimeout(() => {
               generateCenteredDivNewWord('"The"')
               }, 2500);
@@ -1777,6 +1815,10 @@ console.log(sum);<br>\
         exerciseFDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
         setTimeout(() => {
+          exerciseFDiv.style.display = "none";
+          imgFileFEx.style.display = "none";
+        }, 2500);
+        setTimeout(() => {
           generateCenteredDivNewWord('"real"')
           }, 2500);
           fileF.src="../assets/images/fileFdisable.png"
@@ -1855,6 +1897,10 @@ console.log(sum);<br>\
         console.log("Correct answer!");
         exerciseGDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+        setTimeout(() => {
+          exerciseGDiv.style.display = "none";
+          imgFileGEx.style.display = "none";
+        }, 2500);
         setTimeout(() => {
           generateCenteredDivNewWord('"now"')
           }, 2500);

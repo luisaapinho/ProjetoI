@@ -120,7 +120,7 @@ body {
 
     #text {
     max-width: 75%; /* Adjust the maximum width of the text element */
-    font-size: 1.2em; /* Adjust the font size of the text element */
+    font-size: 1.0em; /* Adjust the font size of the text element */
     }
 
     .arrow  {

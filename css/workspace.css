@@ -54,12 +54,10 @@
 
 }
 @media only screen and (max-width: 1000px) and (orientation: landscape) {
-  
-  #beginningImg[src*="../assets/images/beginningInfoV.png"] {
-      content: url(../assets/images/beginningInfoH.png);
-      width: 60%;
+  #beginningImg {
+    content: url(../assets/images/beginningInfoH.png);
+    width: 60%;
   }
-  
 }
 
 /*Makes the imgTrashOpen be in the center of the screen and be hidden until someone clicks the button to open it*/
@@ -1007,6 +1005,22 @@ margin: 0;
     margin: 0 0.5vw;
     padding-right: 1vw;
   }
+
+  .exerciseQuestion {
+    font-size: 1.7vw;
+    margin-bottom: 5vh;
+  }
+
+  .radioOption{
+    font-size: 1.5vw;
+  }
+
+  .submitBtnExercise {
+    font-size: 1.2em;
+  }
+  .fillInQuestions {
+    font-size: 1.8vw;
+}
 }
 
 
