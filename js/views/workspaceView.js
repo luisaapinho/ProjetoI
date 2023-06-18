@@ -13,13 +13,28 @@ const countdownTime = loggedUser.time; // start on the loggedUser time remaining
 
 if(loggedUser.time==3600)
 {
-  displaySamMessage('../assets/images/samMad.png',"So you're the inferior human being they hired to "+'"help"'+" me clean the virus that I'm already working on cleaning. This company doesn't trust me for anything, I'm almost at the point of resigning.")
-  let arrowSam=document.querySelector("#arrowSam");
-  arrowSam.addEventListener("click",function(){
-    setTimeout(()=>{
-      displaySamMessage('../assets/images/samMad.png',"These are corrupted folders that I'm STILL working on cleaning. But since you're here, make yourself useful and try to clean them, but don't come crying to me when you can't do it. You can choose one, and I'll work on cleaning the other.")
-    },1000)
+  const beginningImg=document.querySelector("#beginningImg")
+  let beginningClose=document.querySelector("#beginningClose")
+  beginningImg.style.display="flex"
+
+  beginningClose.addEventListener("click",function(){
+
+    beginningImg.classList.add("animated-close"); // Add the class to the closing animation
+    setTimeout(function() {
+    beginningImg.style.display = 'none'; // Remove the element after the animation
+    beginningImg.classList.remove("animated-close"); // Remove class after the animation
+    }, 200); //Duration of the animation in ms
+
+    displaySamMessage('../assets/images/samMad.png',"So you're the inferior human being they hired to "+'"help"'+" me clean the virus that I'm already working on cleaning. This company doesn't trust me for anything, I'm almost at the point of resigning.")
+    let arrowSam=document.querySelector("#arrowSam");
+    arrowSam.addEventListener("click",function(){
+      setTimeout(()=>{
+        displaySamMessage('../assets/images/samMad.png',"These are corrupted folders that I'm STILL working on cleaning. But since you're here, make yourself useful and try to clean them, but don't come crying to me when you can't do it. You can choose one, and I'll work on cleaning the other.")
+      },1000)
+    })
+
   })
+  
 }
 
   

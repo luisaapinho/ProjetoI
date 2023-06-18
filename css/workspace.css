@@ -41,6 +41,27 @@
   padding: 0;
 }
 
+#beginningImg
+{
+  z-index: 1;
+  width: 55%; 
+  height: auto; 
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+  display: none;
+
+}
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+  
+  #beginningImg[src*="../assets/images/beginningInfoV.png"] {
+      content: url(../assets/images/beginningInfoH.png);
+      width: 60%;
+  }
+  
+}
+
 /*Makes the imgTrashOpen be in the center of the screen and be hidden until someone clicks the button to open it*/
 #imgTrashOpen{
   z-index: 1;
@@ -803,13 +824,13 @@ margin: 0;
 
 /* Opacity transition */
 
-#imgTrashOpen, #imgInventoryOpen, #tableInventory,#imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx,#imgFileG,#imgFileGEx,#imgEndingOpen,#formEnding,#exerciseADiv,#exerciseBDiv,#exerciseCDiv,#exerciseDDiv,#exerciseEDiv,#exerciseFDiv,#exerciseGDiv{
+#imgTrashOpen, #imgInventoryOpen, #tableInventory,#imgCodeForms, #imgFileA , #imgFileB,#imgFileC,#imgFileCEx,#imgFileD,#imgFileDEx,#imgFileE,#imgFileEEx,#imgFileF,#imgFileFEx,#imgFileG,#imgFileGEx,#imgEndingOpen,#formEnding,#exerciseADiv,#exerciseBDiv,#exerciseCDiv,#exerciseDDiv,#exerciseEDiv,#exerciseFDiv,#exerciseGDiv,#beginningImg{
 
   transition: opacity 0.2s;
 }
 
 
-#imgTrashOpen.animated-close, #imgInventoryOpen.animated-close,#tableInventory.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close,#imgFileG.animated-close,#imgFileGEx.animated-close,#imgEndingOpen.animated-close,#formEnding.animated-close,.exerciseDiv.animated-close,#exerciseADiv.animated-close,#exerciseBDiv.animated-close,#exerciseCDiv.animated-close,#exerciseDDiv.animated-close,#exerciseEDiv.animated-close,#exerciseFDiv.animated-close,#exerciseGDiv.animated-close{
+#imgTrashOpen.animated-close, #imgInventoryOpen.animated-close,#tableInventory.animated-close, #imgCodeForms.animated-close, #imgFileA.animated-close , #imgFileB.animated-close, #imgFileC.animated-close, #imgFileCEx.animated-close, #imgFileD.animated-close, #imgFileDEx.animated-close, #imgFileE.animated-close,#imgFileEEx.animated-close,#imgFileF.animated-close, #imgFileFEx.animated-close,#imgFileG.animated-close,#imgFileGEx.animated-close,#imgEndingOpen.animated-close,#formEnding.animated-close,.exerciseDiv.animated-close,#exerciseADiv.animated-close,#exerciseBDiv.animated-close,#exerciseCDiv.animated-close,#exerciseDDiv.animated-close,#exerciseEDiv.animated-close,#exerciseFDiv.animated-close,#exerciseGDiv.animated-close,#beginningImg.animated-close{
   opacity: 0;
 }
 
