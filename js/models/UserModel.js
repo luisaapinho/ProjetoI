@@ -93,6 +93,20 @@ export function updateUserTime(username, time) {
   }
 }
 
+export function updateUserInventory(username, inventory) {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  const userIndex = users.findIndex((user) => user.username === username);
+  if (userIndex !== -1) {
+    users[userIndex].inventory = inventory;
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+  const loggedUser = getUserLogged();
+    if (loggedUser && loggedUser.username === username) {
+      loggedUser.inventory = inventory;
+      localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+    }
+}
+
 export function updateUserStatus(username) {
   let users = JSON.parse(localStorage.getItem("users")) || [];
   const userIndex = users.findIndex((user) => user.username === username);

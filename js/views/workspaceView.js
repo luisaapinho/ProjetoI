@@ -1,4 +1,4 @@
-import { getUserLogged, updateUserTime } from "../models/UserModel.js";
+import { getUserLogged, updateUserTime,updateUserInventory,updateUserStatus } from "../models/UserModel.js";
 import { displaySamMessage } from "../views/sam.js";
 import { Challenge } from "../models/ChallengeModel.js";
 import { generateCenteredDivNewWord } from "../views/newWordView.js"
@@ -21,6 +21,11 @@ if(loggedUser.time==3600)
     },1000)
   })
 }
+
+  
+
+
+
 
 // Calculate the end time
 const endTime = new Date();
@@ -291,7 +296,6 @@ const closeBtnFileGEx=document.querySelector("#closeBtnFileGEx");
 //Expositive part of the game 6
 const expositiveFileG=document.querySelector("#expositiveFileG");
 
-//ENDING
 
 
 
@@ -469,14 +473,16 @@ closeBtnFileCEx.addEventListener("click",function(){
  }, 200); //Duration of the animation in ms
 })
 
-fileD.addEventListener("click", function(){
+const fileDopen=function(){
   imgFileD.style.display = 'flex'; // Show the bin
   imgFileD.classList.add("slideIn"); // Add the class to the opening animation
   setTimeout(function() {
     imgFileD.classList.remove("slideIn"); // Remove class after the animation
   }, 200); // Duration of the animation in ms
-})
 
+}
+
+fileD.addEventListener("click", fileDopen)
 
 closeBtnFileD.addEventListener("click",function(){
   imgFileD.classList.add("animated-close"); // Add the class to the closing animation
@@ -486,13 +492,16 @@ closeBtnFileD.addEventListener("click",function(){
  }, 200); //Duration of the animation in ms
 })
 
-fileE.addEventListener("click", function(){
+const fileEopen=function(){
   imgFileE.style.display = 'flex'; // Show the bin
   imgFileE.classList.add("slideIn"); // Add the class to the opening animation
   setTimeout(function() {
     imgFileE.classList.remove("slideIn"); // Remove class after the animation
   }, 200); // Duration of the animation in ms
-})
+
+}
+
+fileE.addEventListener("click", fileEopen)
 
 closeBtnFileE.addEventListener("click",function(){
   imgFileE.classList.add("animated-close"); // Add the class to the closing animation
@@ -502,13 +511,17 @@ closeBtnFileE.addEventListener("click",function(){
  }, 200); //Duration of the animation in ms
 })
 
-fileF.addEventListener("click", function(){
+const fileFopen=function(){
   imgFileF.style.display = 'flex'; // Show the bin
   imgFileF.classList.add("slideIn"); // Add the class to the opening animation
   setTimeout(function() {
     imgFileF.classList.remove("slideIn"); // Remove class after the animation
   }, 200); // Duration of the animation in ms
-})
+
+}
+
+fileF.addEventListener("click", fileFopen)
+
 closeBtnFileF.addEventListener("click",function(){
   imgFileF.classList.add("animated-close"); // Add the class to the closing animation
  setTimeout(function() {
@@ -517,13 +530,16 @@ closeBtnFileF.addEventListener("click",function(){
  }, 200); //Duration of the animation in ms
 })
 
-fileG.addEventListener("click", function(){
+const fileGopen=function(){
   imgFileG.style.display = 'flex'; // Show the bin
   imgFileG.classList.add("slideIn"); // Add the class to the opening animation
   setTimeout(function() {
     imgFileG.classList.remove("slideIn"); // Remove class after the animation
   }, 200); // Duration of the animation in ms
-})
+
+}
+
+fileG.addEventListener("click", fileGopen)
 closeBtnFileG.addEventListener("click",function(){
   imgFileG.classList.add("animated-close"); // Add the class to the closing animation
  setTimeout(function() {
@@ -1275,7 +1291,7 @@ expositiveFileG.addEventListener("click", () => {
 // Ending riddle and cutscene
 
 const endingFile=document.querySelector("#endingFile");
-const endingOpen=document.querySelector(".centered-div");
+const endingOpen=document.querySelector("#centered-div");
 const endingCloseBtn=document.querySelector("#close-end");
 
 
@@ -1354,6 +1370,9 @@ const endingCloseBtn=document.querySelector("#close-end");
         console.log("Correct answer!");
         exerciseADiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+        fileA.style.display="none";
+        fileB.style.display="none";
+        fileC.style.display="flex";
       } else {
         // Incorrect answer or no answer selected
         console.log("Incorrect answer!");
@@ -1425,6 +1444,10 @@ const endingCloseBtn=document.querySelector("#close-end");
         console.log("Correct answer!");
         exerciseBDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+        fileA.style.display="none";
+        fileB.style.display="none";
+        fileC.style.display="flex";
+        
       } else {
         // Incorrect answer or no answer selected
         console.log("Incorrect answer!");
@@ -1497,6 +1520,17 @@ const endingCloseBtn=document.querySelector("#close-end");
         console.log("Correct answer!");
         exerciseCDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+        setTimeout(() => {
+        generateCenteredDivNewWord('"starts"')
+        }, 2500);
+        fileC.style.display="none";
+        fileD.style.display="flex";
+        fileE.style.display="flex";
+        fileF.style.display="flex";
+        fileG.style.display="flex";
+        loggedUser.inventory.push('"starts"')
+        updateRewards()
+        updateUserInventory(loggedUser.username, loggedUser.inventory)
       } else {
         // Incorrect answer or no answer selected
         console.log("Incorrect answer!");
@@ -1572,6 +1606,14 @@ console.log(sum);<br>\
         console.log("Correct answer!");
         exerciseDDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+        setTimeout(() => {
+          generateCenteredDivNewWord('"game"')
+          }, 2500);
+          fileD.src="../assets/images/fileDdisable.png"
+          fileD.removeEventListener("click",fileDopen)
+          loggedUser.inventory.push('"game"')
+          updateRewards()
+          updateUserInventory(loggedUser.username, loggedUser.inventory)
       } else {
         // Incorrect answer or no answer selected
         console.log("Incorrect answer!");
@@ -1639,6 +1681,14 @@ console.log(sum);<br>\
             console.log("Correct answer!");
             exerciseEDiv.style.borderColor = 'green';
             playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+            setTimeout(() => {
+              generateCenteredDivNewWord('"The"')
+              }, 2500);
+              fileE.src="../assets/images/fileEdisable.png"
+              fileE.removeEventListener("click",fileEopen)
+              loggedUser.inventory.push('"The"')
+              updateRewards()
+              updateUserInventory(loggedUser.username, loggedUser.inventory)
           } else {
             // Incorrect answer or no answer selected
           console.log("Incorrect answer!");
@@ -1711,6 +1761,14 @@ console.log(sum);<br>\
         console.log("Correct answer!");
         exerciseFDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+        setTimeout(() => {
+          generateCenteredDivNewWord('"real"')
+          }, 2500);
+          fileF.src="../assets/images/fileFdisable.png"
+          fileF.removeEventListener("click",fileFopen)
+          loggedUser.inventory.push('"real"')
+          updateRewards()
+          updateUserInventory(loggedUser.username, loggedUser.inventory)
       } else {
         // Incorrect answer or no answer selected
         console.log("Incorrect answer!");
@@ -1782,6 +1840,14 @@ console.log(sum);<br>\
         console.log("Correct answer!");
         exerciseGDiv.style.borderColor = 'green';
         playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+        setTimeout(() => {
+          generateCenteredDivNewWord('"now"')
+          }, 2500);
+        fileG.src="../assets/images/fileGdisable.png"
+        fileG.removeEventListener("click",fileGopen)
+        loggedUser.inventory.push('"now"')
+        updateRewards()
+        updateUserInventory(loggedUser.username, loggedUser.inventory)
       } else {
         // Incorrect answer or no answer selected
         console.log("Incorrect answer!");
@@ -1861,7 +1927,7 @@ function submitCode() {
 
   // Check if the entered code matches the target code
   if (word1 == "The" && word2 == "real" && word3 == "game" && word4 == "starts" && word5 == "now" ) {
-    const container = document.querySelector('.centered-div');
+    const container = document.querySelector('#centered-div');
 
     // Code matches the target code
     // Set the container's border color to green
@@ -1869,6 +1935,9 @@ function submitCode() {
 
     // Play the audio for correct answer
     playAudio("../assets/audios/correctAnswer.mp3", "correctAnswer")
+    updateUserStatus(loggedUser.username)
+
+    loggedUser.hasFinished=true
 
     // Waits 2.5 seconds and redirects to the end page
     setTimeout(() => {
@@ -1906,8 +1975,44 @@ submitButton.addEventListener('click', () => {
 });
 
 
+if(loggedUser.inventory.includes('"starts"'))
+  {
+    fileA.style.display="none"
+    fileB.style.display="none"
+    fileC.style.display="none"
+    fileD.style.display="flex"
+    fileE.style.display="flex"
+    fileF.style.display="flex"
+    fileG.style.display="flex"
+
+  }
+  if(loggedUser.inventory.includes('"game"'))
+  {
+    fileD.src="../assets/images/fileDdisable.png"
+    fileD.removeEventListener("click",fileDopen)
+  }
+  if(loggedUser.inventory.includes('"The"'))
+  {
+    fileE.src="../assets/images/fileEdisable.png"
+    fileE.removeEventListener("click",fileEopen)
+  }
+  if(loggedUser.inventory.includes('"real"'))
+  {
+    fileF.src="../assets/images/fileFdisable.png"
+    fileF.removeEventListener("click",fileFopen)
+  }
+  if(loggedUser.inventory.includes('"now"'))
+  {
+    fileG.src="../assets/images/fileGdisable.png"
+    fileG.removeEventListener("click",fileGopen)
+  }
+  if(loggedUser.inventory.length==5)
+  {
+    endingFile.style.display="flex"
+  }
     
 
+  
 
     
 
