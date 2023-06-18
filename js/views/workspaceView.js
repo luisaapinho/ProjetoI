@@ -1341,7 +1341,7 @@ const endingCloseBtn=document.querySelector("#close-end");
       1,
       "Which of the following is not a JavaScript data type?",
       ["Boolean", "String", "Float", "Null"],
-      3,
+      2,
       "",
       [],
       "",
