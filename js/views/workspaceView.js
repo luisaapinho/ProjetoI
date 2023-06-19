@@ -1975,7 +1975,7 @@ function submitCode() {
 
   // Check if the entered code matches the target code
   if (word1 == "The" && word2 == "real" && word3 == "game" && word4 == "starts" && word5 == "now" ) {
-    const container = document.querySelector('#endingOpen');
+    let container = document.querySelector('#endingOpen');
 
     // Code matches the target code
     // Set the container's border color to green
@@ -2011,7 +2011,9 @@ function submitCode() {
     setTimeout(() => {
       resetCode()
       centeredDiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
+      container.style.borderColor = 'white';
     }, 2500);
+    
   }
 }
 
