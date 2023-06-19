@@ -24,6 +24,7 @@ body {
     background-color: white;
     width: 50%;
     height: 20%;
+    z-index: 99;
 }
 
 .slideIn {

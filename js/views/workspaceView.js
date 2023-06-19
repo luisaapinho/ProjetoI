@@ -143,6 +143,7 @@ function updateRewards() // UPDATE REWARDS
     setTimeout(function() {
       document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
     }, 2500); //Duration of the animation in ms
+    displaySamMessage('../assets/images/samNormal.png',"Oh yes, a wallpaper makes any computer look more beautiful... It makes me feel right at home...")
   }
   if(loggedUser.inventory.length==5)
   {
@@ -150,11 +151,17 @@ function updateRewards() // UPDATE REWARDS
     spotify.style.display= 'flex';
     steam.style.display= 'flex';
     document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
+    setTimeout(function() {
+      displaySamMessage('../assets/images/samNormal.png',"Is it not the end after all? Could it have something to do with the words? I sense something wrong with this folder... I feel like I won't see you anymore... That should be a good thing, right? I don't know... Thank you for your help. You are incredible. Until one day... I think... Good luck!")
+    }, 1500); //Duration of the animation in ms
+    
+  }
+
   }
 
   
   
-}
+
 
 updateRewards()
 
@@ -1385,6 +1392,7 @@ const endingCloseBtn=document.querySelector("#close-end");
         fileA.style.display="none";
         fileB.style.display="none";
         fileC.style.display="flex";
+        displaySamMessage('../assets/images/samMad.png',"But this is just the beginning... And even these folders I could manage, the company just didn't give me enough time.")
       } else {
         // Incorrect answer or no answer selected
         exerciseADiv.style.borderColor = 'red';
@@ -1463,6 +1471,7 @@ const endingCloseBtn=document.querySelector("#close-end");
         setTimeout(() => {
           fileC.style.display="flex";
         }, 2500);
+        displaySamMessage('../assets/images/samMad.png',"But this is just the beginning... And even these folders I could manage, the company just didn't give me enough time.")
         
       } else {
         // Incorrect answer or no answer selected
@@ -1557,6 +1566,7 @@ const endingCloseBtn=document.querySelector("#close-end");
         loggedUser.inventory.push('"starts"')
         updateRewards()
         updateUserInventory(loggedUser.username, loggedUser.inventory)
+        displaySamMessage('../assets/images/samMad.png',"I have found many system threats, and there are many more folders. I can see that I will lose my updates with the time I will be stuck here with you...")
       } else {
         // Incorrect answer or no answer selected
         exerciseCDiv.style.borderColor = 'red';
@@ -1643,6 +1653,7 @@ console.log(sum);<br>\
           updateRewards()
           updateUserInventory(loggedUser.username, loggedUser.inventory)
           checkFinal()
+          displaySamMessage('../assets/images/samNormal.png',"Ok, ok, I see that my company has been treating you well... But there's still a lot to do... So let's get moving because with this slowness, we'll never get out of here...")
       } else {
         // Incorrect answer or no answer selected
         exerciseDDiv.style.borderColor = 'red';
