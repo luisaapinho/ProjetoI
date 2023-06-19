@@ -1099,7 +1099,7 @@ document.querySelector("#closeSequence").addEventListener("click", function() {
 // Attach a click event listener to the "redBox" element
 challengeF.addEventListener("click", function(){
   imgFileF.style.display = "none";
-  // Set the "display" style property of the element with class "centered-div-ImageKey" to "block"
+  // Set the "display" style property of the element with class "centered-div-sequence" to "flex"
   document.querySelector(".centered-div-sequence").style.display = "flex";
   // Start the game
   generateSequence();
