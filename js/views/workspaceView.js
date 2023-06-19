@@ -153,7 +153,7 @@ function updateRewards() // UPDATE REWARDS
     document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
     setTimeout(function() {
       displaySamMessage('../assets/images/samNormal.png',"Is it not the end after all? Could it have something to do with the words? I sense something wrong with this folder... I feel like I won't see you anymore... That should be a good thing, right? I don't know... Thank you for your help. You are incredible. Until one day... I think... Good luck!")
-    }, 12000); //Duration of the animation in ms
+    }, 1500); //Duration of the animation in ms
     
   }
 
@@ -1405,7 +1405,7 @@ const endingCloseBtn=document.querySelector("#close-end");
         // Add the 'shake' class to initiate shaking effect
         exerciseADiv.classList.add('shake');
         setTimeout(() => {
-          resetCode()
+          
           exerciseADiv.style.borderColor = 'white';
           exerciseADiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
         }, 2500);
@@ -1579,7 +1579,6 @@ const endingCloseBtn=document.querySelector("#close-end");
         // Add the 'shake' class to initiate shaking effect
         exerciseCDiv.classList.add('shake');
         setTimeout(() => {
-          resetCode()
           exerciseCDiv.style.borderColor = 'white';
           exerciseCDiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
         }, 2500);
@@ -1827,7 +1826,6 @@ console.log(sum);<br>\
         // Add the 'shake' class to initiate shaking effect
         exerciseFDiv.classList.add('shake');
         setTimeout(() => {
-          resetCode()
           exerciseFDiv.style.borderColor = 'white';
           exerciseFDiv.classList.remove('shake');  // Remove the 'shake' class after a delay of 2500 milliseconds (2.5 seconds)
         }, 2500);
@@ -2058,18 +2056,14 @@ if(loggedUser.inventory.includes('"starts"'))
   }
   if(loggedUser.inventory.length==5)
   {
-    setTimeout(()=>{
-      endingFile.style.display="flex"
-    },10000)
+    endingFile.style.display="flex"
   }
 
   function checkFinal()
   {
     if(loggedUser.inventory.length==5)
     {
-      setTimeout(()=>{
-        endingFile.style.display="flex"
-      },10000)
+      endingFile.style.display="flex"
     }
   }
     
