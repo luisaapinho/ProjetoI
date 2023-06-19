@@ -143,7 +143,9 @@ function updateRewards() // UPDATE REWARDS
     setTimeout(function() {
       document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
     }, 2500); //Duration of the animation in ms
-    displaySamMessage('../assets/images/samNormal.png',"Oh yes, a wallpaper makes any computer look more beautiful... It makes me feel right at home...")
+    setTimeout(function() {
+      displaySamMessage('../assets/images/samNormal.png',"Oh yes, a wallpaper makes any computer look more beautiful... It makes me feel right at home...")
+    }, 3500);
   }
   if(loggedUser.inventory.length==5)
   {
@@ -153,7 +155,7 @@ function updateRewards() // UPDATE REWARDS
     document.body.style.backgroundImage="url('../assets/images/backgroundRestored.jpg')";
     setTimeout(function() {
       displaySamMessage('../assets/images/samNormal.png',"Is it not the end after all? Could it have something to do with the words? I sense something wrong with this folder... I feel like I won't see you anymore... That should be a good thing, right? I don't know... Thank you for your help. You are incredible. Until one day... I think... Good luck!")
-    }, 1500); //Duration of the animation in ms
+    }, 8000); //Duration of the animation in ms
     
   }
 
@@ -2085,14 +2087,18 @@ if(loggedUser.inventory.includes('"starts"'))
   }
   if(loggedUser.inventory.length==5)
   {
-    endingFile.style.display="flex"
+    setTimeout(function() {
+      endingFile.style.display="flex"
+    }, 6000);
   }
 
   function checkFinal()
   {
     if(loggedUser.inventory.length==5)
     {
-      endingFile.style.display="flex"
+      setTimeout(function() {
+        endingFile.style.display="flex"
+      }, 6000);
     }
   }
     
