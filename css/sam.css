@@ -77,7 +77,7 @@ body {
 #text {
      /* Set the maximum width to 70% and increase the font size */
     max-width: 70%;
-    font-size: 1.4em;
+    font-size: 1em;
     /* Align the text to the top of its parent and set the font family to 'VCRDOSDMONO' */
     align-self: flex-start;
     font-family: 'VCRDOSDMONO';

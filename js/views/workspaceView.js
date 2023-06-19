@@ -664,7 +664,7 @@ function submitCodeArrow() {
     enteredCodeArrow += input.value;
   });
 
-  const targetCodeArrow = '1131'; // Correct code
+  const targetCodeArrow = '3044'; // Correct code
 
   // Check if the entered code matches the target code
   if (enteredCodeArrow === targetCodeArrow) {
@@ -1180,7 +1180,7 @@ function submitCodeTime() {
     enteredCodeTime += input.value;
   });
 
-  const targetCodeTime = '3044'; // Correct code
+  const targetCodeTime = '1131'; // Correct code
 
   // Check if the entered code matches the target code
   if (enteredCodeTime === targetCodeTime) {
