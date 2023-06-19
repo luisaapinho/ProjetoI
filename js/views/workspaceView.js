@@ -1307,7 +1307,7 @@ expositiveFileG.addEventListener("click", () => {
 // Ending riddle and cutscene
 
 const endingFile=document.querySelector("#endingFile");
-const endingOpen=document.querySelector("#centered-div");
+const endingOpen=document.querySelector("#endingOpen");
 const endingCloseBtn=document.querySelector("#close-end");
 
 
@@ -1975,7 +1975,7 @@ function submitCode() {
 
   // Check if the entered code matches the target code
   if (word1 == "The" && word2 == "real" && word3 == "game" && word4 == "starts" && word5 == "now" ) {
-    const container = document.querySelector('#centered-div');
+    const container = document.querySelector('#endingOpen');
 
     // Code matches the target code
     // Set the container's border color to green
@@ -1995,7 +1995,7 @@ function submitCode() {
 
   } else {
     // Code is incorrect
-    const container = document.querySelector('.centered-div');
+    const container = document.querySelector('#endingOpen');
 
     // Set the container's border color to red
     container.style.borderColor = 'red';
@@ -2004,7 +2004,7 @@ function submitCode() {
     playAudio("../assets/audios/wrongAnswer.mp3", "incorrectAnswer")
 
     // Shake effect
-    const centeredDiv = document.querySelector('.centered-div');
+    const centeredDiv = document.querySelector('#endingOpen');
 
     // Add the 'shake' class to initiate shaking effect
     centeredDiv.classList.add('shake');
