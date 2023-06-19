@@ -1642,6 +1642,7 @@ console.log(sum);<br>\
           loggedUser.inventory.push('"game"')
           updateRewards()
           updateUserInventory(loggedUser.username, loggedUser.inventory)
+          checkFinal()
       } else {
         // Incorrect answer or no answer selected
         exerciseDDiv.style.borderColor = 'red';
@@ -1719,6 +1720,7 @@ console.log(sum);<br>\
               loggedUser.inventory.push('"The"')
               updateRewards()
               updateUserInventory(loggedUser.username, loggedUser.inventory)
+              checkFinal()
           } else {
             // Incorrect answer or no answer selected
           exerciseEDiv.style.borderColor = 'red';
@@ -1801,6 +1803,7 @@ console.log(sum);<br>\
           loggedUser.inventory.push('"real"')
           updateRewards()
           updateUserInventory(loggedUser.username, loggedUser.inventory)
+          checkFinal()
       } else {
         // Incorrect answer or no answer selected
         exerciseFDiv.style.borderColor = 'red';
@@ -1882,6 +1885,7 @@ console.log(sum);<br>\
         loggedUser.inventory.push('"now"')
         updateRewards()
         updateUserInventory(loggedUser.username, loggedUser.inventory)
+        checkFinal()
       } else {
         // Incorrect answer or no answer selected
         exerciseGDiv.style.borderColor = 'red';
@@ -2040,6 +2044,11 @@ if(loggedUser.inventory.includes('"starts"'))
     fileG.removeEventListener("click",fileGopen)
   }
   if(loggedUser.inventory.length==5)
+  {
+    endingFile.style.display="flex"
+  }
+
+  function checkFinal()
   {
     endingFile.style.display="flex"
   }
