@@ -946,6 +946,7 @@ const sequence = [];  // Array to store the sequence of box indexes
 const userSequence = [];  // Array to store the user's sequence of box indexes
 const boxesSequence = document.querySelectorAll('.boxSequence');  // NodeList of box elements
 let isSequenceShowing = false; // Flag to track if the sequence is being shown
+let gameStarted = false; // Flag to track if the game has started
 
 // Add event listeners to each box
 boxesSequence.forEach((box, index) => {
@@ -974,10 +975,10 @@ function generateSequence() {
  * @param {Element} box - The clicked box element.
  */
 function changeBoxOpacity(box) {
-    box.style.opacity = '1';  // Set the opacity to 1 (fully opaque)
-    setTimeout(() => {
-      box.style.opacity = '0.1';  // Set the opacity back to 0.1 (partially transparent)
-    }, 500);
+  box.style.opacity = '1'; // Set the opacity to 1 (fully opaque)
+  setTimeout(() => {
+    box.style.opacity = '0.1'; // Set the opacity back to 0.1 (partially transparent)
+  }, 500);
 }
 
 /**
@@ -991,8 +992,8 @@ function showSequence() {
     blinkBox(boxIndex); // Blink the box with the current index
 
     iSequence++;
-    if (iSequence >= sequence.length) { 
-      clearInterval(intervalSequence);  // Stop the interval when the entire sequence has been shown
+    if (iSequence >= sequence.length) {
+      clearInterval(intervalSequence); // Stop the interval when the entire sequence has been shown
       // Add a delay before displaying "Your turn!" message and resetting the flag
       setTimeout(() => {
         updateMessageSequence('Your turn!', 'message-display'); // Display "Your turn" message
@@ -1010,11 +1011,11 @@ function showSequence() {
  * @param {number} boxIndex - The index of the box to blink.
  */
 function blinkBox(boxIndex) {
-    const box = boxesSequence[boxIndex];  // Get the box element with the provided index
-    box.style.opacity = '1';  // Set the opacity to 1 (fully opaque)
-    setTimeout(() => {
-      box.style.opacity = '0.1';  // Set the opacity back to 0.1 (partially transparent)
-    }, 500);
+  const box = boxesSequence[boxIndex]; // Get the box element with the provided index
+  box.style.opacity = '1'; // Set the opacity to 1 (fully opaque)
+  setTimeout(() => {
+    box.style.opacity = '0.1'; // Set the opacity back to 0.1 (partially transparent)
+  }, 500);
 }
 
 /**
@@ -1028,30 +1029,29 @@ function checkUserSequence() {
 
       // Set the container's border color to green
       containerSequence.style.borderColor = 'green';
-      playAudio("../assets/audios/correctAnswer.mp3")  // Play a sound for correct answer
+      playAudio('../assets/audios/correctAnswer.mp3'); // Play a sound for correct answer
       updateMessageSequence('Correct! Keep it up!', 'message-correct'); // Update message container with a success message
-      document.querySelector(".centered-div-sequence").classList.add("animated-close");
+      document.querySelector('.centered-div-sequence').classList.add('animated-close');
       setTimeout(() => {
-        document.querySelector(".centered-div-sequence").style.display = "none";
-        document.querySelector(".centered-div-sequence").classList.remove("animated-close");
-        imgFileFEx.style.display = "flex";
-        imgFileFEx.classList.add("slideIn"); // Add the class to the opening animation´
-        setTimeout(function() {
-          imgFileFEx.classList.remove("slideIn"); // Remove class after the animation
+        document.querySelector('.centered-div-sequence').style.display = 'none';
+        document.querySelector('.centered-div-sequence').classList.remove('animated-close');
+        imgFileFEx.style.display = 'flex';
+        imgFileFEx.classList.add('slideIn'); // Add the class to the opening animation´
+        setTimeout(function () {
+          imgFileFEx.classList.remove('slideIn'); // Remove class after the animation
         }, 200); // Duration of the animation in ms
       }, 2000);
-
     } else {
       // Code is incorrect
       const containerSequence = document.querySelector('.centered-div-sequence');
 
       // Set the container's border color to green
       containerSequence.style.borderColor = 'red';
-      playAudio("../assets/audios/wrongAnswer.mp3")  // Play a sound for wrong answer
-      updateMessageSequence('Game over! You made a mistake. Try again.', 'message-incorrect');  // Update message container with a incorrect message
+      playAudio('../assets/audios/wrongAnswer.mp3'); // Play a sound for wrong answer
+      updateMessageSequence('Game over! You made a mistake. Try again.', 'message-incorrect'); // Update message container with an incorrect message
       setTimeout(() => {
         gameOverSequence(); // Reset the game after a delay
-      }, 1000);    // delay time 1s
+      }, 1000); // delay time 1s
     }
   }
 }
@@ -1061,7 +1061,7 @@ function checkUserSequence() {
  * @param {string} text - The text to be displayed in the message container.
  * @param {string} className - The CSS class to be applied to the message container.
  */
-function updateMessageSequence(text,className) {
+function updateMessageSequence(text, className) {
   const messageContainer = document.getElementById('message-container-sequence');
   messageContainer.textContent = text;
   messageContainer.className = className;
@@ -1071,8 +1071,8 @@ function updateMessageSequence(text,className) {
  * Handles the game over state by resetting the game after a delay.
  */
 function gameOverSequence() {
-   // Delay the reset of the game by 1 second (1000 milliseconds)
-   setTimeout(() => {
+  // Delay the reset of the game by 1 second (1000 milliseconds)
+  setTimeout(() => {
     // Reset the message container
     updateMessageSequence('', '');
 
@@ -1090,10 +1090,40 @@ function gameOverSequence() {
   }, 2000);
 }
 
+/**
+ * Starts the sequence game by generating the sequence and showing it.
+ */
+function startSequenceGame() {
+  if (!gameStarted) {
+    generateSequence();
+    showSequence();
+    gameStarted = true;
+  }
+}
+
+/**
+ * Resets the sequence game by clearing the sequences and resetting the display.
+ */
+function resetSequenceGame() {
+  const containerSequence = document.querySelector('.centered-div-sequence');
+  containerSequence.style.display = 'none';
+
+  // Reset the message container
+  updateMessageSequence('', '');
+
+  // Reset the container's border color
+  containerSequence.style.borderColor = '';
+
+  // Clear the sequences
+  sequence.length = 0;
+  userSequence.length = 0;
+
+  gameStarted = false;
+}
+
 // Attach a click event listener to the element with ID "close"
 document.querySelector("#closeSequence").addEventListener("click", function() {
-  // When clicked, find the element with class "centered-div" and set its display property to "none"
-  document.querySelector(".centered-div-sequence").style.display = "none";
+  resetSequenceGame()
 });
 
 // Attach a click event listener to the "redBox" element
@@ -1102,8 +1132,7 @@ challengeF.addEventListener("click", function(){
   // Set the "display" style property of the element with class "centered-div-sequence" to "flex"
   document.querySelector(".centered-div-sequence").style.display = "flex";
   // Start the game
-  generateSequence();
-  showSequence();
+  startSequenceGame()
 });
 
 closeBtnFileFEx.addEventListener("click",function(){
