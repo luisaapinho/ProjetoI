@@ -2051,9 +2051,9 @@ if(loggedUser.inventory.includes('"starts"'))
   function checkFinal()
   {
     if(loggedUser.inventory.length==5)
-  {
-    endingFile.style.display="flex"
-  }
+    {
+      endingFile.style.display="flex"
+    }
   }
     
   checkFinal()
