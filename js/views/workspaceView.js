@@ -1149,9 +1149,9 @@ expositiveFileF.addEventListener("click", () => {
   window.open("../assets/pdf/arrayMethods.pdf", "_blank");
 });
 
-// Minigame for folder G 
+// Minigame for folder G
 const audioElementsCodeTime = {}; // Object to store audio elements
-let countdownIntervalCodeTime; // Declare the countdown interval variable outside the event listener
+let countdownIntervalCodeTime = null; // Declare the countdown interval variable outside the event listener
 
 // Get the countdown element
 const countdownElementCodeTime = document.getElementById('countdown-codeTime');
@@ -1216,7 +1216,7 @@ function submitCodeTime() {
   // Check if the entered code matches the target code
   if (enteredCodeTime === targetCodeTime) {
     // Code is correct
-    clearInterval(countdownIntervalCodeTime);
+    stopCountdownCodeTime();
     stopAudioCodeTime('dramatic'); // Stop the dramatic music using the audioId "dramatic"
     countdownElementCodeTime.style.color = 'green';
     const containerCodeTime = document.querySelector('.centered-div-codeTime');
@@ -1227,15 +1227,15 @@ function submitCodeTime() {
     // Play the audio for correct answer
     playAudioCodeTime('../assets/audios/correctAnswer.mp3', 'correctAnswer');
     document.querySelector(".centered-div-codeTime").classList.add("animated-close");
-      setTimeout(() => {
-        document.querySelector(".centered-div-codeTime").style.display = "none";
-        document.querySelector(".centered-div-codeTime").classList.remove("animated-close");
-        imgFileGEx.style.display = "flex";
-        imgFileGEx.classList.add("slideIn"); // Add the class to the opening animation´
-        setTimeout(function() {
-          imgFileGEx.classList.remove("slideIn"); // Remove class after the animation
-        }, 200); // Duration of the animation in ms
-      }, 2000);
+    setTimeout(() => {
+      document.querySelector(".centered-div-codeTime").style.display = "none";
+      document.querySelector(".centered-div-codeTime").classList.remove("animated-close");
+      imgFileGEx.style.display = "flex";
+      imgFileGEx.classList.add("slideIn"); // Add the class to the opening animation´
+      setTimeout(function() {
+        imgFileGEx.classList.remove("slideIn"); // Remove class after the animation
+      }, 200); // Duration of the animation in ms
+    }, 2000);
   } else {
     // Code is incorrect
     const containerCodeTime = document.querySelector('.centered-div-codeTime');
@@ -1258,8 +1258,20 @@ function submitCodeTime() {
   }
 }
 
+/**
+ * Stops the countdown and resets the timer.
+ */
+function stopCountdownCodeTime() {
+  clearInterval(countdownIntervalCodeTime);
+  countdownIntervalCodeTime = null;
+  countdownElementCodeTime.textContent = '01:00';
+  countdownElementCodeTime.style.color = '#00ff06';
+  stopAudioCodeTime('dramatic');
+}
+
 // Attach a click event listener to the element with ID "close"
 document.querySelector('#close-codeTime').addEventListener('click', function () {
+  stopCountdownCodeTime();
   // When clicked, find the element with class "centered-div-codeTime" and set its display property to "none"
   document.querySelector('.centered-div-codeTime').style.display = 'none';
 });
@@ -1272,51 +1284,55 @@ submitButtonCodeTime.addEventListener('click', () => {
 
 // Attach a click event listener to the "redBox" element
 challengeG.addEventListener('click', function () {
-  imgFileG.style.display = 'none';
-  // Set the "display" style property of the element with class "centered-div-ImageKey" to "block"
-  document.querySelector('.centered-div-codeTime').style.display = 'flex';
+  // Check if the timer is already running
+  if (!countdownIntervalCodeTime) {
+    imgFileG.style.display = 'none';
+    // Set the "display" style property of the element with class "centered-div-codeTime" to "flex"
+    document.querySelector('.centered-div-codeTime').style.display = 'flex';
 
-  // Set the initial time in seconds
-  let timeInSecondsCodeTime = 60;
+    // Set the initial time in seconds
+    let timeInSecondsCodeTime = 60;
 
-  // Set the flag variable to track if audio has been played
-  let audioPlayedCodeTime = false;
+    // Set the flag variable to track if audio has been played
+    let audioPlayedCodeTime = false;
 
-  // Update the countdown timer every second
-  countdownIntervalCodeTime = setInterval(() => {
-    // Decrease the time by one second
-    timeInSecondsCodeTime--;
+    // Update the countdown timer every second
+    countdownIntervalCodeTime = setInterval(() => {
+      // Decrease the time by one second
+      timeInSecondsCodeTime--;
 
-    // Format the time into minutes and seconds
-    const minutesCodeTime = Math.floor(timeInSecondsCodeTime / 60);
-    const secondsCodeTime = timeInSecondsCodeTime % 60;
-    const formattedTimeCodeTime = `${padZeroCodeTime(minutesCodeTime)}:${padZeroCodeTime(secondsCodeTime)}`;
+      // Format the time into minutes and seconds
+      const minutesCodeTime = Math.floor(timeInSecondsCodeTime / 60);
+      const secondsCodeTime = timeInSecondsCodeTime % 60;
+      const formattedTimeCodeTime = `${padZeroCodeTime(minutesCodeTime)}:${padZeroCodeTime(secondsCodeTime)}`;
 
-    // Update the countdown element with the formatted time
-    countdownElementCodeTime.textContent = formattedTimeCodeTime;
+      // Update the countdown element with the formatted time
+      countdownElementCodeTime.textContent = formattedTimeCodeTime;
 
-    // Check if the counter is below a certain time
-    if (timeInSecondsCodeTime <= 10 && !audioPlayedCodeTime) {
-      // Play the audio
-      playAudioCodeTime('../assets/audios/dramaticMusic.mp3', 'dramatic'); // Play the dramatic music with the audioId "dramatic"
-      countdownElementCodeTime.style.color = 'red';
+      // Check if the counter is below a certain time
+      if (timeInSecondsCodeTime <= 10 && !audioPlayedCodeTime) {
+        // Play the audio
+        playAudioCodeTime('../assets/audios/dramaticMusic.mp3', 'dramatic'); // Play the dramatic music with the audioId "dramatic"
+        countdownElementCodeTime.style.color = 'red';
 
-      // Set the flag to true to indicate that audio has been played
-      audioPlayedCodeTime = true;
+        // Set the flag to true to indicate that audio has been played
+        audioPlayedCodeTime = true;
+      }
+
+      // Check if the countdown has reached 0
+      if (timeInSecondsCodeTime <= 0) {
+        // Stop the countdown
+        stopCountdownCodeTime();
+      }
+    }, 1000);
+
+    // Function to pad a number with leading zeros
+    function padZeroCodeTime(number) {
+      return number.toString().padStart(2, '0');
     }
-
-    // Check if the countdown has reached 0
-    if (timeInSecondsCodeTime <= 0) {
-      // Stop the countdown
-      clearInterval(countdownIntervalCodeTime);
-    }
-  }, 1000);
-
-  // Function to pad a number with leading zeros
-  function padZeroCodeTime(number) {
-    return number.toString().padStart(2, '0');
   }
 });
+
 
 
 closeBtnFileGEx.addEventListener("click",function(){
