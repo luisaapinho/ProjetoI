@@ -740,7 +740,7 @@ expositiveFileD.addEventListener("click", () => {
 let serverMapImageMap = document.querySelector(".map-container-ImageKey");
 
 // Select the <img> element within the element with class "map-container-ImageKey" and assign it to the variable "mapImageImageMap"
-let mapImageImageMap = document.querySelector(".map-container-ImageKey img");
+let mapImageImageMap = document.querySelector("#serverImg");
 
 // Select the element with ID "closeMap-ImageKey" and assign it to the variable "closeMapImageMap"
 let closeMapImageMap = document.querySelector("#closeMap-ImageKey");
@@ -752,9 +752,8 @@ let hasKeyImageMap = false;
 fileServerImg.addEventListener("click", function(){
     imgFileE.style.display = "none";
     // Set the "display" style property of "serverMapImageMap" to "flex"
-    serverMapImageMap.style.display = "flex";
-    // Call the function "centerImageMap()"
-    centerImageMap();
+    mapImageImageMap.style.display = "flex";
+////////////////////////////////////////////////////////////////////////////////
     // Call the function "addKeyImageMap()"
     addKeyImageMap();
 });
@@ -781,26 +780,24 @@ document.querySelector("#closeImageKey").addEventListener("click", function() {
 // Attach a click event listener to the "closeMapImageMap" element
 closeMapImageMap.addEventListener("click", function(){
     // Set the "display" style property of "serverMapImageMap" to "none"
-    serverMapImageMap.style.display = "none";
+    mapImageImageMap.style.display = "none";
 
     // Call the function "removeKeyImageMap()"
     removeKeyImageMap();
 });
 
-// Function to add a key image to the server image map
+
 function addKeyImageMap() {
   // Select the server image within the map container
   let serverImageMap = document.querySelector(".map-container-ImageKey img");
 
   // Create the key image element
   let keyImageMap = document.createElement('img');
-  keyImageMap.src = "../assets/images/key.png"; 
+  keyImageMap.src = "../assets/images/key.png";
   keyImageMap.classList.add('key-image'); // Add CSS class for styling
 
   // Generate random coordinates within the boundaries of the server image
   let serverRect = serverImageMap.getBoundingClientRect();
-  let serverLeft = serverRect.left;
-  let serverTop = serverRect.top;
   let serverWidth = serverRect.width;
   let serverHeight = serverRect.height;
   let randomX, randomY;
@@ -811,29 +808,36 @@ function addKeyImageMap() {
     keyImageMap.style.height = 'auto';
 
     // Calculate random coordinates within the adjusted boundaries
-    randomX = Math.floor(Math.random() * (serverWidth - keyImageMap.offsetWidth)) + serverLeft;
-    randomY = Math.floor(Math.random() * (serverHeight - keyImageMap.offsetHeight)) + serverTop;
+    randomX = Math.floor(Math.random() * (serverWidth - keyImageMap.offsetWidth));
+    randomY = Math.floor(Math.random() * (serverHeight - keyImageMap.offsetHeight));
   } else {
     // Default key size for other devices
     keyImageMap.style.width = '2%';
     keyImageMap.style.height = 'auto';
 
     // Calculate random coordinates within the default boundaries
-    randomX = Math.floor(Math.random() * (serverWidth - keyImageMap.width)) + serverLeft;
-    randomY = Math.floor(Math.random() * (serverHeight - keyImageMap.height)) + serverTop;
+    randomX = Math.floor(Math.random() * (serverWidth - keyImageMap.width));
+    randomY = Math.floor(Math.random() * (serverHeight - keyImageMap.height));
   }
 
-  // Set the position of the key image
+  // Set the position and z-index of the key image
   keyImageMap.style.position = 'absolute';
-  keyImageMap.style.left = randomX + 'px';
-  keyImageMap.style.top = randomY + 'px';
+  keyImageMap.style.left = serverRect.left + randomX + 'px';
+  keyImageMap.style.top = serverRect.top + randomY + 'px';
+  keyImageMap.style.zIndex = '9999'; // Adjust the value as needed
 
-  // Append the key image to the server image
-  serverImageMap.parentNode.appendChild(keyImageMap);
+  // Append the key image to the map container
+  serverImageMap.parentNode.parentNode.appendChild(keyImageMap);
+
+  // Initialize the jQuery-rwdImageMaps library on the server image
+  $(serverImageMap).rwdImageMaps();
+
+  // Initialize the jQuery-rwdImageMaps library on the key image
+  $(keyImageMap).rwdImageMaps();
 
   // Add click event listener to the key image
   keyImageMap.addEventListener('click', collectKeyImageMap);
-  
+
   // Function to handle key collection
   function collectKeyImageMap() {
     // Remove the key image from the DOM
@@ -846,14 +850,14 @@ function addKeyImageMap() {
 
 // Function to remove the key image from the server image map
 function removeKeyImageMap() {
-    // Select the key image element
-    let keyImageMap = document.querySelector(".key-image");
+  // Select the key image element
+  let keyImageMap = document.querySelector(".key-image");
 
-    // Check if the key image exists
-    if (keyImageMap) {
-      // If the key image exists, remove it from the DOM by removing its parent node
-      keyImageMap.parentNode.removeChild(keyImageMap);
-    }
+  // Check if the key image exists
+  if (keyImageMap) {
+    // If the key image exists, remove it from the DOM by removing its parent node
+    keyImageMap.parentNode.removeChild(keyImageMap);
+  }
 }
 
 /**
@@ -876,24 +880,7 @@ function createCenteredDivWithImageMap(imageUrl) {
     imageMap.addEventListener('click', openDoorImageMap);
 }
   
-// Function to center the image map within the map container
-function centerImageMap() {
-    // Get the width and height of the map container
-    let mapContainerWidth = serverMapImageMap.offsetWidth;
-    let mapContainerHeight = serverMapImageMap.offsetHeight;
 
-    // Get the width and height of the image map
-    let imageMapWidth = mapImageImageMap.offsetWidth;
-    let imageMapHeight = mapImageImageMap.offsetHeight;
-
-    // Calculate the left and top positions to center the image map
-    let imageMapLeft = (mapContainerWidth - imageMapWidth) / 2 + "px";
-    let imageMapTop = (mapContainerHeight - imageMapHeight) / 2 + "px";
-
-    // Set the left and top positions of the image map
-    mapImageImageMap.style.left = imageMapLeft;
-    mapImageImageMap.style.top = imageMapTop;
-}
 
 
 /**
